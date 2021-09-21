@@ -5,21 +5,40 @@ import { Link } from 'react-router-dom'
 export const Navbar = () => {
     return (
         <div>
-            <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Much longer nav link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-            </ul>
-            
+            <nav className="navbar navbar-expand-lg navbar-Linkght bg-Linkght">
+                <div className="container-fluid">
+                    <Link className="navbar-brand" to="/">Mi Tienda</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon bg-dark"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/tienda"> Home </Link>  
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/pg-corporativa"> Pagina Corporativa </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/mapa"> Elegir una tienda  </Link>
+                            </li>
+                            <li className="nav-item"/>
+                                <li className="nav-link" to="/carrito"> Carrito  <Link/>
+                            </li>
+                        </ul>
+                        <form className="d-flex">
+                            <input className="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" />
+                            <button className="btn btn-outLinkne-success" type="submit"> Buscar </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div>
+
+                <h1> Productos</h1>
+            </div>
         </div>
     )
 }

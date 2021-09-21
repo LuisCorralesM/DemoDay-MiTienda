@@ -9,6 +9,11 @@ import { Navbar } from "../components/Navbar"
 import { Footer } from "../components/Footer"
 import { PublicRouters } from './PublicRouters'
 import { PrivateRouters } from './PrivateRouters'
+import { Login } from '../components/Login'
+import { Registro } from '../components/Registro'
+import {Mapa} from "../components/Mapa"
+import Tienda from "../components/Tienda"
+
 
 export const AppRouters = () => {
 
@@ -36,8 +41,26 @@ export const AppRouters = () => {
                     {/* Mostrar Navbar en Ruta Privada */}
                     <PublicRouters
                     exact 
-                    path ="/navbar"
-                    component ={Navbar}
+                    path ="/login"
+                    component ={Login}
+                    isAuthenticated= {chequeador}
+                    />
+                     <PublicRouters
+                    exact 
+                    path ="/registro"
+                    component ={Registro}
+                    isAuthenticated= {chequeador}
+                    />
+                    <PublicRouters
+                    exact 
+                    path ="/mapa"
+                    component ={Mapa}
+                    isAuthenticated= {chequeador}
+                    />
+                     <PublicRouters
+                    exact 
+                    path ="/tienda"
+                    component ={Tienda}
                     isAuthenticated= {chequeador}
                     />
                     
