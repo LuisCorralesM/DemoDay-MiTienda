@@ -1,0 +1,59 @@
+/* Normalize */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* Variables colores */
+
+:root{
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* Elegir perfil */
+.titulo-elegir-perfil{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif; 
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--color-1);
+    margin: 0;
+}
+
+.perfil{
+    background-color: var(--color-2);
+    height: auto;
+    width: 100%;
+    padding: 50px 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.persona,.vendedor{
+    margin-bottom: 70px;
+}
+
+.img-persona,
+.img-vendedor{
+    width: 30vw;
+    height: auto;
+}
+
+.descripcion-img{
+    font-size: 24px;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 900;
+}

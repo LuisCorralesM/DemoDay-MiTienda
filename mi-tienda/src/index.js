@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './containers/App';
+import { AppRouters } from './routers/AppRouters';
+import './style/style.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppRouters/>
   </React.StrictMode>,
   document.getElementById('root')
 );

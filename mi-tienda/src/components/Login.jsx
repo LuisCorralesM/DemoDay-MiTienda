@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const App = () => {
+export const Login = () => {
     return (
         <div>
-            <h1>Mi tienda</h1>
+            <h1>HOLA ESTÁS EN LOGGIN !!!</h1>
         </div>
     )
 }
