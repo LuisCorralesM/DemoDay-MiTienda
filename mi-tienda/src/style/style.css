@@ -82,3 +82,10 @@ footer{
     font-family: 'Roboto', sans-serif; 
     font-weight: 600;
 }
+
+/* carrito */
+
+.btn-carrito-vaciar{
+    border-radius: 8px;
+    background-color: #1916A5;
+}
