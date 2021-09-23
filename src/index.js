@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Mapa from './components/Mapa'
-import 'bootstrap/dist/css/bootstrap.css'
+import { AppRouters } from './routers/AppRouters';
+import './style/style.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Mapa />
+    <AppRouters/>
   </React.StrictMode>,
   document.getElementById('root')
 );
