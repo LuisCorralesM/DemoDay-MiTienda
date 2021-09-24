@@ -4,7 +4,6 @@ import {useForm } from '../hooks/useForm';
 import {useDispatch} from 'react-redux';
 import {loginEmailPassword, loginGoogle} from '../actions/actionLogin';
 
-
 export const Login = () => {
 
     const [values, handleInputChange, reset ] = useForm ({
@@ -22,12 +21,12 @@ export const Login = () => {
         dispatch(loginEmailPassword(email,password));
     }
 
-    // const dispatch = useDispatch()
+  
 
-    // const handleGoogle = () => {
-    //     dispatch(actionGoogle())
+    const handleGoogle = () => {
+        dispatch(loginGoogle())
         
-    // }
+    }
 
     return (
         <div className="contenedorLogin">
@@ -42,8 +41,7 @@ export const Login = () => {
                             className="form-control mt-1"
                             placeholder="Email"
                             required=""
-                            name="userName"
-                            onChange = {handleInputChange}
+                            name="email"
                             value = {email}
                             onChange = {handleInputChange}
                         />
@@ -52,7 +50,7 @@ export const Login = () => {
                             type="Password"
                             id="inputPassword"
                             className="form-control mt-1"
-                            placeholder="Contreña"
+                            placeholder="Contraseña"
                             required=""
                             name="password"
                             value = {password}
@@ -70,7 +68,7 @@ export const Login = () => {
                         <div className="">
                             <p>Login with social networks</p>
 
-                            <div className="google-btn btn-primary boton-login">
+                            <div className="google-btn btn-primary boton-login" onClick = {handleGoogle}>
                                 <div className="google-icon-wrapper">
                                     <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                                 </div>

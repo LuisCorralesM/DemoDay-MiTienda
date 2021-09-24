@@ -1,16 +1,32 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-const url = 'https://api-sprint2-aspalma.herokuapp.com/usuario/'
+import { useDispatch } from 'react-redux';
+import { useForm } from '../hooks/useForm';
+import {registroEmailPasswordNombre} from '../actions/actionRegister';
 
 
 export const Registro = () => {
 
+    const dispatch = useDispatch();
 
+    const [formValues, handleInputChange] = useForm({
+        nombre: '',
+        email: '',
+        pass1: '',
+        pass2: ''
+    });
+
+    const { nombre, email, pass1, pass2 } = formValues;
+
+    const handleRegistro = (e) => {
+        e.preventDefault();
+        dispatch(registroEmailPasswordNombre(email,pass1,nombre))
+    }
     
     return (
         <div className="contenedorRegistro">
             <div className="Registro py-5 container text-center">
-                <form className="form-signin formulario-registro" >
+                <form className="form-signin formulario-registro" onSubmit={handleRegistro}>
                     <div
                         className="cajita"
                     >
@@ -29,24 +45,6 @@ export const Registro = () => {
                         </div>
                         {/* formulario */}
 
-                        <input
-                            type="text"
-                            placeholder="Apellido paterno"
-                            name="apellido_paterno"
-                            className="form-control"
-                            autoComplete="off"
-                            required=""
-
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Apellido materno"
-                            name="apellido_materno"
-                            className="form-control"
-                            autoComplete="off"
-                            required=""
-                        />
 
                         <input
                             type="text"
@@ -54,23 +52,39 @@ export const Registro = () => {
                             className="form-control"
                             placeholder="Nombre"
                             required=""
+                            value={nombre}
+                            onChange={handleInputChange}
                         />
 
                         <input
                             type="email"
-                            name="username"
+                            name="email"
                             className="form-control"
                             placeholder="Email"
                             required=""
+                            value={email}
+                            onChange={handleInputChange}
                             />
 
                         <input
                             type="Password"
-                            name="password"
+                            name="pass1"
                             className="form-control"
                             placeholder="Password"
                             required=""
+                            value = {pass1}
+                            onChange={handleInputChange}
                         />
+
+                        <input
+                            type="Password"
+                            name="pass2"
+                            className="form-control"
+                            placeholder="Password"
+                            required=""
+                            value = {pass2}
+                            onChange={handleInputChange}
+                        />      
                         <br />
                         <button
                             type="submit"
