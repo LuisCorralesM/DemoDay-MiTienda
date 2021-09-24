@@ -4,70 +4,9 @@ const url = 'https://api-sprint2-aspalma.herokuapp.com/usuario/'
 
 
 export const Registro = () => {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         form:{
-    //             id:"",
-    //             username:"",
-    //             password:"",
-    //             apellido:"",
-    //             nombre:""
-    //         },
-    //         redireccionar:false
-    //     }
 
 
-
-
-    // }
-
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    // }
-    // handleChange = async e => {
-    //     await this.setState({
-    //         form:{
-    //             ...this.state.form,
-    //             [e.target.name]:e.target.value
-    //         }
-    //     })
-    // } //target.name : permite capturar dependiendo del name que tenga el input en el formulario.
-
-
-    // RegistroUsuario = async () => {
-    //     await axios.post(url, {
-    //         id: uuid,
-    //         apellido: this.state.form.apellido,
-    //         nombre: this.state.form.nombre,
-    //         username: this.state.form.username,
-    //         password: md5(this.state.form.password)
-    //     })
-    //     .then(respuesta => {
-    //         Swal.fire({text:`Usuario registrado exitosamente`,
-    //         icon:'success'
-    //         })
-
-
-
-    //         this.setState({redireccionar:true})
-    //         // const registros = []
-
-    //         // localStorage.setItem('Registro', JSON.stringify(this.state.form))
-    //         // registros.push(JSON.parse(localStorage.getItem('Registro')))
-    //         // localStorage.setItem('Registros', JSON.stringify(registros))
-    //         // console.log(registros)
-    //     })
-    //     .catch(error => {
-    //         console.log(error)
-    //     })
-    //     await axios.get(url) 
-    //     .then(response => localStorage.setItem('Registros2', JSON.stringify(response.data)))
-    // }
-
-
-
-    // render() {
+    
     return (
         <div className="contenedorRegistro">
             <div className="Registro py-5 container text-center">

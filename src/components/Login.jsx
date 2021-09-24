@@ -1,17 +1,41 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import {useForm } from '../hooks/useForm';
+import {useDispatch} from 'react-redux';
+import {loginEmailPassword, loginGoogle} from '../actions/actionLogin';
+
 
 export const Login = () => {
+
+    const [values, handleInputChange, reset ] = useForm ({
+        email:"",
+        password:""
+    })
+
+    const {email, password} = values
+    
+    const dispatch = useDispatch();
+
+
+    const handleLogin = (e)=> {
+        e.preventDefault();
+        dispatch(loginEmailPassword(email,password));
+    }
+
+    // const dispatch = useDispatch()
+
+    // const handleGoogle = () => {
+    //     dispatch(actionGoogle())
+        
+    // }
 
     return (
         <div className="contenedorLogin">
             <div className="contenedor-login">
-                <form className="form-signin formulario-registro">
-                    <div className="cajita-login">
-                        <h1 className="h4 mb-3 font-weight-normal">
-                            Inicio de sesión
-                        </h1>
-
+                <form className="form-signin formulario-registro" onSubmit={handleLogin}>
+                    <div>
+                        <h1> Login </h1>
+                        
                         <input
                             type="email"
                             id="inputEmail"
@@ -19,6 +43,9 @@ export const Login = () => {
                             placeholder="Email"
                             required=""
                             name="userName"
+                            onChange = {handleInputChange}
+                            value = {email}
+                            onChange = {handleInputChange}
                         />
 
                         <input
@@ -28,6 +55,8 @@ export const Login = () => {
                             placeholder="Contreña"
                             required=""
                             name="password"
+                            value = {password}
+                            onChange = {handleInputChange}
                         />
 
                         <button

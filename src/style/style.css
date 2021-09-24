@@ -89,3 +89,9 @@ footer{
     border-radius: 8px;
     background-color: #1916A5;
 }
+
+/* ESTILOS MAPA !!!!*/
+.leaflet-container{
+    width: 50vw;
+    height: 50vh;
+}

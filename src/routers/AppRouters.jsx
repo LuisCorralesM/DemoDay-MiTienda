@@ -11,7 +11,7 @@ import { PublicRouters } from './PublicRouters'
 import { PrivateRouters } from './PrivateRouters'
 import { Login } from '../components/Login'
 import { Registro } from '../components/Registro'
-import {Mapa} from "../components/Mapa"
+import Mapa from "../components/Mapa"
 import Tienda from "../components/Tienda"
 import {Carrito} from "../components/Carrito"
 import PasarelaPago from "../components/PasarelaPago"
