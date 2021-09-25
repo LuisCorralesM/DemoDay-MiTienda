@@ -1,0 +1,20 @@
+[
+    {
+        "latitude":"6.1715563",
+        "longitude":"-75.328303",
+        "nombre":"tienda #1",
+        "barrio":"barrio #1"
+    },
+    {
+        "latitude":"6.3042242",
+        "longitude":"-75.5484134",
+        "nombre":"tienda #2",
+        "barrio":"barrio #2"
+    },
+    {
+        "latitude":"6.3027685",
+        "longitude":"-75.5468792",
+        "nombre":"tienda #3",
+        "barrio":"barrio #3"
+    }
+]

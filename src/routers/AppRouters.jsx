@@ -15,6 +15,8 @@ import Mapa from "../components/Mapa"
 import Tienda from "../components/Tienda"
 import {Carrito} from "../components/Carrito"
 import PasarelaPago from "../components/PasarelaPago"
+import CrudTendero from '../components/CrudTendero'
+import { InterfazTendero } from '../components/InterfazTendero'
 
 export const AppRouters = () => {
 
@@ -77,6 +79,12 @@ export const AppRouters = () => {
                     exact 
                     path ="/pasarelaPago"
                     component ={PasarelaPago}
+                    isAuthenticated= {chequeador}
+                    />
+                    <PublicRouters
+                    exact 
+                    path ="/crudTendero"
+                    component ={InterfazTendero}
                     isAuthenticated= {chequeador}
                     />
                     

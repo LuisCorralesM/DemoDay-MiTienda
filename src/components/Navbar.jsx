@@ -25,6 +25,9 @@ export const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/carrito"> Carrito  </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/crudTendero"> CrudTendero  </Link>
+                            </li>
                         </ul>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" />
