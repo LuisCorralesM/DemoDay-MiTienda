@@ -15,6 +15,7 @@ export const loginEmailPassword = (email,password) =>{
              dispatch(
                 loginSincrono(user.uid,user.displayName)
              ) 
+             console.log(user)
              console.log('Bienvenid@');
        })
        .catch(e =>{

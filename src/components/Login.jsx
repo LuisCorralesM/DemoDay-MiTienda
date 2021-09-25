@@ -8,7 +8,7 @@ export const Login = () => {
 
     const [redirection, setRedirection] = useState(false)
 
-    const [values, handleInputChange, reset ] = useForm ({
+    const [values, handleInputChange ] = useForm ({
         email:"",
         password:""
     })
