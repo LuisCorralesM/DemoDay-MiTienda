@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
@@ -6,6 +6,8 @@ import {registroEmailPasswordNombre} from '../actions/actionRegister';
 
 
 export const Registro = () => {
+
+    const [redirection, setRedirection] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -21,6 +23,7 @@ export const Registro = () => {
     const handleRegistro = (e) => {
         e.preventDefault();
         dispatch(registroEmailPasswordNombre(email,pass1,nombre))
+        setRedirection(true)
     }
     
     return (
@@ -90,7 +93,7 @@ export const Registro = () => {
                             type="submit"
                             className="btn btn-primary btn-block mb-1 boton"
                         >
-                            Registro
+                            Registro 
                         </button>
                         <br />
                         <Link
@@ -100,7 +103,7 @@ export const Registro = () => {
                             ¿Ya estas registrado?
                         </Link>
 
-                        {/* {this.state.form.redirecionar && <Redirect to="/" />} */}
+                        {redirection && <Redirect to="/login" />}
                     </div>
                 </form>
 

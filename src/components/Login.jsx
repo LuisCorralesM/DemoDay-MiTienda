@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import {useForm } from '../hooks/useForm';
 import {useDispatch} from 'react-redux';
 import {loginEmailPassword, loginGoogle} from '../actions/actionLogin';
 
 export const Login = () => {
+
+    const [redirection, setRedirection] = useState(false)
 
     const [values, handleInputChange, reset ] = useForm ({
         email:"",
@@ -19,6 +21,7 @@ export const Login = () => {
     const handleLogin = (e)=> {
         e.preventDefault();
         dispatch(loginEmailPassword(email,password));
+        setRedirection(true)
     }
 
   
@@ -61,7 +64,7 @@ export const Login = () => {
                             type="submit"
                             className="btn btn-primary btn-block boton-login"
                         >
-                            <Link to = "/mapa" className="text-white boton-login text-decoration-none">  Login  </Link>
+                            Login{/* <Link to = "/mapa" className="text-white boton-login text-decoration-none">  Login  </Link> */}
                            
                         </button>
 
@@ -86,7 +89,7 @@ export const Login = () => {
 
                     </div>
                 </form>
-                {/* {this.state.form.redirecionar && <Redirect to="/todas" />} */}
+                {redirection && <Redirect to="/tienda" />}
             </div>
         </div>
     )
