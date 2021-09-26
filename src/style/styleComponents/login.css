@@ -1,0 +1,114 @@
+/* Normalize */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+/* Login */
+.contenedorLogin{
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-1);
+}
+
+.contenedor-login{
+    padding: 50px 20px;
+}
+
+.titulo-login{
+    color: var(--color-4);
+    font-weight: 900;
+    font-size: 30px;
+    text-shadow: 2px 2px var(--color-6);
+}
+
+.contenedor-login form{
+    text-align: center;
+}
+
+.boton-login-continuar{
+    margin: 20px 0;
+    padding: 4px 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: var(--color-4);
+    color: var(--color-1);
+    border: none;
+}
+
+.boton-login-continuar:hover{
+    background-color: var(--color-6);
+}
+
+.boton-login-google{
+    margin: 20px 0;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    cursor: pointer;
+}
+
+.boton-google-pointer{
+    cursor: pointer;
+}
+
+.boton-login-google:hover{
+    background-color: var(--color-6);
+}
+
+.enlace-login-registrarse{
+    text-decoration: none;
+    color: var(--color-4);
+    font-size: 20px;
+    font-weight: 900;
+    background-color:var(--color-2);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+/* TABLETS */
+
+@media screen and (min-width: 600px) {
+    .contenedor-login{
+        padding: 50px 150px;
+    }
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 1000px) {
+    .contenedor-login{
+        padding: 50px 400px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .contenedor-login{
+        padding: 50px 500px;
+    }
+}

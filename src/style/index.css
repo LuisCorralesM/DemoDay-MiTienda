@@ -27,58 +27,6 @@
 
 /* MOBILE FIRST */
 
-/* Elegir perfil */
-.titulo-elegir-perfil{
-    font-size: 24px;
-    font-weight: 600;
-    font-family: 'Roboto', sans-serif; 
-    text-align: center;
-    padding: 15px 0;
-    background-color: var(--color-1);
-    margin: 0;
-}
-
-.perfil{
-    background-color: var(--color-2);
-    height: auto;
-    width: 100%;
-    padding: 50px 20px;
-    display: grid;
-    justify-content: center;
-}
-
-.persona,.vendedor{
-    margin-bottom: 70px;
-}
-
-.img-persona,
-.img-vendedor{
-    width: 30vw;
-    height: auto;
-}
-
-.descripcion-img{
-    font-size: 24px;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: 900;
-}
-
-/* Login */
-.contenedorLogin{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: auto;
-}
-
-.contenedor-login{
-    margin: 100px 35%;
-}
-
-.contenedor-login form{
-    text-align: center;
-}
 
 /* carrito */
 
@@ -92,3 +40,4 @@
     width: 50vw;
     height: 50vh;
 }
+

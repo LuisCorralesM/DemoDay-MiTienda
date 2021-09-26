@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import {useForm } from '../hooks/useForm';
 import {useDispatch} from 'react-redux';
 import {loginEmailPassword, loginGoogle} from '../actions/actionLogin';
+import '../style/styleComponents/login.css'
 
 export const Login = () => {
 
@@ -36,7 +37,7 @@ export const Login = () => {
             <div className="contenedor-login">
                 <form className="form-signin formulario-registro" onSubmit={handleLogin}>
                     <div>
-                        <h1> Login </h1>
+                        <h1 className="titulo-login"> Iniciar Sesion </h1>
                         
                         <input
                             type="email"
@@ -62,27 +63,28 @@ export const Login = () => {
 
                         <button
                             type="submit"
-                            className="btn btn-primary btn-block boton-login"
+                            className="boton-login-continuar"
                         >
-                            Login{/* <Link to = "/mapa" className="text-white boton-login text-decoration-none">  Login  </Link> */}
+                            Continuar{/* <Link to = "/mapa" className="text-white boton-login text-decoration-none">  Login  </Link> */}
                            
                         </button>
-
+                        <hr />
                         <div className="">
-                            <p>Login with social networks</p>
+                            <p>Inicia sesión con google</p>
 
-                            <div className="google-btn btn-primary boton-login" onClick = {handleGoogle}>
+                            <div className="google-btn boton-login-google" onClick = {handleGoogle}>
                                 <div className="google-icon-wrapper">
                                     <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                                 </div>
-                                <p className="btn-text">
-                                    <b>Sign in with google</b>
+                                <p className="boton-google-pointer">
+                                    Sign in with google
                                 </p>
                             </div>
                         </div>
+                        <hr />
                         <Link
                             to="/registro"
-                            className="Link text-decoration-none"
+                            className="enlace-login-registrarse"
                         >
                             Registrarme
                         </Link>

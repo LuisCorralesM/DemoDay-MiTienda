@@ -1,0 +1,126 @@
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+.contenedor-elegirPerfil {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-1);
+    height: 100vh;
+}
+
+.elegirPerfil__titulo {
+    background-color: var(--color-4);
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--color-1);
+    text-shadow: 2px 2px var(--color-6);
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.contenedor-opcion__perfiles {
+    height: auto;
+    width: 100%;
+    padding: 30px 20px 0 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.persona,
+.vendedor {
+    margin-bottom: 30px;
+}
+
+.img-persona,
+.img-vendedor {
+    width: 120px;
+    height: auto;
+    background-color: var(--color-2);
+    border-radius: 16px 16px 0 0;
+}
+
+.img-vendedor {
+    padding: 15px;
+}
+
+.enlace-perfiles-perfil {
+    text-decoration: none;
+}
+
+.descripcion-img {
+    width: 120px;
+    font-size: 24px;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 900;
+    color: var(--color-4);
+    background-color: var(--color-6);
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 600px) {
+    .contenedor-opcion__perfiles {
+        display: flex;
+        padding-top: 15vh;
+    }
+
+    .persona,
+    .vendedor {
+        margin: 0 30px
+    }
+
+    .img-persona,
+    .img-vendedor {
+        width: 150px;
+    }
+
+    .descripcion-img {
+        width: 150px;
+    }
+}
+
+
+/* DESKTOP */
+
+@media screen and (min-width: 1000px) {
+    .contenedor-opcion__perfiles {
+        display: flex;
+        padding-top: 20vh;
+    }
+
+    .persona,
+    .vendedor {
+        margin: 0 50px
+    }
+
+    .img-persona,
+    .img-vendedor {
+        width: 200px;
+    }
+
+    .descripcion-img {
+        width: 200px;
+    }
+}
