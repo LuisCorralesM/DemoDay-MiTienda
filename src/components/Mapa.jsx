@@ -1,7 +1,6 @@
 // Mapa
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import '../style/style.css'
 import locationExample from '../data/locationExample.json'
 
 const Mapa = () => {

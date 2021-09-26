@@ -1,0 +1,100 @@
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+/* Bienvenida */
+.contenedor-bienvenida {
+    background-color: var(--color-1);
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor-bienvenida__enunciados {
+    color: var(--color-4);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contenedor-bienvenida__titulo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contenedor-bienvenida__titulo span {
+    font-family: 'Indie Flower', cursive;
+    font-size: 40px;
+    font-weight: 900;
+    text-shadow: 2px 2px #ffffff;
+}
+
+.slider-bienvenida img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.enlace-bienvenida-perfil {
+    text-decoration: none;
+    text-align: center;
+}
+
+.bienvenida-btn-continuar {
+    margin-top: 20px;
+    background-color: var(--color-4);
+    color: var(--color-1);
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 16px;
+}
+
+.bienvenida-btn-continuar:hover{
+    background-color: var(--color-3);
+}
+
+/* TABLETS */
+
+@media screen and (min-width: 768px) {
+    .contenedor-bienvenida__titulo span {
+        font-size: 50px;
+    }
+
+    .bienvenida-btn-continuar {
+        margin: 20px auto;
+        width: 30%;
+    }
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 1000px) {
+    .slider-bienvenida {
+        padding: 0 100px;
+    }
+
+    .slider-bienvenida img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .bienvenida-btn-continuar {
+        width: 20%;
+    }
+}
