@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import {useForm } from '../hooks/useForm';
 import {useDispatch} from 'react-redux';
+// import {loginEmailPassword, loginGoogle, loginFacebook} from '../actions/actionLogin';
 import {loginEmailPassword, loginGoogle} from '../actions/actionLogin';
 import '../style/styleComponents/login.css'
 
@@ -26,11 +27,16 @@ export const Login = () => {
     }
 
   
-
+// Con google
     const handleGoogle = () => {
         dispatch(loginGoogle())
-        
     }
+// Con Facebook
+    // const handleFacebook = () => {
+    //     dispatch(loginFacebook())
+    // }
+
+   
 
     return (
         <div className="contenedorLogin">
@@ -69,17 +75,27 @@ export const Login = () => {
                            
                         </button>
                         <hr />
+                       
                         <div className="">
-                            <p>Inicia sesión con google</p>
-
+                            <p>Inicia sesión con redes sociales </p>
+                            {/* Con google */}
                             <div className="google-btn boton-login-google" onClick = {handleGoogle}>
                                 <div className="google-icon-wrapper">
                                     <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                                 </div>
                                 <p className="boton-google-pointer">
-                                    Sign in with google
+                                    Inicio sesión con Google
                                 </p>
                             </div>
+                            {/* Con facebook
+                            <div className="google-btn boton-login-google" onClick = {handleFacebook}>
+                                <div className="google-icon-wrapper">
+                                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/256px-Facebook_icon.svg.png" alt="google button" />
+                                </div>
+                                <p className="boton-google-pointer">
+                                    Inicia sesión con Facebook
+                                </p>
+                            </div> */}
                         </div>
                         <hr />
                         <Link
