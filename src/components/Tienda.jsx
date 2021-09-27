@@ -20,7 +20,7 @@ const Tienda = () => {
                     <img src="assets/img/vendedor.png" className="card-img-top" alt="..." style={{width: "50px"}}/>
                     <div className="card-body">
                         <p className="card-text" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p onClick={()=>abrirModal()}> Ver detalle </p>
+                        <button onClick={()=>abrirModal()}> Ver detalle </button>
                     </div>
                 </div>
 
