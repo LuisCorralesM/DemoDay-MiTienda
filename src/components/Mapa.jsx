@@ -2,12 +2,15 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import locationExample from '../data/locationExample.json'
+import {Link} from 'react-router-dom'
+import {Navbar} from './Navbar'
 
 const Mapa = () => {
   return (
     <div>
-      <h1>Geolocalización</h1>
-      <p>Estás en Mapas...</p>
+      <Navbar/>
+      <h1>Buscar Tienda</h1>
+      <p>Mis tiendas cercanas...</p>
       <MapContainer center={[6.230833, -75.590553]} zoom={13} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -29,6 +32,7 @@ const Mapa = () => {
 
       </MapContainer>
       <div>Tiendas Cercanas</div>
+          <Link to="/tienda"> {locationExample.map(tiendas =>( <b>{tiendas.nombre} <br /> </b>))} </Link>
     </div>
   );
 };

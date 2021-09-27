@@ -91,6 +91,11 @@
     border-radius: 8px;
 }
 
+.icono-login-redes{
+    width: 30px;
+    height: 30px;
+}
+
 /* TABLETS */
 
 @media screen and (min-width: 600px) {
