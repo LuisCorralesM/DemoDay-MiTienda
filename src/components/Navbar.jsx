@@ -1,6 +1,7 @@
 // Navbar 
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { cerrar } from '../actions/actionLogin'
 
 export const Navbar = () => {
     return (
@@ -27,6 +28,9 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/crudTendero"> CrudTendero  </Link>
+                            </li>
+                            <li className="nav-item">
+                                <div className="nav-link" onClick={()=>{cerrar()}}> Salir  </div>
                             </li>
                         </ul>
                         <form className="d-flex">

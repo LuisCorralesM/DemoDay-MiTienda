@@ -1,5 +1,5 @@
 import {types} from "../types/types"
-import { getAuth, signInWithPopup,signInWithEmailAndPassword } from "@firebase/auth"
+import { getAuth, signInWithPopup,signInWithEmailAndPassword, signOut } from "@firebase/auth"
 import { google, facebook } from "../firebase/firebaseConfig"
 
 //accion asincronica
@@ -55,6 +55,8 @@ export const loginFacebook = () => {
     }
 }
 
+// Login manual
+
 export const loginSincrono = (id, displayname) => {
     return {
         type: types.login,
@@ -65,4 +67,17 @@ export const loginSincrono = (id, displayname) => {
 
         }
     }
+}
+
+// Cerrar Sesión 
+
+export const cerrar = ()=>{
+    alert('btn-cerrar')
+    const logout = getAuth();
+    signOut(logout).then(() => {
+        // Sign-out successful.
+        signInWithPopup({})
+      }).catch((error) => {
+        // An error happened.
+      });      
 }
