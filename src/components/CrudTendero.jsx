@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CrudTendero = () => {
+export const CrudTendero = () => {
    
    
     return (
@@ -67,4 +67,3 @@ const CrudTendero = () => {
     )
 }
 
-export default CrudTendero

@@ -1,96 +1,85 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     HashRouter as Router,
     Switch,
-} from 'react-router-dom'
-import {LandingPage} from "../components/LandingPage"
-import { ElegirPerfil } from '../components/ElegirPerfil'
+    Route,
+    Link,
+    Redirect
+} from "react-router-dom";
 
-import { Footer } from "../components/Footer"
-import { PublicRouters } from './PublicRouters'
-// import { PrivateRouters } from './PrivateRouters'
-import { Login } from '../components/Login'
-import { Registro } from '../components/Registro'
-import Mapa from "../components/Mapa"
-import Tienda from "../components/Tienda"
-import {Carrito} from "../components/Carrito"
-import PasarelaPago from "../components/PasarelaPago"
-import CrudTendero from '../components/CrudTendero'
-import { InterfazTendero } from '../components/InterfazTendero'
+import { AuthRouter } from './AuthRouter';
+import { PrivateRouter } from './PrivateRouter';
+import { PublicRouter } from './PublicRouter'
+import Loading from '../components/Loading';
+import { Carrito } from "../components/Carrito"
+import { CrudTendero } from "../components/CrudTendero"
 
-export const AppRouters = () => {
 
-    const chequeador = false;
-    
+//Permite verificar si el usuario inicio sesion: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419
+
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { loginSincrono } from '../actions/actionLogin';
+
+
+
+const AppRouters = () => {
+
+    const auth = getAuth()
+    const dispatch = useDispatch()
+
+
+    const [checking, setChecking] = useState(true)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            //se pone el ? para que no se explote la aplicacion si no encuentra un 
+
+            if (user?.uid) {
+                console.log(user)
+                setIsLoggedIn(true)
+                dispatch(loginSincrono(user.uid, user.displayName))
+            } else {
+                setIsLoggedIn(false)
+            }
+            setChecking(false)
+
+        })
+
+    }, [])
+
+    if (checking) {
+        return (<Loading />)
+    }
+
     return (
-        <div>
-            <Router>
-                <Switch>
-                    {/* Ruta Raiz */}
-                    <PublicRouters
+        <Router>
+
+            <Switch>
+                <PublicRouter
+                    path="/auth"
+                    component={AuthRouter}
+                    isAuthenticated={isLoggedIn}
+                />
+                <PrivateRouter
                     exact
-                    path='/'
-                    component={LandingPage}
-                    isAuthenticated= {chequeador}
-                    />
-                    {/* Ruta Elegir perfil */}
-                    <PublicRouters 
-                    exact 
-                    path = 
-                    "/perfil"  
-                    component={ElegirPerfil}
-                    isAuthenticated= {chequeador}
-                    />
-                    {/* Mostrar Navbar en Ruta Privada */}
-                    <PublicRouters
-                    exact 
-                    path ="/login"
-                    component ={Login}
-                    isAuthenticated= {chequeador}
-                    />
-                     <PublicRouters
-                    exact 
-                    path ="/registro"
-                    component ={Registro}
-                    isAuthenticated= {chequeador}
-                    />
-                    <PublicRouters
-                    exact 
-                    path ="/mapa"
-                    component ={Mapa}
-                    isAuthenticated= {chequeador}
-                    />
+                    path="/carrito"
+                    component={Carrito}
+                    isAuthenticated={isLoggedIn}
+                />
+                <PrivateRouter
+                    exact
+                    path="/crudtendero"
+                    component={CrudTendero}
+                    isAuthenticated={isLoggedIn}
+                />
 
-                     <PublicRouters
-                    exact 
-                    path ="/tienda"
-                    component ={Tienda}
-                    isAuthenticated= {chequeador}
-                    />
+                <Redirect to="/auth/landingpage"/>
 
-                    <PublicRouters
-                    exact 
-                    path ="/carrito"
-                    component ={Carrito}
-                    isAuthenticated= {chequeador}
-                    />
-
-                    <PublicRouters
-                    exact 
-                    path ="/pasarelaPago"
-                    component ={PasarelaPago}
-                    isAuthenticated= {chequeador}
-                    />
-                    <PublicRouters
-                    exact 
-                    path ="/crudTendero"
-                    component ={InterfazTendero}
-                    isAuthenticated= {chequeador}
-                    />
-                    
-                </Switch>
-            </Router>   
-            <Footer/>
-        </div>
+            </Switch>
+        </Router>
     )
 }
+
+export default AppRouters

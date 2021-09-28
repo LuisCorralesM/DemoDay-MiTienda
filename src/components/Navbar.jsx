@@ -8,15 +8,15 @@ export const Navbar = () => {
         <div>
             <nav className="navbar navbar-expand-lg m-0 p-0">
                 <div className="container-fluid" style={{backgroundColor: "#110C66"}}>
-                    <Link className="navbar-brand" to="/">Mi Tienda</Link>
+                    <Link className="navbar-brand" to="/">Mi Tienda.com</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{backgroundColor: "#1916A5"}}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/tienda"> Home </Link>  
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <Link className="nav-link" to="/"> Pagina Corporativa </Link>
                             </li>
