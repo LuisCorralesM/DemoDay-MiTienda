@@ -13,6 +13,7 @@ import { PublicRouter } from './PublicRouter'
 import Loading from '../components/Loading';
 import { Carrito } from "../components/Carrito"
 import { CrudTendero } from "../components/CrudTendero"
+import Mapa from "../components/Mapa"
 
 
 //Permite verificar si el usuario inicio sesion: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419
@@ -30,16 +31,16 @@ const AppRouters = () => {
 
 
     const [checking, setChecking] = useState(true)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
+
 
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             //se pone el ? para que no se explote la aplicacion si no encuentra un 
 
             if (user?.uid) {
-                console.log(user)
-                setIsLoggedIn(true)
                 dispatch(loginSincrono(user.uid, user.displayName))
+                setIsLoggedIn(true)
             } else {
                 setIsLoggedIn(false)
             }
@@ -47,7 +48,7 @@ const AppRouters = () => {
 
         })
 
-    }, [])
+    }, [dispatch, setChecking])
 
     if (checking) {
         return (<Loading />)
@@ -62,6 +63,14 @@ const AppRouters = () => {
                     component={AuthRouter}
                     isAuthenticated={isLoggedIn}
                 />
+
+                <PrivateRouter
+                    exact
+                    path="/"
+                    component={Mapa}
+                    isAuthenticated={isLoggedIn}
+                />
+
                 <PrivateRouter
                     exact
                     path="/carrito"
@@ -75,7 +84,7 @@ const AppRouters = () => {
                     isAuthenticated={isLoggedIn}
                 />
 
-                <Redirect to="/auth/landingpage"/>
+                <Redirect to="/auth/login" />
 
             </Switch>
         </Router>

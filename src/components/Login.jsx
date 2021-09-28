@@ -7,7 +7,7 @@ import '../style/styleComponents/login.css'
 
 export const Login = () => {
 
-    const [redirection, setRedirection] = useState(false)
+    // const [redirection, setRedirection] = useState(false)
 
     const [values, handleInputChange ] = useForm ({
         email:"",
@@ -22,7 +22,7 @@ export const Login = () => {
     const handleLogin = (e)=> {
         e.preventDefault();
         dispatch(loginEmailPassword(email,password));
-        setRedirection(true)
+        // setRedirection(true)
     }
 
   
@@ -98,7 +98,7 @@ export const Login = () => {
                         </div>
                         <hr />
                         <Link
-                            to="/registro"
+                            to="/auth/registro"
                             className="enlace-login-registrarse"
                         >
                             Registrarme
@@ -106,7 +106,7 @@ export const Login = () => {
 
                     </div>
                 </form>
-                {redirection && <Redirect to="/tienda" />}
+                {/* {redirection && <Redirect to="/tienda" />} */}
             </div>
         </div>
     )

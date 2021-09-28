@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import {Login} from '../components/Login';
 import {Registro} from '../components/Registro';
 import {LandingPage} from '../components/LandingPage';
+import { ElegirPerfil } from '../components/ElegirPerfil';
 
 export const AuthRouter = () => {
     return (
@@ -15,6 +16,11 @@ export const AuthRouter = () => {
                         exact
                         path="/auth/login"
                         component={Login }
+                    />
+                     <Route 
+                        exact
+                        path="/auth/perfil"
+                        component={ElegirPerfil}
                     />
 
                     <Route 

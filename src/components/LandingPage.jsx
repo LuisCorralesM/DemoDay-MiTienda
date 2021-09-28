@@ -37,7 +37,7 @@ export const LandingPage = () => {
                 </button>
             </div>
 
-            <Link to="/perfil" className="enlace-bienvenida-perfil">
+            <Link to="/auth/perfil" className="enlace-bienvenida-perfil">
                 <h1  className="bienvenida-btn-continuar">Continuar</h1>
             </Link>
         </div>

@@ -3,13 +3,13 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import locationExample from '../data/locationExample.json'
 import {Link} from 'react-router-dom'
-import {Navbar} from './Navbar'
+// import {Navbar} from './Navbar'
 import '../style/styleComponents/mapa.css'
 
 const Mapa = () => {
   return (
     <div>
-      <Navbar/>
+      
       <h1>Buscar Tienda</h1>
       <p>Mis tiendas cercanas...</p>
       <div id="mapContainer">

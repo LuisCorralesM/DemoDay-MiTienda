@@ -63,8 +63,6 @@ export const loginSincrono = (id, displayname) => {
         payload:{
             id, 
             displayname
-
-
         }
     }
 }
