@@ -1,9 +1,15 @@
 // Navbar 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { cerrar } from '../actions/actionLogin'
+import { startLogout } from '../actions/actionLogin'
+import { useDispatch } from 'react-redux'
 
 export const Navbar = () => {
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+        dispatch(startLogout())
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg m-0 p-0">
@@ -14,14 +20,11 @@ export const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            {/* <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/tienda"> Home </Link>  
-                            </li> */}
                             <li className="nav-item">
-                                <Link className="nav-link" to="/"> Pagina Corporativa </Link>
+                                <Link className="nav-link" to="/landingpage/privado"> Pagina Corporativa </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/mapa"> Elegir una tienda  </Link>
+                                <Link className="nav-link" to="/tienda"> Elegir una tienda  </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/carrito"> Carrito  </Link>
@@ -30,7 +33,7 @@ export const Navbar = () => {
                                 <Link className="nav-link" to="/crudTendero"> CrudTendero  </Link>
                             </li>
                             <li className="nav-item">
-                                <div className="nav-link" onClick={()=>{cerrar()}}> Salir  </div>
+                                <div className="nav-link" onClick={handleLogout}> Salir  </div>
                             </li>
                         </ul>
                         <form className="d-flex">

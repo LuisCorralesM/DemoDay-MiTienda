@@ -14,7 +14,6 @@ const Tienda = () => {
         return (
 
             <div>
-                <Navbar />
                 <h1 className="text-center m-3">Productos</h1>
                 <div className="card mx-auto" style={{width: "18rem"}} >
                     <img src="assets/img/vendedor.png" className="card-img-top" alt="..." style={{width: "50px"}}/>

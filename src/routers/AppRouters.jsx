@@ -14,13 +14,14 @@ import Loading from '../components/Loading';
 import { Carrito } from "../components/Carrito"
 import { CrudTendero } from "../components/CrudTendero"
 import Mapa from "../components/Mapa"
-
+import Tienda from '../components/Tienda';
 
 //Permite verificar si el usuario inicio sesion: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { loginSincrono } from '../actions/actionLogin';
+import { LandingPage } from '../components/LandingPage';
 
 
 
@@ -84,7 +85,21 @@ const AppRouters = () => {
                     isAuthenticated={isLoggedIn}
                 />
 
-                <Redirect to="/auth/login" />
+                <PrivateRouter
+                    exact
+                    path="/landingpage/privado"
+                    component={LandingPage}
+                    isAuthenticated={isLoggedIn}
+                />
+
+                <PrivateRouter
+                    exact
+                    path="/tienda"
+                    component={Tienda}
+                    isAuthenticated={isLoggedIn}
+                />
+
+                <Redirect to="/auth/login" />  
 
             </Switch>
         </Router>

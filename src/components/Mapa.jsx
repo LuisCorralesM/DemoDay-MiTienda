@@ -13,7 +13,7 @@ const Mapa = () => {
       <h1>Buscar Tienda</h1>
       <p>Mis tiendas cercanas...</p>
       <div id="mapContainer">
-      <MapContainer center={[6.230833, -75.590553]} zoom={13} scrollWheelZoom={true}>
+      <MapContainer center={[6.230833, -75.590553]} zoom={12} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

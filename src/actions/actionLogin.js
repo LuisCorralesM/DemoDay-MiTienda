@@ -68,14 +68,17 @@ export const loginSincrono = (id, displayname) => {
 }
 
 // Cerrar Sesión 
-
-export const cerrar = ()=>{
-    alert('btn-cerrar')
-    const logout = getAuth();
-    signOut(logout).then(() => {
-        // Sign-out successful.
-        signInWithPopup({})
-      }).catch((error) => {
-        // An error happened.
-      });      
+export const startLogout = () => {
+    alert('salir')
+    return async( dispatch ) => {
+        const auth = getAuth();
+        console.log(auth);
+        await signOut(auth);
+        dispatch(logout() );
+    }
 }
+
+export const logout = () => ({
+    type: types.logout
+})
+
