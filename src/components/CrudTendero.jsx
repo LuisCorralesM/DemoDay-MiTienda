@@ -145,18 +145,14 @@ export const CrudTendero = () => {
 
                         <button className="btn btn-secondary"
                            onClick={handlePictureClick} type="button"> Subir imagen de producto </button>
-                    <input type = "text"
-                    value = {imagen}
-                    onBlur = {handleInputChange}
-                    id = "imagen"
-                    name = "imagen"
+                        <input type = "text"
+                        value = {imagen}
+                        onBlur = {handleInputChange}
+                        id = "imagen"
+                        name = "imagen"
 
-                     />
-                    </div>
-
-
-                    
-
+                        />
+                        </div>
                     <div>
 
                         

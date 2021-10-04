@@ -26,7 +26,18 @@ const handleUbicacion = () => {
         }
     )
 }
-  return (
+
+// Radio de la Tierra !!
+let R = 6378; // Km
+//let difLat = (tienda.latitude - state.latitude);
+//let difLong= (tienda.longitude - state.longitude);
+
+const toRadian = () =>{
+
+}
+
+
+return (
     <div>
       
       <h1>Buscar Tienda</h1>

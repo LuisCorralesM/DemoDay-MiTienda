@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {Login} from '../components/Login';
-import {Registro} from '../components/Registro';
+import {RegistroYup} from '../components/RegistroYup';
 import {LandingPage} from '../components/LandingPage';
 import { ElegirPerfil } from '../components/ElegirPerfil';
+
 
 export const AuthRouter = () => {
     return (
@@ -32,7 +33,7 @@ export const AuthRouter = () => {
                     <Route 
                         exact
                         path="/auth/registro"
-                        component={ Registro }
+                        component={ RegistroYup }
                     />
 
                     <Redirect to="/auth/landingpage" />
