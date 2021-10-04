@@ -27,15 +27,24 @@ const handleUbicacion = () => {
     )
 }
 
+// Parámetros cálculo de distancia !!
+
+let latitud = locationExample.map(data=>
+  data.latitude)
+let longitud = locationExample.map(data=>
+  data.longitude)
+
+  console.log(latitud)
+  console.log(longitud)
+
 // Radio de la Tierra !!
-let R = 6378; // Km
-//let difLat = (tienda.latitude - state.latitude);
-//let difLong= (tienda.longitude - state.longitude);
+let radioTierra = 6378; // Km
+let difLat = (latitud - state.latitude)*Math.PI/180;
+let difLong= (longitud - state.longitude)*Math.PI/180;
 
-const toRadian = () =>{
-
-}
-
+const a = () => Math.pow(Math.sin(difLat/2)) + Math.cos(locationExample.latitude)*Math.cos(state.latitude)*Math.pow(Math.sin(difLong/2));
+const c = () => 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+const Distancia = () => radioTierra*c;
 
 return (
     <div>
@@ -71,7 +80,7 @@ return (
       </div>
       <div id="misTiendas">
       <div>Tiendas Cercanas:</div>
-          <Link to="/tienda"> {locationExample.map(tiendas =>( <b>{tiendas.nombre} <br /> </b>))} </Link>
+          <p><Link to="/tienda"> {locationExample.map(tiendas =>( <b>{tiendas.nombre} <br /> </b>))} </Link> a {Distancia} km de ti!!</p>
       </div>
     </div>
   );
