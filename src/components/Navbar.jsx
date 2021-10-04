@@ -24,7 +24,7 @@ export const Navbar = () => {
                                 <Link className="nav-link" to="/landingpage/privado"> Pagina Corporativa </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/tienda"> Elegir una tienda  </Link>
+                                <Link className="nav-link" to="/mapa"> Elegir una tienda  </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/carrito"> Carrito  </Link>

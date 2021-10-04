@@ -1,5 +1,5 @@
 // Mapa
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import locationExample from '../data/locationExample.json'
 import {Link} from 'react-router-dom'
@@ -7,6 +7,25 @@ import {Link} from 'react-router-dom'
 import '../style/styleComponents/mapa.css'
 
 const Mapa = () => {
+
+  const [state, setstate] = useState({
+    longitude: 0,
+    latitude: 0
+})
+
+useEffect(() => {
+    handleUbicacion()
+}, [])
+const handleUbicacion = () => {
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            setstate({
+                longitude: position.coords.longitude,
+                latitude: position.coords.latitude
+            })
+        }
+    )
+}
   return (
     <div>
       
@@ -29,6 +48,11 @@ const Mapa = () => {
           </Marker>
         )
         )}
+        <Marker position={[state.latitude, state.longitude]}>
+                        <Popup>
+                            Tu ubicación
+                        </Popup>
+        </Marker>
 
         {/* ////////////////////////////////////// */}
 
