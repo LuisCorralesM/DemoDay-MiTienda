@@ -30,6 +30,7 @@ const Mapa = () => {
 
   // Parámetros cálculo de distancia !!
   let proximidad = [] // Array de proximidad
+  let distancias = {valor: 0}
   let radioTierra = 6378;   // Radio de la Tierra !! (en Km)
 
   for (let i = 0; i < locationExample.length; i++) {
@@ -43,8 +44,10 @@ const Mapa = () => {
     let difLong = (longitud[i] - state.longitude) * Math.PI / 180; //diferencia de longitudes
     let a = (Math.sin(difLat / 2) * Math.sin(difLat / 2)) + Math.cos(latitud[i]) * Math.cos(state.latitude) * (Math.sin(difLong / 2) * Math.sin(difLong / 2)); // parámetro "a"
     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));  // parámetro "c"
-      
-    proximidad.push(radioTierra * c.toFixed(3));
+     distancias = {
+      valor: radioTierra * c.toFixed(3)
+     }
+    proximidad.push(distancias);
   }
   console.log(proximidad)
 
@@ -54,7 +57,7 @@ const Mapa = () => {
     <div>
 
       <h1>Buscar Tienda</h1>
-      <p>Mis tiendas cercanas...</p>
+      <h3>Mis tiendas cercanas...</h3>
       <div id="mapContainer">
         <MapContainer center={[6.230833, -75.590553]} zoom={12} scrollWheelZoom={true}>
           <TileLayer
@@ -83,8 +86,13 @@ const Mapa = () => {
         </MapContainer>
       </div>
       <div id="misTiendas">
-        <div>Tiendas Cercanas:</div>
-        <p><Link to="/tienda"> {locationExample.map(tiendas => (<b>{tiendas.nombre} <br /> </b>))} </Link> a { proximidad } km de ti!!</p>
+      <h4>Tiendas Cercanas:</h4>
+        <ul>
+        <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link> 
+        </ul>
+        <ul>
+        { proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>)) }
+        </ul>
       </div>
     </div>
   );
