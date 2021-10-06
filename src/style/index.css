@@ -41,3 +41,8 @@
     height: 50vh;
 }
 
+/* imagen loading*/
+.imageLoading{
+    display: block;
+    margin: 0 auto
+}

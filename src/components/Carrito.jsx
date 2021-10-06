@@ -3,7 +3,10 @@ import { Link } from "react-router-dom"
 import PasarelaPago from './PasarelaPago'
 
 export const Carrito = () => {
+    
     useEffect(() => {
+        // NOTA: arreglar el estado inicial de 'tCantidad' para que muestre bien las cantidades cuando se recarga la pagina 
+        //como se hizo con 'tPrecio'
         let initialStateTienda = 0
 
         const carrito = JSON.parse(localStorage.getItem("carro"))
@@ -150,6 +153,7 @@ export const Carrito = () => {
                 </table>
             </div>
             
+             {/* NOTA: Renderezar este componente solo cuando se de click y en el 'finalizar-compra'  */}
             <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad}/>
         </div>
     )

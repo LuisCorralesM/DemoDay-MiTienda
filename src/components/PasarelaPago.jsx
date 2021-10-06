@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import '../style/styleComponents/pasarelaDePago.css'
 
+//NOTA hacer que el #Factura no se pierda al recargar la pagina (idea: que el numero se genere solo cuando se da click en el btn pasarela)
 const nFactura = Math.round(Math.random() * 100000)
 
 const PasarelaPago = ({ total, TotalPrecio, TotalProductos }) => {
