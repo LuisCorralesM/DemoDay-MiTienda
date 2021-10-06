@@ -1,26 +1,41 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import '../style/styleComponents/pasarelaDePago.css'
 
-const PasarelaPago = ({ carrito }) => {
-    // console.log("pasarela   " + carrito);
-    const { register } = useSelector(store => store.register)
+const nFactura = Math.round(Math.random() * 100000)
+
+const PasarelaPago = ({ total, TotalPrecio, TotalProductos }) => {
+    const { name } = useSelector(store => store.login)
 
     return (
-        <div>
-            <h1> Pasarela de pago</h1>
-            <h2>Sr/a {"Luis "}</h2>
-            <p>Factura # {Math.round(Math.random() * 100000)}</p>
-            <div>
+        <div className="contenedor-pasarela">
+            <div className="contenedor-factura">
+                <h1 className="titulo-pasarela"> Pasarela de pago</h1>
+                <h2 className="nombre-usuario">Sr/a {name}</h2>
+                <p>Factura # {nFactura}</p>
                 {
-                    (carrito) ?
+                    (total) ?
                         (
-                            carrito.map((element, index) => (
-                                <div key={index} id="items" style={{ color: "white;" }}>
-                                    <li><span>Los precios</span>{element.precio}</li>
-                                </div>
+                            <div>
+                                {
+                                    total.map((element, index) => (
+                                        <div key={index} id="items">
+                                            <ul className="lista-productos">
+                                                <li>Nombre: {element.nombre}</li>
+                                                <li>Descripcion: {element.descripcion}</li>
+                                                <li>Catidad: {element.compra}</li>
+                                                <li>Precion unitario: ${element.precio}</li>
+                                                <li>Precio total: ${element.precio * element.compra}</li>
+                                            </ul>
+                                        </div>
 
-                            )
-                            )
+                                    )
+                                    )
+
+                                }
+                                <li>Total productos: {TotalProductos}</li>
+                                <li><span>Total a pagar: </span>{TotalPrecio}</li>
+                            </div>
                         ) :
                         <span>Vacio</span>
                 }

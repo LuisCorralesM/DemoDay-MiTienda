@@ -1,0 +1,51 @@
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+/* DESKTOP */
+
+.contenedor-pasarela{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-factura{
+    margin: 50px 30vw;
+    /* background-color: rgb(236, 235, 235); */
+    border: 1px dashed #000;
+    text-align: center;    
+}
+
+.titulo-pasarela{
+    font-size: 24;
+    font-weight: 900;
+}
+
+.nombre-usuario{
+    margin-top: 20px;
+}
+
+.lista-productos{
+    list-style: none;
+    margin: 10px 30px;
+    border: 1px dashed #000;
+}
+

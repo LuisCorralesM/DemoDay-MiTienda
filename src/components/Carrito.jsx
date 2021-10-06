@@ -81,7 +81,7 @@ export const Carrito = () => {
             localStorage.clear();
             setRecargar(!recargar)
         }
-
+        
     return (
         <div>
             <div >
@@ -149,8 +149,8 @@ export const Carrito = () => {
                     </tfoot>
                 </table>
             </div>
-
-            <PasarelaPago total={carrito}/>
+            
+            <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad}/>
         </div>
     )
 }

@@ -2,13 +2,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { startLogout } from '../actions/actionLogin'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const Navbar = () => {
     const dispatch = useDispatch()
     const handleLogout = () => {
         dispatch(startLogout())
     }
+    const { name } = useSelector(store => store.login)
 
     return (
         <div>
@@ -31,6 +32,9 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/crudTendero"> CrudTendero  </Link>
+                            </li>
+                            <li className="nav-item">
+                                <p style={{color:"#FFFFFF"}}> Bienvenido: 👤 {name} </p>
                             </li>
                             <li className="nav-item">
                                 <div className="nav-link" onClick={handleLogout}> Salir  </div>
