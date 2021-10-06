@@ -17,14 +17,16 @@ export const CrudTendero = () => {
         precio: 0,
         descripcion:"",
         fecha:"",
-        imagen:""
+        imagen:"",
+        cantidad: 0,
+        compra: 0
     })
 
-    let { codigo, nombre, precio, descripcion, fecha, imagen } = values;
+    let { codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra} = values;
 
     const handleRegistro = (e) => {
         e.preventDefault();
-        dispatch(agregarAsincrono(codigo,nombre, precio, descripcion, fecha, imagen));
+        dispatch(agregarAsincrono(codigo,nombre, precio, descripcion, fecha, imagen, cantidad, compra));
         reset();
     }
 
@@ -33,8 +35,8 @@ export const CrudTendero = () => {
     }
 
     const handleFileChanged = (e) => {
-        const imagen = e.target.files[0];
-        fileUpload(imagen)
+        const file = e.target.files[0];
+        fileUpload(file)
         .then(response => {
             imagen = response
             console.log(response);
@@ -123,6 +125,19 @@ export const CrudTendero = () => {
                     </div>
 
                     <div className="form-group col-md-4">
+                        <label htmlFor="cantidad"> Stocks </label>
+                        <input 
+                        className="form-control" 
+                        type="number" 
+                        name="cantidad" 
+                        id="cantidad"
+                        value={cantidad}
+                        onChange={handleInputChange}
+                        required
+                         />
+                    </div>
+
+                    <div className="form-group col-md-4">
                         <label htmlFor="fecha"> Fecha de ingreso del producto </label>
                         <input 
                         className="form-control" 
@@ -138,20 +153,20 @@ export const CrudTendero = () => {
                         <input
                             id="fileSelector"
                             type="file"
-                            name="imagen"
+                            name="file"
                             style={{ display: 'none' }}
                             onChange={handleFileChanged}
                         />
 
                         <button className="btn btn-secondary"
                            onClick={handlePictureClick} type="button"> Subir imagen de producto </button>
-                        <input type = "text"
+                        {/* <input type = "text"
                         value = {imagen}
                         onBlur = {handleInputChange}
                         id = "imagen"
                         name = "imagen"
 
-                        />
+                        /> */}
                         </div>
                     <div>
 

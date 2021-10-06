@@ -13,7 +13,7 @@ export const agregarProducto = (producto) => {
 }
 
 //Acción asincrónica
-export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, imagen) => {
+export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra) => {
     return (dispatch) => {
         const producto = {
             codigo,
@@ -21,7 +21,9 @@ export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, ima
             precio,
             descripcion,
             fecha,
-            imagen
+            imagen,
+            cantidad,
+            compra  
         }
         //addDoc recibe como parametro la coleccion y el objeto que se desea adicionar
         //collection recibe como parametro el db y el nombre que se le dara a esta coleccion 
@@ -108,7 +110,9 @@ export const Edit = (producto) => {
                 precio:producto.precio,
                 descripcion:producto.descripcion,
                 fecha:producto.fecha,
-                imagen:producto.imagen
+                imagen:producto.imagen,
+                cantidad:producto.cantidad,
+                compra:producto.compra
             } );
         })
         dispatch(listAsincronica())

@@ -1,4 +1,4 @@
-import { typesProducto } from "../types/types";
+import { typesCarrito } from "../types/types";
 
 const initialState = {
     productos: [],
@@ -8,9 +8,7 @@ const initialState = {
         precio: 0,
         descripcion:"",
         fecha:"",
-        imagen:"",
-        cantidad:0,
-        compra:0
+        imagen:""
     }
 }
 

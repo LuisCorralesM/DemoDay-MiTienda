@@ -1,0 +1,78 @@
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+
+/* DESKTOP */
+
+
+/* contenedor global */
+.contenedor-producto {
+    display: flex;
+    width: 100%;
+    font-family: 'Roboto', sans-serif
+}
+
+/* contenedor img */
+.contenedor-img {
+    width: 50%;
+    border-bottom: 1px solid #000;
+}
+
+.nombre-producto {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.imagen-producto {
+    width: 600px;
+    height: 400px;
+    padding: 50px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* contenedor descripcion */
+.contenedor-descripcion {
+    width: 50%;
+    padding: 100px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.descripcion {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bnt-agregar-carrito {
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: var(--color-6);
+    color: #FFFFFF;
+}
+
+.btn-ir-carrito {
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: #2d2;
+    color: #ffffff;
+}

@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
-import { Navbar } from './Navbar'
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
-import {Link} from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { listAsincronica } from '../actions/actionProducto'
+import { Link } from "react-router-dom"
+import '../style/styleComponents/tienda.css'
 
 const Tienda = () => {
+    const { productos } = useSelector(store => store.producto)
+
+    const dispatch = useDispatch()
+    dispatch(listAsincronica())
 
     const [modal, setModal] = useState(false)
     const abrirModal = () => {
@@ -11,49 +17,60 @@ const Tienda = () => {
         console.log(modal);
     }
 
-        return (
+    let productoCarrito = []
+    
+    const agregarCarrito = (id) => {
 
-            <div>
-                <h1 className="text-center m-3">Productos</h1>
-                <div className="card mx-auto" style={{width: "18rem"}} >
-                    <img src="assets/img/vendedor.png" className="card-img-top" alt="..." style={{width: "50px"}}/>
-                    <div className="card-body">
-                        <p className="card-text" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button onClick={()=>abrirModal()}> Ver detalle </button>
-                    </div>
-                </div>
+        productos.forEach(producto => {
 
-                <Modal id="modal-modificar" isOpen = {modal}>
-                    <div id="X">
-                        <div onClick={()=>abrirModal()} className="fs-1 p-1 text-light bg-dark" style={{width: "30px"}}> X </div>
-                    </div>
-                    <ModalHeader>
-
-                        <h4>  </h4>
-                        <img id="imagen-descripcion" alt="" />
-
-
-                    </ModalHeader>
-
-                    <ModalBody>
-                        <p> ... </p>
-                        <p>... </p>
-                        <p>.... </p>
-                        <p>.... </p>
-                    </ModalBody>
-
-                    <ModalFooter>
-
-                        <div> <Link to = "/carrito"> Comprar </Link> </div>
-                    </ModalFooter>
-
-
-                </Modal>
-
-
-
-            </div>
-        )
+            if(producto.codigo === id){
+                producto.compra = 1;
+                if (localStorage.getItem("carro")) {
+                    let historialCompra = JSON.parse(localStorage.getItem("carro"))
+                    historialCompra.forEach(prod =>{
+                        productoCarrito.push(prod)
+                    })
+                }
+                productoCarrito.push(producto)
+            }
+        });
+        console.log(productoCarrito);
+        localStorage.setItem("carro", JSON.stringify(productoCarrito))
     }
+
+    return (
+
+        <div>
+
+            {
+                (productos) ?
+                    (
+                        productos.map((element, index) => (
+
+                            <div key={index}>
+
+                                <div className="contenedor-producto" >
+                                    <div className="contenedor-img">
+                                        <img src={element.imagen} className="imagen-producto" alt="..." />
+                                    </div>
+                                    <div className="contenedor-descripcion">
+                                        <h1 className="nombre-producto">Nombre: {element.nombre}</h1> 
+                                        <p className="descripcion" >Descripción: {element.descripcion}</p>
+                                        <p className="precio">Precio: ${element.precio}</p>
+                                        <button className= "bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
+                                        <Link to="/carrito"><button className="btn-ir-carrito">Ir al carrito</button></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                        )
+                    ) :
+                    <p>Datos no disponibles</p>
+            }
+
+
+        </div>
+    )
+}
 
 export default Tienda

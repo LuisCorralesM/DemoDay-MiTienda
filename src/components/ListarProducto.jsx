@@ -2,6 +2,7 @@ import React, { useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { agregarAsincrono, deleteAsincrono } from '../actions/actionProducto'
+
 export const ListarProductos = ({handleEdit}) => {
    const {productos} =  useSelector(store => store.producto )
    console.log(productos)
@@ -23,7 +24,7 @@ export const ListarProductos = ({handleEdit}) => {
                         <th>Precio</th>
                         <th>Fecha ingreso</th>
                         <th>Imagen</th>
-                        <th>Acciones</th>
+                        <th>Stock</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +41,7 @@ export const ListarProductos = ({handleEdit}) => {
                                         <td>{element.descripcion}</td>
                                         <td>{element.fecha}</td>
                                         <td><img src={element.imagen} alt="" width="50px" /></td>
- 
+                                        <td>{element.cantidad}</td>
                                         <td>
                                         <button className ="btn btn-secondary" onClick = {()=>handleEdit(element)} 
                                        >Editar </button>

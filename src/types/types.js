@@ -22,3 +22,7 @@ export const typesProducto = {
     edit: 'edit'
 
 }
+
+export const carrito = {
+    
+}
