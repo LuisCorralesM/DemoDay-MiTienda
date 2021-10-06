@@ -1,9 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
+import PasarelaPago from './PasarelaPago'
 
 export const Carrito = () => {
+    useEffect(() => {
+        let initialStateTienda = 0
+
+        const carrito = JSON.parse(localStorage.getItem("carro"))
+        initialStateTienda = carrito.reduce((acc, { compra, precio }) => acc + (precio * compra), 0)
+
+        setTPrecio(initialStateTienda)
+    }, [])
+
     const carrito = JSON.parse(localStorage.getItem("carro"))
     const [recargar, setRecargar] = useState(false)
+
+    // estado para guardar los totales del carrito: total cantidad / total precio
+
+    const [tCantidad, setTCantidad] = useState(1)
+
+    const [tPrecio, setTPrecio] = useState(0)
+
+    // metodo para hallar totales
+    console.log(carrito);
+    let
+        acumuladoCantidad = 0,
+        acumuladoPrecio = 0;
+
+
+    console.log(acumuladoCantidad);
 
     const
         btnSumar = (id) => {
@@ -14,6 +39,13 @@ export const Carrito = () => {
                     localStorage.setItem("carro", JSON.stringify(carrito))
                 }
             });
+            // Reduce para "compra"
+            acumuladoCantidad = carrito.reduce((acc, { compra }) => acc + compra, 0)
+            setTCantidad(acumuladoCantidad)
+            // Reduce para "{precio * cantidad}"
+            acumuladoPrecio = carrito.reduce((acc, { compra, precio }) => acc + (precio * compra), 0)
+            setTPrecio(acumuladoPrecio)
+
             setRecargar(!recargar)
         },
         btnRestar = (id) => {
@@ -21,21 +53,31 @@ export const Carrito = () => {
                 if (producto.codigo === id) {
                     producto.cantidad++
                     producto.compra--
+                    setTCantidad(acumuladoCantidad)
                     localStorage.setItem("carro", JSON.stringify(carrito))
                     if (producto.compra === 0) {
-                        if(window.confirm('Seguro')){
-                            carrito.splice(index,1)
+                        if (window.confirm('Seguro')) {
+                            carrito.splice(index, 1)
                             localStorage.setItem("carro", JSON.stringify(carrito))
-                        }else{
+                        } else {
                             producto.compra++
                             localStorage.setItem("carro", JSON.stringify(carrito))
                         }
                     }
                 }
+                // Reduce para "compra"
+                acumuladoCantidad = carrito.reduce((acc, { compra }) => acc + compra, 0)
+                setTCantidad(acumuladoCantidad)
+                // Reduce para "{precio * cantidad}"
+                acumuladoPrecio = carrito.reduce((acc, { compra, precio }) => acc + (precio * compra), 0)
+                setTPrecio(acumuladoPrecio)
+
             })
             setRecargar(!recargar)
         },
         vaciarCarro = () => {
+            setTCantidad(0)
+            setTPrecio(0)
             localStorage.clear();
             setRecargar(!recargar)
         }
@@ -93,21 +135,22 @@ export const Carrito = () => {
 
                     <tfoot style={{ color: "white;" }}>
                         <th scope="row" colspan="2">Total productos</th>
-                        <td>10</td>
+                        <td>{tCantidad}</td>
                         <td>
                             <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={() => vaciarCarro()}>
                                 Vaciar todo
                             </button>
                             <button className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
-                                <Link to="pasarelaPago">Finalizar compras </Link>
+                                <Link to="/pasarelaPago">  Finalizar compras </Link>
                             </button>
                         </td>
                         <td className="font-weight-bold"></td>
-                        <td className="font-weight-bold">$ <span>total__</span></td>
+                        <td className="font-weight-bold">$ <span>{tPrecio}</span></td>
                     </tfoot>
                 </table>
             </div>
 
+            <PasarelaPago total={carrito}/>
         </div>
     )
 }

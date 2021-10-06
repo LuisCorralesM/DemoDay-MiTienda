@@ -1,15 +1,36 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-const PasarelaPago = () => {
+const PasarelaPago = ({ carrito }) => {
+    // console.log("pasarela   " + carrito);
+    const { register } = useSelector(store => store.register)
+
     return (
         <div>
             <h1> Pasarela de pago</h1>
+            <h2>Sr/a {"Luis "}</h2>
+            <p>Factura # {Math.round(Math.random() * 100000)}</p>
+            <div>
+                {
+                    (carrito) ?
+                        (
+                            carrito.map((element, index) => (
+                                <div key={index} id="items" style={{ color: "white;" }}>
+                                    <li><span>Los precios</span>{element.precio}</li>
+                                </div>
+
+                            )
+                            )
+                        ) :
+                        <span>Vacio</span>
+                }
+            </div>
             <div className="Registro py-5 container text-center">
                 <form className="form-signin formulario-registro" >
                     <div
                         className="cajita"
                     >
-                        
+
 
 
                         <input
@@ -45,7 +66,7 @@ const PasarelaPago = () => {
                             className="form-control"
                             placeholder="Email"
                             required=""
-                            />
+                        />
 
                         <input
                             type="Password"
@@ -62,16 +83,16 @@ const PasarelaPago = () => {
                             Finalizar compra
                         </button>
                         <br />
-                        
 
-                        
+
+
                     </div>
                 </form>
 
             </div>
 
 
-            
+
         </div>
     )
 }
