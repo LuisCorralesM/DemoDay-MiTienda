@@ -23,6 +23,7 @@ export const typesProducto = {
 
 }
 
-export const carrito = {
+// export const typesTienda = {
+//     select:"[Tienda] Seleccionada"
     
-}
+// }

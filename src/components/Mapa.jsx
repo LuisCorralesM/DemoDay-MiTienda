@@ -5,8 +5,12 @@ import locationExample from '../data/locationExample.json'
 import { Link } from 'react-router-dom'
 // import {Navbar} from './Navbar'
 import '../style/styleComponents/mapa.css'
+import { useDispatch } from "react-redux";
+import { activeProduct } from "../actions/actionProducto";
 
 const Mapa = () => {
+
+
 
   const [state, setstate] = useState({
     longitude: 0,
@@ -30,7 +34,7 @@ const Mapa = () => {
 
   // Parámetros cálculo de distancia !!
   let proximidad = [] // Array de proximidad
-  let distancias = {valor: 0}
+  let distancias = { valor: 0 }
   let radioTierra = 6378;   // Radio de la Tierra !! (en Km)
 
   for (let i = 0; i < locationExample.length; i++) {
@@ -44,23 +48,24 @@ const Mapa = () => {
     let difLong = (longitud[i] - state.longitude) * Math.PI / 180; //diferencia de longitudes
     let a = (Math.sin(difLat / 2) * Math.sin(difLat / 2)) + Math.cos(latitud[i]) * Math.cos(state.latitude) * (Math.sin(difLong / 2) * Math.sin(difLong / 2)); // parámetro "a"
     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));  // parámetro "c"
-     distancias = {
+    distancias = {
       valor: radioTierra * c.toFixed(3)
-     }
+    }
     proximidad.push(distancias);
   }
   console.log(proximidad)
 
-  const handleSeleccion = (tienda) => {
-    alert(`Tienda seleccionada: ${tienda}`)
-  }
+  // const handleSeleccion = (tienda) => {
+  //   localStorage.setItem("tienda", tienda)
+   
+
+
+  // }
 
 
 
   return (
     <div>
-
-      ()
 
       <h1>Buscar Tienda</h1>
       <h3>Mis tiendas cercanas...</h3>
@@ -92,17 +97,18 @@ const Mapa = () => {
         </MapContainer>
       </div>
       <div id="misTiendas">
-      <h4>Tiendas Cercanas:</h4>
+        <h4>Tiendas Cercanas:</h4>
         <ul>
-        {
-          locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)}to="/tienda"> {tiendas.nombre} </Link> <br />
-          </> ))
-        }
+          {
+            <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
+            // locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
+            // </> ))
+          }
 
-        
+
         </ul>
         <ul>
-        { proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>)) }
+          {proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>))}
         </ul>
       </div>
     </div>

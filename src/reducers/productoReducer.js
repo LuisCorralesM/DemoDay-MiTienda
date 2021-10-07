@@ -1,4 +1,4 @@
-import { typesProducto } from "../types/types";
+import { typesProducto, typesTienda } from "../types/types";
 
 const initialState = {
     productos: [],
@@ -34,6 +34,10 @@ export const productoReducer = (state = initialState, action) => {
             return {
                 productos: state.productos.filter(prod => prod.nombre !== action.payload)
             }
+        // case typesTienda.select:
+        //     return {...state,
+        //         payload:action.payload
+        //     }
         default:
             return state
 

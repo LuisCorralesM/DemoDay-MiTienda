@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import '../style/styleComponents/tienda.css'
 
 const Tienda = () => {
+  
 
     const { productos } = useSelector(store => store.producto)
 
@@ -42,6 +43,8 @@ const Tienda = () => {
     return (
 
         <div>
+
+            <h1> {localStorage.getItem('tienda')}</h1>
 
             {
                 (productos) ?
