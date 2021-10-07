@@ -51,10 +51,16 @@ const Mapa = () => {
   }
   console.log(proximidad)
 
+  const handleSeleccion = (tienda) => {
+    alert(`Tienda seleccionada: ${tienda}`)
+  }
+
 
 
   return (
     <div>
+
+      ()
 
       <h1>Buscar Tienda</h1>
       <h3>Mis tiendas cercanas...</h3>
@@ -88,7 +94,12 @@ const Mapa = () => {
       <div id="misTiendas">
       <h4>Tiendas Cercanas:</h4>
         <ul>
-        <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link> 
+        {
+          locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)}to="/tienda"> {tiendas.nombre} </Link> <br />
+          </> ))
+        }
+
+        
         </ul>
         <ul>
         { proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>)) }
