@@ -7,25 +7,36 @@ export const Carrito = () => {
     useEffect(() => {
         // NOTA: arreglar el estado inicial de 'tCantidad' para que muestre bien las cantidades cuando se recarga la pagina 
         //como se hizo con 'tPrecio'
-        let initialStateTienda = 0
 
-        const carrito = JSON.parse(localStorage.getItem("carro"))
-        initialStateTienda = carrito.reduce((acc, { compra, precio }) => acc + (precio * compra), 0)
+        // estado inicial de 'tCantidad'
 
-        setTPrecio(initialStateTienda)
+        let initialStateCantidad = 0;
+
+        const carrito1 = JSON.parse(localStorage.getItem('carro'));
+        initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
+
+        setTCantidad(initialStateCantidad);
+
+        // estado inicial de 'tPrecio'
+        let initialStatePrecio = 0;
+
+        const carrito2 = JSON.parse(localStorage.getItem("carro"));
+        initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
+
+        setTPrecio(initialStatePrecio);
     }, [])
 
-    const carrito = JSON.parse(localStorage.getItem("carro"))
-    const [recargar, setRecargar] = useState(false)
+    const carrito = JSON.parse(localStorage.getItem("carro"));
+    const [recargar, setRecargar] = useState(false);
 
     // estado para guardar los totales del carrito: total cantidad / total precio
 
-    const [tCantidad, setTCantidad] = useState(1)
+    const [tCantidad, setTCantidad] = useState(0);
 
-    const [tPrecio, setTPrecio] = useState(0)
+    const [tPrecio, setTPrecio] = useState(0);
 
     // metodo para hallar totales
-    console.log(carrito);
+    // console.log(carrito);
     let
         acumuladoCantidad = 0,
         acumuladoPrecio = 0;
@@ -59,7 +70,7 @@ export const Carrito = () => {
                     setTCantidad(acumuladoCantidad)
                     localStorage.setItem("carro", JSON.stringify(carrito))
                     if (producto.compra === 0) {
-                        if (window.confirm('Seguro')) {
+                        if (window.confirm(`¿Está seguro de eliminar el producto: ${producto.nombre} ?`)) {
                             carrito.splice(index, 1)
                             localStorage.setItem("carro", JSON.stringify(carrito))
                         } else {

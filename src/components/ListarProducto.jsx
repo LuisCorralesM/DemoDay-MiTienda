@@ -1,16 +1,16 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { agregarAsincrono, deleteAsincrono } from '../actions/actionProducto'
 
-export const ListarProductos = ({handleEdit}) => {
-   const {productos} =  useSelector(store => store.producto )
-   console.log(productos)
-   const dispatch = useDispatch()
+export const ListarProductos = ({ handleEdit }) => {
+    const { productos } = useSelector(store => store.producto)
+    console.log(productos)
+    const dispatch = useDispatch()
 
-   useEffect(() => {
-       dispatch(agregarAsincrono)
-   }, [dispatch])
+    useEffect(() => {
+        dispatch(agregarAsincrono)
+    }, [dispatch])
 
     return (
         <div>
@@ -28,12 +28,12 @@ export const ListarProductos = ({handleEdit}) => {
                     </tr>
                 </thead>
                 <tbody>
-                {
+                    {
                         (productos) ?
                             (
- 
+
                                 productos.map((element, index) => (
- 
+
                                     <tr key={index}>
                                         <td>{element.codigo}</td>
                                         <td>{element.nombre}</td>
@@ -43,26 +43,28 @@ export const ListarProductos = ({handleEdit}) => {
                                         <td><img src={element.imagen} alt="" width="50px" /></td>
                                         <td>{element.cantidad}</td>
                                         <td>
-                                        <button className ="btn btn-secondary" onClick = {()=>handleEdit(element)} 
-                                       >Editar </button>
-                                            <button className ="btn btn-danger" onClick = {()=>dispatch(deleteAsincrono(element.nombre))}
-                                       >Eliminar</button>
-                                       
+                                            <button className="btn btn-secondary" onClick={() => handleEdit(element)}>
+                                                Editar
+                                            </button>
+                                            <button className="btn btn-danger" onClick={() => dispatch(deleteAsincrono(element.nombre))}>
+                                                Eliminar
+                                            </button>
+
                                         </td>
- 
+
                                     </tr>
                                 )
                                 )
- 
+
                             ) :
                             <p>Datos no disponibles</p>
                     }
 
 
                 </tbody>
-                
+
             </table>
-            
+
         </div>
     )
 }
