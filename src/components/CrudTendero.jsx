@@ -44,9 +44,11 @@ export const CrudTendero = () => {
         })
     }
 
-    useEffect(() => {
-        dispatch(listAsincronica());
-      }, [dispatch])
+    //causa del bucle infinito
+
+    // useEffect(() => {
+    //     dispatch(listAsincronica());
+    //   }, [dispatch])
 
       const [editForm, setEditform] = useState(false)
       const handleEdit = (producto) => {

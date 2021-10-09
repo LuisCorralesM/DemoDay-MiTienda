@@ -77,7 +77,9 @@ export const deleteAsincrono = (nombre) =>{
             deleteDoc(doc(db,"Productos",docu.id));
         })
         dispatch(eliminar(nombre));
-        dispatch(listAsincronica())
+
+        //causa del bucle infinito
+        // dispatch(listAsincronica())
     }
 }
 

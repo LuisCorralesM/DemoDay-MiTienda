@@ -7,9 +7,10 @@ export const ListarProductos = ({handleEdit}) => {
    console.log(productos)
    const dispatch = useDispatch()
 
-   useEffect(() => {
-       dispatch(agregarAsincrono)
-   }, [dispatch])
+   //Causa del bucle infinito
+//    useEffect(() => {
+//        dispatch(agregarAsincrono)
+//    }, [dispatch])
 
     return (
         <div>
