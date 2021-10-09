@@ -1,12 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import '../style/styleComponents/pasarelaDePago.css'
 
 //NOTA hacer que el #Factura no se pierda al recargar la pagina (idea: que el numero se genere solo cuando se da click en el btn pasarela)
 const nFactura = Math.round(Math.random() * 100000)
 
-const PasarelaPago = ({ total, TotalPrecio, TotalProductos }) => {
+const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
     const { name } = useSelector(store => store.login)
+
+    const handleFinalizar = () => {
+        vaciar()
+        
+    }
 
     return (
         <div className="contenedor-pasarela">
@@ -36,12 +42,14 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos }) => {
                                 }
                                 <li>Total productos: {TotalProductos}</li>
                                 <li><span>Total a pagar: </span>{TotalPrecio}</li>
+                               <button onClick ={handleFinalizar}><Link to ="/mapa" > Finalizar compra </Link> </button>
+                           
                             </div>
                         ) :
                         <span>Vacio</span>
                 }
             </div>
-            <div className="Registro py-5 container text-center">
+            {/* <div className="Registro py-5 container text-center">
                 <form className="form-signin formulario-registro" >
                     <div
                         className="cajita"
@@ -106,7 +114,7 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos }) => {
                 </form>
 
             </div>
-
+ */}
 
 
         </div>

@@ -99,6 +99,7 @@ export const Carrito = () => {
         
         const finalizarCompra= () => {
             setPasarela(!pasarela)
+            
 
         }
         
@@ -162,7 +163,7 @@ export const Carrito = () => {
                                 Vaciar todo
                             </button>
                             <button onClick = {finalizarCompra}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
-                                 Finalizar compras
+                                 Pagar
                             </button>
                         </td>
                         <td className="font-weight-bold"></td>
@@ -170,7 +171,7 @@ export const Carrito = () => {
                     </tfoot>
                 </table>
             </div>
-            ): <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad}/>}
+            ): <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad} vaciar = {vaciarCarro}/>}
             
            
             
