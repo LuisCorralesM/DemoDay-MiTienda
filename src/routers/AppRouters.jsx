@@ -22,6 +22,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { loginSincrono } from '../actions/actionLogin';
 import { LandingPage } from '../components/LandingPage';
+import { listAsincronica } from '../actions/actionProducto';
 
 
 
@@ -41,6 +42,7 @@ const AppRouters = () => {
 
             if (user?.uid) {
                 dispatch(loginSincrono(user.uid, user.displayName))
+                dispatch(listAsincronica())
                 setIsLoggedIn(true)
             } else {
                 setIsLoggedIn(false)

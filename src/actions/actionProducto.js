@@ -117,6 +117,7 @@ export const Edit = (producto) => {
                 compra:producto.compra
             } );
         })
-        dispatch(listAsincronica())
+        //causa del bucle infinito
+        // dispatch(listAsincronica())
     }
 }
