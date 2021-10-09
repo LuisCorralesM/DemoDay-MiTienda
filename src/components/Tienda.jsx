@@ -11,7 +11,7 @@ const Tienda = () => {
     const { productos } = useSelector(store => store.producto)
 
     const dispatch = useDispatch()
-    dispatch(listAsincronica())
+    // dispatch(listAsincronica())
 
     const [modal, setModal] = useState(false)
     const abrirModal = () => {

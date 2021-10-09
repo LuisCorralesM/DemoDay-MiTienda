@@ -51,7 +51,7 @@ const AppRouters = () => {
 
         })
 
-    }, [dispatch, setChecking])
+    }, [dispatch, setChecking, setIsLoggedIn, auth])
 
     if (checking) {
         return (<Loading />)
