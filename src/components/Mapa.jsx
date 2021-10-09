@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import '../style/styleComponents/mapa.css'
 import { useDispatch } from "react-redux";
 import { activeProduct } from "../actions/actionProducto";
+import { useSelector } from "react-redux";
 
 const Mapa = () => {
 
@@ -55,13 +56,15 @@ const Mapa = () => {
   }
   console.log(proximidad)
 
-  // const handleSeleccion = (tienda) => {
-  //   localStorage.setItem("tienda", tienda)
+  const handleSeleccion = (tienda) => {
+    localStorage.setItem("tienda", tienda)
    
 
 
-  // }
-
+  }
+  const { productos } = useSelector(store => store.producto)
+  const productosTienda = productos.map(producto=> producto.nombre)
+  
 
 
   return (
@@ -100,9 +103,11 @@ const Mapa = () => {
         <h4>Tiendas Cercanas:</h4>
         <ul>
           {
-            <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
-            // locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
-            // </> ))
+            // <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
+            
+           
+           locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
+            </> ))
           }
 
 

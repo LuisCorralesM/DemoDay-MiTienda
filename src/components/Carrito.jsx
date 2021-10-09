@@ -28,6 +28,7 @@ export const Carrito = () => {
 
     const carrito = JSON.parse(localStorage.getItem("carro"));
     const [recargar, setRecargar] = useState(false);
+    const [pasarela, setPasarela] = useState(true);
 
     // estado para guardar los totales del carrito: total cantidad / total precio
 
@@ -96,11 +97,15 @@ export const Carrito = () => {
             setRecargar(!recargar)
         }
         
+        const finalizarCompra= () => {
+            setPasarela(!pasarela)
 
+        }
         
     return (
         <div>
-            <div >
+            {(pasarela) ? (
+                <div >
                 <h1> Carrito de compras </h1>
                 <table class="table">
                     <thead style={{ color: "white;" }}>
@@ -156,8 +161,8 @@ export const Carrito = () => {
                             <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={() => vaciarCarro()}>
                                 Vaciar todo
                             </button>
-                            <button className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
-                                <Link to="/pasarelaPago">  Finalizar compras </Link>
+                            <button onClick = {finalizarCompra}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
+                                 Finalizar compras
                             </button>
                         </td>
                         <td className="font-weight-bold"></td>
@@ -165,9 +170,10 @@ export const Carrito = () => {
                     </tfoot>
                 </table>
             </div>
+            ): <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad}/>}
             
-             {/* NOTA: Renderezar este componente solo cuando se de click y en el 'finalizar-compra'  */}
-            <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad}/>
+           
+            
         </div>
     )
 }

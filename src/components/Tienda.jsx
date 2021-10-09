@@ -9,6 +9,13 @@ const Tienda = () => {
   
 
     const { productos } = useSelector(store => store.producto)
+    console.log(productos)
+
+    const productosTienda = productos.filter(producto=> producto.nombre ==="Pan Baguette")
+    console.log(productosTienda);
+
+    
+    
 
     const dispatch = useDispatch()
     // dispatch(listAsincronica())
@@ -47,9 +54,9 @@ const Tienda = () => {
             <h1> {localStorage.getItem('tienda')}</h1>
 
             {
-                (productos) ?
+                (productosTienda) ?
                     (
-                        productos.map((element, index) => (
+                        productosTienda.map((element, index) => (
 
                             <div key={index}>
 

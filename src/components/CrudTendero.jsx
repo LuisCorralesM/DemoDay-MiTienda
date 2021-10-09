@@ -10,6 +10,7 @@ import {activeProduct} from "../actions/actionProducto"
 export const CrudTendero = () => {
 
     const dispatch = useDispatch();
+    const [recargar, setRecargar] = useState(false);
 
     const [values, handleInputChange, reset, setValues] = useForm({
         codigo: 0,
@@ -28,6 +29,7 @@ export const CrudTendero = () => {
         e.preventDefault();
         dispatch(agregarAsincrono(codigo,nombre, precio, descripcion, fecha, imagen, cantidad, compra));
         reset();
+        setRecargar(!recargar)
     }
 
     const handlePictureClick = () => {
@@ -66,6 +68,7 @@ export const CrudTendero = () => {
             dispatch(Edit(values))
             reset()
             setEditform(false)
+            setRecargar(!recargar)
         }
 
 
