@@ -58,9 +58,8 @@ const Mapa = () => {
 
   const handleSeleccion = (tienda) => {
     localStorage.setItem("tienda", tienda)
+    console.log(localStorage.setItem("tienda", tienda))
    
-
-
   }
   const { productos } = useSelector(store => store.producto)
   const productosTienda = productos.map(producto=> producto.nombre)

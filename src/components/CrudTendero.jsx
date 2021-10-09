@@ -20,14 +20,15 @@ export const CrudTendero = () => {
         fecha:"",
         imagen:"",
         cantidad: 0,
-        compra: 0
+        compra: 0,
+        tienda:""
     })
 
-    let { codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra} = values;
+    let { codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra, tienda} = values;
 
     const handleRegistro = (e) => {
         e.preventDefault();
-        dispatch(agregarAsincrono(codigo,nombre, precio, descripcion, fecha, imagen, cantidad, compra));
+        dispatch(agregarAsincrono(codigo,nombre, precio, descripcion, fecha, imagen, cantidad, compra, tienda));
         reset();
         setRecargar(!recargar)
     }
@@ -152,6 +153,17 @@ export const CrudTendero = () => {
                         value={fecha}
                         onChange={handleInputChange}/>
                     </div>
+                    <div className="form-group col-md-4">
+                        <label htmlFor="fecha"> Tienda </label>
+                        <input 
+                        className="form-control" 
+                        type="text" 
+                        name="tienda" 
+                        id="fecha" 
+                        value={tienda}
+                        onChange={handleInputChange}/>
+                    </div>
+
 
                     <br />
                     <div className="form-group col-md-4">

@@ -29,6 +29,8 @@ export const ListarProductos = ({ handleEdit }) => {
                         <th>Fecha ingreso</th>
                         <th>Imagen</th>
                         <th>Stock</th>
+                        <th>Tienda</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +48,7 @@ export const ListarProductos = ({ handleEdit }) => {
                                         <td>{element.fecha}</td>
                                         <td><img src={element.imagen} alt="" width="50px" /></td>
                                         <td>{element.cantidad}</td>
+                                        <td>{element.tienda}</td>
                                         <td>
                                             <button className="btn btn-secondary" onClick={() => handleEdit(element)}>
                                                 Editar

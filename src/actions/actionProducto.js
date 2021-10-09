@@ -13,7 +13,7 @@ export const agregarProducto = (producto) => {
 }
 
 //Acción asincrónica
-export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra) => {
+export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, imagen, cantidad, compra, tienda) => {
     return (dispatch) => {
         const producto = {
             codigo,
@@ -23,7 +23,8 @@ export const agregarAsincrono = (codigo, nombre, precio, descripcion, fecha, ima
             fecha,
             imagen,
             cantidad,
-            compra  
+            compra,
+            tienda
         }
         //addDoc recibe como parametro la coleccion y el objeto que se desea adicionar
         //collection recibe como parametro el db y el nombre que se le dara a esta coleccion 
@@ -114,7 +115,8 @@ export const Edit = (producto) => {
                 fecha:producto.fecha,
                 imagen:producto.imagen,
                 cantidad:producto.cantidad,
-                compra:producto.compra
+                compra:producto.compra,
+                tienda:producto.tienda
             } );
         })
         //causa del bucle infinito

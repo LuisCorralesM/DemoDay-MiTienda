@@ -10,9 +10,12 @@ const Tienda = () => {
 
     const { productos } = useSelector(store => store.producto)
     console.log(productos)
-
-    const productosTienda = productos.filter(producto=> producto.nombre ==="Pan Baguette")
+    const nombreTienda = localStorage.getItem('tienda')
+    console.log("nombre de la tienda seleccionada:" + nombreTienda)
+    const productosTienda = productos.filter(producto=> producto.tienda === nombreTienda)
     console.log(productosTienda);
+
+    
 
     
     
@@ -51,7 +54,7 @@ const Tienda = () => {
 
         <div>
 
-            <h1> {localStorage.getItem('tienda')}</h1>
+            <h1>{nombreTienda}</h1>
 
             {
                 (productosTienda) ?

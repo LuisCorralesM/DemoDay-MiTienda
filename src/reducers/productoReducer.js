@@ -10,7 +10,8 @@ const initialState = {
         fecha:"",
         imagen:"",
         cantidad:0,
-        compra:0
+        compra:0,
+        tienda:""
     }
 }
 
