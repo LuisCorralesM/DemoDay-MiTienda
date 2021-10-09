@@ -2,19 +2,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { startLogout } from '../actions/actionLogin'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const Navbar = () => {
     const dispatch = useDispatch()
     const handleLogout = () => {
         dispatch(startLogout())
     }
+    const { name } = useSelector(store => store.login)
 
     return (
         <div>
             <nav className="navbar navbar-expand-lg m-0 p-0">
-                <div className="container-fluid" style={{backgroundColor: "#110C66"}}>
-                    <Link className="navbar-brand" to="/">Mi Tienda.com</Link>
+                <div className="container-fluid py-3" style={{backgroundColor: "#110C66"}}>
+                    <Link className="navbar-brand" style={{color: "#fff"}} to="/">Mi Tienda.com</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{backgroundColor: "#1916A5"}}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -31,6 +32,9 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/crudTendero"> CrudTendero  </Link>
+                            </li>
+                            <li className="nav-item">
+                                <p style={{color:"#FFFFFF"}}> Bienvenido: 👤 {name} </p>
                             </li>
                             <li className="nav-item">
                                 <div className="nav-link" onClick={handleLogout}> Salir  </div>

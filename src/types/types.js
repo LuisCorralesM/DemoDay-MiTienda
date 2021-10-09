@@ -22,3 +22,8 @@ export const typesProducto = {
     edit: 'edit'
 
 }
+
+// export const typesTienda = {
+//     select:"[Tienda] Seleccionada"
+    
+// }
