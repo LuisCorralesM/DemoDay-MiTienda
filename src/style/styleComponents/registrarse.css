@@ -1,0 +1,91 @@
+/* Normalize */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes 
+1: font-family: 'Roboto', sans-serif; 
+2: font-family: 'Indie Flower', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Variables colores */
+
+:root {
+    --color-1: #B4CFEA;
+    --color-2: #A0AFC5;
+    --color-3: #1916A5;
+    --color-4: #110C66;
+    --color-5: #6F8DAC;
+    --color-6: #4D56B9;
+    --color-7: #AA7278;
+}
+
+/* MOBILE FIRST */
+
+
+/* DESKTOP */
+
+
+.contenedorRegistro{
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633886507/fondo3_zubgri.png);
+    background-size: cover;
+}
+
+.formulario-registro{
+    text-align: center;
+}
+
+.titulo-registrarse{
+    font-family: 'Indie Flower', cursive;
+    color: var(--color-4);
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 2px 2px var(--color-6);
+}
+
+.cajita{
+    padding-top: 50px;
+    margin: auto;
+    width: 300px;
+}
+
+.input-formulario{
+    margin: 20px 0;
+}
+
+.boton-registrar{
+    margin: 20px 0;
+    padding: 4px 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    background: linear-gradient(to right, var(--color-5), var(--color-3));    
+    color: #fff;
+    border: none;
+}
+
+.boton-registrar:hover{
+    background: var(--color-7);
+
+}
+
+.enlace-inicio-sesion{
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--color-4);
+}
+
+.enlace-inicio-sesion:hover{
+    color: var(--color-3);
+}
+

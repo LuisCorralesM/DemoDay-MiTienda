@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import { Footer } from './Footer'
 import '../style/styleComponents/bienvenida.css'
 
 
@@ -15,7 +14,12 @@ export const LandingPage = () => {
                 </div>
                 <div>
                     <p className="parrafo1">
-                        Este proyecto nace con el objetivo de incentivar el comercio local, conectando al comerciante de barrio dueño de un supermercado y/o tienda, con su vecino, logrando que las personas puedan hacer el mercado desde la comodidad de su casa, por un medio electrónico, seguro y facil de usar, que además de ahorrar tiempo para ambas partes, al conectar con el tendero más cercano ayudamos a reducir la huella de carbono y el tiempo de entrega
+                        Este proyecto nace con el objetivo de incentivar el comercio local, conectando al
+                        comerciante de barrio dueño de un supermercado y/o tienda, con su vecino, logrando
+                        que las personas puedan hacer el mercado desde la comodidad de su casa, por un medio
+                        electrónico, seguro y fácil de usar, que además de ahorrar tiempo para ambas partes, al
+                        conectar con el tendero más cercano, ayudamos a reducir la huella de carbono y el tiempo
+                        de entrega
                     </p>
                 </div>
                 <Link to="/auth/perfil" className="enlace-bienvenida-perfil">
@@ -24,7 +28,6 @@ export const LandingPage = () => {
 
             </div>
             <div className="contenedor-footer">
-                <Footer />
             </div>
         </>
     )

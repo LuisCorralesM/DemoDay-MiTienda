@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import '../style/styleComponents/registrarse.css'
 
 import {registroEmailPasswordNombre} from '../actions/actionRegister';
 
@@ -47,18 +48,8 @@ export const RegistroYup = () => {
                     <div
                         className="cajita"
                     >
-                        <h1 className="h3 mb-3 font-weight-normal">
-                            ¡Registrate en nuestro sistema!
-                        </h1>
-                        {/* icono */}
                         <div className="fadeIn first ">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS689Xb1GJwNGzZl9KR7CTRKAZFaXt1060H32xPbb8hw_NXNpJ409Sl-aLnPsJQUfKJnYEV_KndttR1bbUKS_f7DGE3OP59H1Y&usqp=CAU&ec=45725305"
-                                id="icon"
-                                alt="User Icon"
-                                width="100px" />
-
-                            <h3>Crea una cuenta</h3>
+                            <h3 className="titulo-registrarse">Crea una cuenta</h3>
                         </div>
                         {/* formulario */}
 
@@ -66,7 +57,7 @@ export const RegistroYup = () => {
                         <input
                             type="text"
                             name="nombre"
-                            className="form-control"
+                            className="form-control input-formulario"
                             placeholder="Nombre"
                             onChange={formik.handleChange}
                         />
@@ -74,7 +65,7 @@ export const RegistroYup = () => {
                         <input
                             type="email"
                             name="email"
-                            className="form-control"
+                            className="form-control input-formulario"
                             placeholder="Email"
                             onChange={formik.handleChange}
                             />
@@ -82,7 +73,7 @@ export const RegistroYup = () => {
                         <input
                             type="Password"
                             name="pass1"
-                            className="form-control"
+                            className="form-control input-formulario"
                             placeholder="Password"
                             onChange={formik.handleChange}
                         />
@@ -90,21 +81,21 @@ export const RegistroYup = () => {
                         <input
                             type="Password"
                             name="pass2"
-                            className="form-control"
+                            className="form-control input-formulario"
                             placeholder="Password"
                             onChange={formik.handleChange}
                         />      
                         <br />
                         <button
                             type="submit"
-                            className="btn btn-primary btn-block mb-1 boton"
+                            className="boton-registrar"
                         >
                             Registro 
                         </button>
                         <br />
                         <Link
                             to="/login"
-                            className="link text-decoration-none"
+                            className="enlace-inicio-sesion"
                         >
                             ¿Ya estas registrado?
                         </Link>
