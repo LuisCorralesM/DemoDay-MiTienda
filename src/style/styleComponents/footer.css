@@ -20,7 +20,12 @@
 
 /* MOBILE FIRST */
 
-/* Pié de página*/ 
+/* Pié de página*/
+.contenedor-footer{
+    position: relative;
+    bottom: -9px;
+}
+
 footer{
     background-color: var(--color-5);
     color: var(--color-4);

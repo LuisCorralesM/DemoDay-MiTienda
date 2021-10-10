@@ -19,3 +19,207 @@
 }
 
 /* MOBILE FIRST */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.contedor-nav-bar {
+    position: relative;
+    z-index: 3000;
+}
+
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--color-6);
+    color: #ebebd3;
+    padding: 1em 0;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.logo {
+    float: left;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logo-mi-tienda{
+    text-decoration: none;
+    color: var(--color-1);
+}
+
+.logo-mi-tienda:hover{
+    color: var(--color-7);
+}
+
+.site-nav {
+    top: 100%;
+    right: 0;
+    position: absolute;
+    background: var(--color-6);
+    clip-path: circle(0px at top right);
+    transition: clip-path ease-in-out 700ms;
+}
+
+.site-nav-open {
+    clip-path: circle(150% at top right);
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn-salir{
+    text-align: center;
+    margin: 0 30px;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 8px;
+    background-color: var(--color-5);
+    color: #fff;
+    font-weight: 900;
+}
+
+
+.btn-salir:hover{
+    background-color: var(--color-7);
+}
+
+
+.title-bienvenido{
+    color: var(--color-7);
+    font-weight: 900;
+}
+
+.site-nav li:last-child {
+    border-bottom: none;
+}
+
+.site-nav a {
+    color: #fff;
+    font-weight: 900;
+    display: block;
+    padding: 2em 6em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    background: var(--color-3);
+    color: var(--color-1);
+}
+
+.menu-toggle {
+
+    padding: 1em;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+
+}
+
+.menu-open .hamburger {
+    transform: rotate(45deg);
+}
+
+.menu-open .hamburger::before {
+    opacity: 0;
+}
+
+.menu-open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    background: #ebebd3;
+    height: 3px;
+    width: 1.75em;
+    border-radius: 3px;
+    transition: all ease-in-out 500ms;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+@media (min-width:700px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+        margin-right: 10px;
+        clip-path: initial;
+    }
+
+    .site-nav li {
+        display: inline-block;
+        border: none;
+    }
+
+    .site-nav a {
+        padding: 0;
+        margin-left: 3em;
+    }
+
+    .site-nav--icon {
+        display: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus {
+        background: transparent;
+    }
+
+}
+
+@media (max-width:700px) {
+    .logo{
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-nav{
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-nav li{
+        border-bottom: 2px solid #fff;
+    }
+
+    .btn-salir{
+        padding: 5px;
+        margin: 5px 40vw;
+        background-color: var(--color-7);
+    }
+}

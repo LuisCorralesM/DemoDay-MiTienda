@@ -11,14 +11,10 @@ const Tienda = () => {
     const { productos } = useSelector(store => store.producto)
     console.log(productos)
     const nombreTienda = localStorage.getItem('tienda')
-    console.log("nombre de la tienda seleccionada:" + nombreTienda)
+    console.log("nombre de la tienda seleccionada: " + nombreTienda)
     const productosTienda = productos.filter(producto=> producto.tienda === nombreTienda)
     console.log(productosTienda);
-
-    
-
-    
-    
+   
 
     const dispatch = useDispatch()
     // dispatch(listAsincronica())
