@@ -16,6 +16,7 @@
     --color-5: #6F8DAC;
     --color-6: #4D56B9;
     --color-7: #AA7278;
+    --color-8: #00a2e8;
 }
 
 /* MOBILE FIRST */
@@ -66,7 +67,7 @@
 .bienvenida-btn-continuar {
     width: 300px;
     margin: 50px 40vw;
-    background-color: var(--color-6);
+    background-color: var(--color-8);
     color: #fff;
     font-weight: bold;
     height: 50px;
@@ -75,7 +76,7 @@
 }
 
 .bienvenida-btn-continuar:hover {
-    background-color: var(--color-3);
+    background-color: var(--color-7);
 }
 
 @media screen and (max-width: 700px) {
@@ -115,3 +116,5 @@
     }
 
 }
+
+

@@ -23,6 +23,7 @@
     --color-5: #6F8DAC;
     --color-6: #4D56B9;
     --color-7: #AA7278;
+    --color-8: #00a2e8;
 }
 
 /* MOBILE FIRST */
@@ -36,6 +37,7 @@
     height: 100vh;
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633882475/fondo_mgmhf3.png); */
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633884363/fondo2_hwzxht.png); */
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633894601/fondo3_gaxha5.png); */
     background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633885429/fondo3_cxmvfa.png);
     background-size: cover;
 }

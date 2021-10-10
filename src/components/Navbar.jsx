@@ -20,8 +20,23 @@ export const Navbar = () => {
         menuOpen.classList.toggle('menu-open');
     }
 
+    // Animacion en cada cambio de página
+
+    const dispararAnimacion = ()=>{
+        const divAnimacion = document.getElementById('animacion')
+        divAnimacion.classList.toggle('animacion-open')
+        setTimeout(() => {
+            divAnimacion.classList.toggle('animacion-close')
+        }, 1000);
+        setTimeout(() => {
+            divAnimacion.classList.toggle('animacion-close')
+            divAnimacion.classList.toggle('animacion-open')
+        }, 1700);
+    }
+
     return (
         <div className="contedor-nav-bar">
+            <div id="animacion" className="animacion"></div>
             <header>
                 <div className="container">
                     <h1 className="logo"><Link to="/tienda" className="logo-mi-tienda"><span>Mi Tienda.com</span></Link></h1>
@@ -29,11 +44,11 @@ export const Navbar = () => {
                 <nav id="site-nav" className="site-nav">
                     <ul>
                         <li>Bienvenido: <span className="title-bienvenido">👤 {name}</span></li>
-                        <li><Link to="/landingpage/privado">Nosotros</Link></li>
-                        <li><Link to="/mapa">Elegir Tienda</Link></li>
-                        <li><Link to="/carrito">Carrito</Link></li>
-                        <li><Link to="/crudTendero">Admin</Link></li>
-                        <li onClick={handleLogout} className="btn-salir">Salir</li>
+                        <li><Link to="/landingpage/privado" onClick={()=>dispararAnimacion()}   >Nosotros</Link></li>
+                        <li><Link to="/mapa" onClick={()=>dispararAnimacion()}>Elegir Tienda</Link></li>
+                        <li><Link to="/carrito" onClick={()=>dispararAnimacion()}>Carrito</Link></li>
+                        <li><Link to="/crudTendero" onClick={()=>dispararAnimacion()}>Admin</Link></li>
+                        <li onClick={handleLogout} className="btn-salir" onClick={()=>dispararAnimacion()}>Salir</li>
                     </ul>
                 </nav>
                 <div id="menu-toggle" className="menu-toggle" onClick={() => cambiarClase()}>

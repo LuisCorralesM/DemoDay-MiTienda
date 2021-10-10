@@ -1,5 +1,5 @@
 /* Normalize */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,8 +21,9 @@
     --color-3: #1916A5;
     --color-4: #110C66;
     --color-5: #6F8DAC;
-    --color-6: #4D56B9;
-    --color-7: #AA7278;
+    --color-6: rgb(77, 86, 185);
+    --color-7: #aa7278;
+    --color-8: #00a2e8;
 }
 
 /* MOBILE FIRST */
@@ -31,21 +32,24 @@
 /* DESKTOP */
 
 
-.contenedorRegistro{
-    font-family: 'Roboto', sans-serif; 
+.contenedorRegistro {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633882475/fondo_mgmhf3.png); */
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633884363/fondo2_hwzxht.png); */
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633894630/fondo3_fyewmi.png); */
     background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633886507/fondo3_zubgri.png);
     background-size: cover;
 }
 
-.formulario-registro{
+.formulario-registro {
     text-align: center;
 }
 
-.titulo-registrarse{
+.titulo-registrarse {
     font-family: 'Indie Flower', cursive;
     color: var(--color-4);
     font-size: 30px;
@@ -53,39 +57,38 @@
     text-shadow: 2px 2px var(--color-6);
 }
 
-.cajita{
+.cajita {
     padding-top: 50px;
     margin: auto;
     width: 300px;
 }
 
-.input-formulario{
+.input-formulario {
     margin: 20px 0;
 }
 
-.boton-registrar{
+.boton-registrar {
     margin: 20px 0;
     padding: 4px 10px;
     font-size: 20px;
     border-radius: 8px;
-    background: linear-gradient(to right, var(--color-5), var(--color-3));    
+    background: linear-gradient(to right, var(--color-5), var(--color-3));
     color: #fff;
     border: none;
 }
 
-.boton-registrar:hover{
+.boton-registrar:hover {
     background: var(--color-7);
 
 }
 
-.enlace-inicio-sesion{
+.enlace-inicio-sesion {
     text-decoration: none;
     font-weight: 900;
     font-size: 20px;
     color: var(--color-4);
 }
 
-.enlace-inicio-sesion:hover{
+.enlace-inicio-sesion:hover {
     color: var(--color-3);
 }
-

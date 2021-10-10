@@ -7,7 +7,6 @@ export const LandingPage = () => {
     return (
         <>
             <div className="p-3 contenedor-bienvenida">
-
                 <div className="contenedor-bienvenida__enunciados">
                     <h2 className="contenedor-bienvenida__titulo">Bienvenido a <br /><span> Mi Tienda.com</span> </h2>
                     <p className="mi-tienda__slogan">Has las compras del hogar desde el sofá de tu casa y usa el tiempo libre para descansar</p>

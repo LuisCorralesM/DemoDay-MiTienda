@@ -16,12 +16,14 @@
     --color-5: #6F8DAC;
     --color-6: #4D56B9;
     --color-7: #AA7278;
+    --color-8: #00a2e8;
 }
 
 /* MOBILE FIRST */
 
 body {
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 .contedor-nav-bar {
@@ -37,7 +39,7 @@ body {
 }
 
 header {
-    background: var(--color-6);
+    background: var(--color-8);
     color: #ebebd3;
     padding: 1em 0;
     position: relative;
@@ -59,7 +61,10 @@ header::after {
 
 .logo-mi-tienda{
     text-decoration: none;
-    color: var(--color-1);
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
 }
 
 .logo-mi-tienda:hover{
@@ -70,7 +75,7 @@ header::after {
     top: 100%;
     right: 0;
     position: absolute;
-    background: var(--color-6);
+    background: var(--color-8);
     clip-path: circle(0px at top right);
     transition: clip-path ease-in-out 700ms;
 }
@@ -208,6 +213,11 @@ header::after {
         text-align: center;
     }
 
+    .logo-mi-tienda{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
     .site-nav{
         width: 100%;
         text-align: center;
@@ -222,4 +232,26 @@ header::after {
         margin: 5px 40vw;
         background-color: var(--color-7);
     }
+}
+
+/* ANIMACION */
+
+.animacion{
+    top: 100%;
+    right: 0;
+    position: absolute;
+    z-index: 2000;
+    background: var(--color-8);
+    clip-path: circle(0px at top right);
+    transition: clip-path ease-in-out 700ms;
+}
+
+.animacion-open{
+    width: 100vw;
+    height: 100vh;
+    clip-path: circle(150% at top right);
+}
+
+.animacion-close{
+    clip-path: circle(0% at top right);
 }
