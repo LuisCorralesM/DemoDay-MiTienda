@@ -13,42 +13,49 @@
     --color-2: #A0AFC5;
     --color-3: #1916A5;
     --color-4: #110C66;
-    --color-5: #6F8DAC;
+    --color-5: #00a2e8;
     --color-6: #4D56B9;
     --color-7: #AA7278;
-    --color-8: #00a2e8;
 }
 
 /* MOBILE FIRST */
 
 /* Pié de página*/
-.contenedor-footer{
+.contenedor-footer {
     position: relative;
     bottom: -9px;
 }
 
-footer{
+footer {
     background-color: var(--color-5);
     color: var(--color-4);
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     font-weight: 900;
     text-align: center;
     font-size: 13px;
+    position: absolute;
+    bottom: 0;
 }
 
 /* TABLETS */
 
-@media screen and (min-width: 768px) {
-    footer{
+@media screen and (min-width: 768px) and (max-width: 1000px){
+    footer {
+        background-color: var(--color-7);
         font-size: 16px;
+        position: absolute;
+        bottom: 0;
     }
-    
+
 }
 
 /* DESKTOP */
 
 @media screen and (min-width: 1000px) {
-    footer{
+    footer {
+        background-color: var(--color-5);
         font-size: 18px;
+        position: absolute;
+        bottom: 0;
     }
 }

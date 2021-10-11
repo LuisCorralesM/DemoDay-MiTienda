@@ -1,11 +1,13 @@
 // Navbar 
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { startLogout } from '../actions/actionLogin'
 import { useDispatch, useSelector } from 'react-redux'
 import '../style/styleComponents/navbar.css'
 
-export const Navbar = () => {
+const Navbar = (props) => {
+    const { history } = props;
+
     const dispatch = useDispatch()
     const handleLogout = () => {
         dispatch(startLogout())
@@ -22,16 +24,33 @@ export const Navbar = () => {
 
     // Animacion en cada cambio de página
 
-    const dispararAnimacion = ()=>{
+    const dispararAnimacion = (e, direccion) => {
+        e.preventDefault();
         const divAnimacion = document.getElementById('animacion')
         divAnimacion.classList.toggle('animacion-open')
         setTimeout(() => {
             divAnimacion.classList.toggle('animacion-close')
+            if (direccion === '/tienda') {
+                history.push('/tienda')
+                }else if(direccion === '/landingpage/privado'){
+                    history.push('/landingpage/privado')
+                }else if(direccion === '/carrito'){
+                    history.push('/carrito')
+                }else if(direccion === '/crudTendero'){
+                    history.push('/crudTendero')
+                }
+    
         }, 500);
         setTimeout(() => {
             divAnimacion.classList.toggle('animacion-close')
             divAnimacion.classList.toggle('animacion-open')
         }, 1000);
+
+        if(direccion === '/mapa'){
+            setTimeout(() => {
+                history.push('/mapa')
+            }, 900);
+        }
     }
 
     return (
@@ -39,19 +58,19 @@ export const Navbar = () => {
             <div id="animacion" className="animacion"></div>
             <header>
                 <div className="container">
-                    <h1 className="logo"><Link to="/tienda" className="logo-mi-tienda"><span>Mi Tienda.com</span></Link></h1>
+                    <h1 className="logo" onClick={(e) => dispararAnimacion(e, '/tienda')}><span className="logo-mi-tienda">Mi Tienda.com</span></h1>
                 </div>
                 <nav id="site-nav" className="site-nav">
                     <ul>
                         <li>Bienvenido: <span className="title-bienvenido">👤 {name}</span></li>
-                        <li><Link to="/landingpage/privado" onClick={()=>dispararAnimacion()}   >Nosotros</Link></li>
-                        <li><Link to="/mapa" onClick={()=>dispararAnimacion()}>Elegir Tienda</Link></li>
-                        <li><Link to="/carrito" onClick={()=>dispararAnimacion()}>Carrito</Link></li>
-                        <li><Link to="/crudTendero" onClick={()=>dispararAnimacion()}>Admin</Link></li>
-                        <li onClick={handleLogout} className="btn-salir" onClick={()=>dispararAnimacion()}>Salir</li>
+                        <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/landingpage/privado')}>Nosotros</li>
+                        <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/mapa')}>Elegir Tienda</li>
+                        <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/carrito')}>Carrito</li>
+                        <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/crudTendero')}>Admin</li>
+                        <li onClick={handleLogout} className="btn-salir" onClick={(e) => dispararAnimacion(e, 'none')}>Salir</li>
                     </ul>
                 </nav>
-                <div id="menu-toggle" className="menu-toggle" onClick={() => cambiarClase()}>
+                <div id="menu-toggle" className="menu-toggle" onClick={(e) => cambiarClase(e)}>
                     <div className="hamburger"></div>
                 </div>
             </header>
@@ -59,3 +78,5 @@ export const Navbar = () => {
         </div>
     )
 }
+
+export default withRouter(Navbar)

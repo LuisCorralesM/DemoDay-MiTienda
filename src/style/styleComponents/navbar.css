@@ -23,7 +23,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .contedor-nav-bar {
@@ -65,6 +65,7 @@ header::after {
     font-size: 24px;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .logo-mi-tienda:hover{
@@ -88,6 +89,17 @@ header::after {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.list-item-nav{
+    font-size: 20px;
+    font-weight: 900;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.list-item-nav:hover{
+    opacity: 0.8;
 }
 
 .btn-salir{
