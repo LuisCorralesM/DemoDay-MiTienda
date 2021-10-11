@@ -2,6 +2,7 @@ import {  typesProducto } from "../types/types";
 import { addDoc,collection,deleteDoc,getDocs, query,where,doc, updateDoc } from "@firebase/firestore"
 import {db} from "../firebase/firebaseConfig"
 
+
 // Agregar productos
 
 //Acción síncrona

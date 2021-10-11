@@ -50,7 +50,7 @@ const Mapa = () => {
     let a = (Math.sin(difLat / 2) * Math.sin(difLat / 2)) + Math.cos(latitud[i]) * Math.cos(state.latitude) * (Math.sin(difLong / 2) * Math.sin(difLong / 2)); // parámetro "a"
     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));  // parámetro "c"
     distancias = {
-      valor: radioTierra * c.toFixed(3)
+      valor: (radioTierra * (c.toFixed(4)))
     }
     proximidad.push(distancias);
   }
@@ -65,13 +65,11 @@ const Mapa = () => {
   const productosTienda = productos.map(producto => producto.nombre)
 
   const emisionDistancia = (distance) => {
-    for (let i = 0; i < proximidad.length; i++) {
 
-      if (proximidad[i].valor < 1) {
-        return ("Emites menos de 120 g de CO2")// 120 g CO2/km.
-      } else {
-        return ("Emites " + (proximidad[i].valor * 120) + " g de CO2");
-      }
+    if (distance < 1) {
+      return ("emites menos de 120 g de CO2")// 120 g CO2/km.
+    } else {
+      return ("emites " + (distance * 120) + " g de CO2");
     }
   }
 
@@ -84,7 +82,7 @@ const Mapa = () => {
       </div>
       <div className="contenedor-list-map">
         <div id="mapContainer">
-          <MapContainer center={[6.230833, -75.590553]} zoom={12} scrollWheelZoom={true}>
+          <MapContainer center={[6.280833, -75.560553]} zoom={12} scrollWheelZoom={true}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -110,25 +108,43 @@ const Mapa = () => {
 
           </MapContainer>
         </div>
-        <div id="misTiendas">
-          <h4>Tiendas Cercanas:</h4>
-          <ul>
-            {
-              // <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
-
-
-              locationExample.map(tiendas => (<><Link onClick={() => handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
-              </>))
-            }
-
-
-          </ul>
-          <ul>
-            {proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>))}
-          </ul>
-          <ul>
-            {emisionDistancia(proximidad.valor)}
-          </ul>
+        <div className="tabla-tiendas">
+          <h1 className="encabezado-tabla"> Tiendas cercanas</h1>
+          <table>
+            <thead>
+              <tr className="cabecera-tabla">
+                <th>
+                  Tienda
+                </th>
+                <th>
+                  Distancia
+                </th>
+                <th>
+                  Huella de carbono
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="cuerpo-tabla">
+                <td>
+                  {
+                    locationExample.map(tiendas => (<><Link onClick={() => handleSeleccion(tiendas.nombre)} to="/tienda" className="enlace-tienda"> {tiendas.nombre} </Link> <br /> <hr />
+                    </>))
+                  }
+                </td>
+                <td>
+                  {proximidad.map(dist => (<b> a {dist.valor.toFixed(2)} Km de ti<br /><hr /></b>))}
+                </td>
+                <td>
+                  {proximidad.map(dist => (<b>{emisionDistancia(dist.valor.toFixed(2))} <br /><hr /></b>))}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 className="pie-tabla-mensaje">
+            *Entre más cerca esté la tienda que elijas más pequeña es la huella de carbono
+            <br /><br /><span>Contribuyamos a salvar el planeta!</span>
+          </h2>
         </div>
       </div>
     </div>

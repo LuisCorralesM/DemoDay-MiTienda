@@ -1,20 +1,23 @@
 [
     {
-        "latitude":"6.1715563",
-        "longitude":"-75.328303",
+        "latitude":"6.3015563",
+        "longitude":"-75.548303",
         "nombre":"Tienda El Flamingo",
-        "barrio":"barrio #1"
+        "barrio":"barrio #1",
+        "direccion":""
     },
     {
         "latitude":"6.3042242",
         "longitude":"-75.5484134",
         "nombre":"Tienda Del Campo",
-        "barrio":"barrio #2"
+        "barrio":"barrio #2",
+        "direccion":""
     },
     {
         "latitude":"6.3027685",
         "longitude":"-75.5468792",
         "nombre":"Tienda El Diamante",
-        "barrio":"barrio #3"
+        "barrio":"barrio #3",
+        "direccion":""
     }
 ]

@@ -45,5 +45,9 @@
 /* imagen loading*/
 .imageLoading{
     display: block;
-    margin: 0 auto
+    margin: 0 auto;
+}
+.alert{
+    width: 100vw;
+    height: 100vh;
 }

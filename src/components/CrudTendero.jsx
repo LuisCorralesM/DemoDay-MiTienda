@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 
 import { useForm } from '../hooks/useForm';
 import { fileUpload } from '../helpers/fileUpload';
 import { agregarAsincrono, Edit, listAsincronica } from '../actions/actionProducto';
 import { ListarProductos } from './ListarProducto';
 import { activeProduct } from "../actions/actionProducto"
+import { withRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import '../style/styleComponents/crudTendero.css';
+import { setLocale } from 'yup';
 
-export const CrudTendero = () => {
+const CrudTendero = (props) => {
+
+    const { history } = props;
 
     const dispatch = useDispatch();
     const [recargar, setRecargar] = useState(false);
+    const { name } = useSelector(store => store.login)
 
     const [values, handleInputChange, reset, setValues] = useForm({
         codigo: 0,
@@ -71,10 +78,18 @@ export const CrudTendero = () => {
         setEditform(false)
         setRecargar(!recargar)
     }
-
+    
     // validar usuario admin
+    // NOTA: FALTA HACER EL LOGOUT
+    const usuarioAdmin = [];
 
-    const [usuarioValido, setUsuarioValido] = useState(false);
+    useEffect(() => {
+        if(JSON.parse(localStorage.getItem("uAdmin"))){
+            setUsuarioValido(true)
+        }
+    }, []);
+
+    const [usuarioValido, setUsuarioValido] = useState(false);  //OJO: inicializarlo en false
 
     const validarUsuarioAdmin = () => {
         const
@@ -82,11 +97,28 @@ export const CrudTendero = () => {
             password = document.getElementById('inputPassword').value
 
         if (email === 'luis' && password === '123') {
-            alert('Bienvenido')
+            Swal.fire({
+                title: `Bienvenido ${name} `,
+                icon: 'success',
+                confirmButtonText: 'Continuar'
+              })
+            usuarioAdmin.push(email,password)
+            localStorage.setItem("uAdmin", JSON.stringify(usuarioAdmin))
             setUsuarioValido(true)
         }else{
-            alert('Usuario incorrecto')
+            Swal.fire({
+                title: `Usted no puede acceder a la zona de administración de productos `,
+                icon: 'error',
+                confirmButtonText: 'Reintentarlo'
+              })
+            
         }
+    }
+
+    // Estadisticas, ir a:
+    
+    const RedireccionEstadisticas = () =>{
+            props.history.push('/estadisticas');
     }
 
     return (
@@ -98,13 +130,13 @@ export const CrudTendero = () => {
                             <div className="contenedor-login">
                                 <form className="form-signin formulario-registro">
                                     <div>
-                                        <h1 className="titulo-login"> Iniciar Sesion </h1>
-
+                                        <h1 className="titulo-login"> Administracion de productos de Mi Tienda </h1>
+                                        <p> Esta seccion te permitira agregar productos si eres uno de los usuarios tenderos que esta registrado en nuestra base de datos. Ingresa con las credenciales suministradas por el administrador de la página </p>
                                         <input
-                                            type="email"
+                                            type="text"
                                             id="inputEmail"
                                             className="form-control mt-1"
-                                            placeholder="Email"
+                                            placeholder="Username"
                                             required=""
                                             name="email"
                                         />
@@ -141,8 +173,11 @@ export const CrudTendero = () => {
                 (usuarioValido)
                     ? (
                         <div>
-                            <form>
+                            <form className = "formProductos">
+                                <div id="gestionP">
                                 <h1> Zona de gestión de productos </h1>
+                                <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
+                                </div>
                                 <div className="form-group">
                                     <div className="form-group col-md-4">
                                         <label htmlFor="codigo">Código de producto </label>
@@ -233,14 +268,7 @@ export const CrudTendero = () => {
                                             <option value="Tienda El Diamante"> Tienda El Diamante</option>
 
                                         </select>
-                                        {/* <input 
-                    className="form-control" 
-                    type="text" 
-                    name="tienda" 
-                    id="fecha" 
-                    value={tienda}
-                    onChange={handleInputChange}/>
-                 */}
+                                       
                                     </div>
 
 
@@ -299,3 +327,5 @@ export const CrudTendero = () => {
         </div>
     )
 }
+
+export default withRouter(CrudTendero)

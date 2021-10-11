@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { listAsincronica } from '../actions/actionProducto'
 import { Link } from "react-router-dom"
 import '../style/styleComponents/tienda.css'
+import Swal from 'sweetalert2'
 
 const Tienda = () => {
   
@@ -44,11 +45,18 @@ const Tienda = () => {
         });
         console.log(productoCarrito);
         localStorage.setItem("carro", JSON.stringify(productoCarrito))
+        Swal.fire({
+            title: `Producto añadido correctamente`,
+
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          })
+        
     }
 
     return (
 
-        <div>
+        <div className="contenedor-tienda">
 
             <h1>{nombreTienda}</h1>
 

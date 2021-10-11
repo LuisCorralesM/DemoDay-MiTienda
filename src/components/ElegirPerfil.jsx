@@ -18,7 +18,7 @@ export const ElegirPerfil = () => {
                     <div className="vendedor">
                         <Link to="/auth/login" className="enlace-perfiles-perfil">
                             <img src="assets/img/vendedor.png" alt="icono portafolio" className="img-vendedor" />
-                            <figcaption className="descripcion-img">Vendedor</figcaption>
+                            <figcaption className="descripcion-img">Administrador </figcaption>
                         </Link>
                     </div>
                 </div>

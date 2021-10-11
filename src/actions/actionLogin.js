@@ -1,6 +1,12 @@
 import {types} from "../types/types"
 import { getAuth, signInWithPopup,signInWithEmailAndPassword, signOut } from "@firebase/auth"
 import { google, facebook } from "../firebase/firebaseConfig"
+import Swal from 'sweetalert2'
+import { useSelector } from "react-redux";
+
+
+
+
 
 //accion asincronica
 // se debe realizar un dispatch para que se ejecute cuando se resuelve el asincronismo
@@ -69,7 +75,12 @@ export const loginSincrono = (id, displayname) => {
 
 // Cerrar Sesión 
 export const startLogout = () => {
-    alert('salir')
+    
+    Swal.fire({
+        title: `Vuelve pronto a Mi tienda !!`,
+        icon: 'info',
+        
+      })
     return async( dispatch ) => {
         const auth = getAuth();
         console.log(auth);

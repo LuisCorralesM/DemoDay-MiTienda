@@ -4,7 +4,8 @@ import AppRouters from './routers/AppRouters';
 import './style/index.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-// import swal from 'sweetalert'
+import Swal from 'sweetalert2'
+
 import {Provider} from "react-redux"
 import {store} from "./store/store"
 

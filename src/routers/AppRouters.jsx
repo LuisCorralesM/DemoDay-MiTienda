@@ -12,9 +12,10 @@ import { PrivateRouter } from './PrivateRouter';
 import { PublicRouter } from './PublicRouter'
 import Loading from '../components/Loading';
 import { Carrito } from "../components/Carrito"
-import { CrudTendero } from "../components/CrudTendero"
+import CrudTendero from "../components/CrudTendero"
 import Mapa from "../components/Mapa"
 import Tienda from '../components/Tienda';
+import {Estadisticas} from '../components/Estadisticas';
 
 //Permite verificar si el usuario inicio sesion: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419
 
@@ -98,6 +99,13 @@ const AppRouters = () => {
                     exact
                     path="/tienda"
                     component={Tienda}
+                    isAuthenticated={isLoggedIn}
+                />
+
+                <PrivateRouter
+                    exact
+                    path="/estadisticas"
+                    component={Estadisticas}
                     isAuthenticated={isLoggedIn}
                 />
 

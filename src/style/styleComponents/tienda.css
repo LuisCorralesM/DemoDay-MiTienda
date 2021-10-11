@@ -26,6 +26,10 @@
 
 
 /* contenedor global */
+.contenedor-tienda{
+    min-height: 85vh;
+}
+
 .contenedor-producto {
     display: flex;
     width: 100%;
