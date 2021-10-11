@@ -7,15 +7,15 @@ import '../style/styleComponents/tienda.css'
 import Swal from 'sweetalert2'
 
 const Tienda = () => {
-  
+
 
     const { productos } = useSelector(store => store.producto)
     console.log(productos)
     const nombreTienda = localStorage.getItem('tienda')
     console.log("nombre de la tienda seleccionada: " + nombreTienda)
-    const productosTienda = productos.filter(producto=> producto.tienda === nombreTienda)
+    const productosTienda = productos.filter(producto => producto.tienda === nombreTienda)
     console.log(productosTienda);
-   
+
 
     const dispatch = useDispatch()
     // dispatch(listAsincronica())
@@ -27,16 +27,16 @@ const Tienda = () => {
     }
 
     let productoCarrito = []
-    
+
     const agregarCarrito = (id) => {
 
         productos.forEach(producto => {
 
-            if(producto.codigo === id){
+            if (producto.codigo === id) {
                 producto.compra = 1;
                 if (localStorage.getItem("carro")) {
                     let historialCompra = JSON.parse(localStorage.getItem("carro"))
-                    historialCompra.forEach(prod =>{
+                    historialCompra.forEach(prod => {
                         productoCarrito.push(prod)
                     })
                 }
@@ -50,15 +50,15 @@ const Tienda = () => {
 
             icon: 'success',
             confirmButtonText: 'Aceptar'
-          })
-        
+        })
+
     }
 
     return (
 
         <div className="contenedor-tienda">
 
-            <h1>{nombreTienda}</h1>
+            <h1 className="tienda-seleccionada">{nombreTienda}</h1>
 
             {
                 (productosTienda) ?
@@ -69,13 +69,21 @@ const Tienda = () => {
 
                                 <div className="contenedor-producto" >
                                     <div className="contenedor-img">
-                                        <img src={element.imagen} className="imagen-producto" alt="..." />
+                                        <img src={element.imagen} alt="..." className="img-producto" />
+                                        <div className="contenedor-img-pequeñas">
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
+                                        </div>
                                     </div>
                                     <div className="contenedor-descripcion">
-                                        <h1 className="nombre-producto">Nombre: {element.nombre}</h1> 
-                                        <p className="descripcion" >Descripción: {element.descripcion}</p>
-                                        <p className="precio">Precio: ${element.precio}</p>
-                                        <button className= "bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
+                                        <h1 className="nombre-producto">{element.nombre}</h1>
+                                        <p className="descripcion" >{element.descripcion}</p>
+                                        <p className="precio">${element.precio}</p>
+                                        <button className="bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
                                         <Link to="/carrito"><button className="btn-ir-carrito">Ir al carrito</button></Link>
                                     </div>
                                 </div>

@@ -22,26 +22,48 @@
 
 
 .formProductos {
-    padding: 5%;
+    
+    padding-left: 10%;
     font-family: 'Roboto', sans-serif;
-    margin-left: 33%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: var(--color-1);
     
 }
 
-
-.btn-dark {
-    margin:1% 5% 0% 10%;
-    background-color: var(--color-8);
+.interfazCrud {
+    width: 100%;
+    padding: 2%;
+    font-family: 'Roboto', sans-serif;
 
 }
+
+
+#btn-enviar {
+   margin-top:2%;
+    background-color: var(--color-8);
+}
+
+
 
 .tablaProductos {
-    margin:1% 5% 0% 10%;
-    
+    text-align: center;
 }
 
-.tablaProductos > tr {
-    padding:2%
+
+.tablaProductos {
+    width:100%;
+    padding:1%;
+    border:solid black 1px
+
+}
+
+.tablaProductos tr {
+    margin:2%;
+    border:solid black 1px;
+    padding:2%;
+    
+
 }
 
 #btnEstadisticas{
@@ -73,7 +95,8 @@
   }
   
   #btnEstadisticas:hover span {
-    padding-right: 25px;
+    padding-right: 10px;
+    color: var(--color-1);
   }
   
   #btnEstadisticas:hover span:after {
