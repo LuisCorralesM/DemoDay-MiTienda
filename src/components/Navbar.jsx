@@ -38,6 +38,8 @@ const Navbar = (props) => {
                     history.push('/carrito')
                 }else if(direccion === '/crudTendero'){
                     history.push('/crudTendero')
+                }else if(direccion === 'none'){
+                    handleLogout()
                 }
     
         }, 500);
@@ -50,6 +52,7 @@ const Navbar = (props) => {
             setTimeout(() => {
                 history.push('/mapa')
             }, 900);
+           
         }
     }
 

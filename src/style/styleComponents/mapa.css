@@ -20,10 +20,34 @@
 }
 
 /* MOBILE FIRST */
-
-h1{
-    text-align:center;
+.contenedor-elegir-tienda{
+    min-height: 84.5vh;
 }
+
+.contenedor-enunciado{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.enunciado-titulo{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif; 
+    color: var(--color-6);
+}
+
+.enunciado-titulo-span{
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--color-3);
+    text-shadow: 2px 2px 2px var(--color-1);
+}
+
+.contenedor-list-map{
+    display: grid;
+    grid-template-columns: 45vw 55vw;
+    gap: 15px;
+}
+
 #mapContainer{
     display: flex;
     justify-content: center;

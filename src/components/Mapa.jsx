@@ -1,13 +1,13 @@
 // Mapa
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import locationExample from '../data/locationExample.json'
-import { Link } from 'react-router-dom'
+import locationExample from '../data/locationExample.json';
+import { Link } from 'react-router-dom';
 // import {Navbar} from './Navbar'
-import '../style/styleComponents/mapa.css'
 import { useDispatch } from "react-redux";
 import { activeProduct } from "../actions/actionProducto";
 import { useSelector } from "react-redux";
+import '../style/styleComponents/mapa.css';
 
 const Mapa = () => {
 
@@ -59,61 +59,77 @@ const Mapa = () => {
   const handleSeleccion = (tienda) => {
     localStorage.setItem("tienda", tienda)
     console.log(localStorage.setItem("tienda", tienda))
-   
+
   }
   const { productos } = useSelector(store => store.producto)
-  const productosTienda = productos.map(producto=> producto.nombre)
-  
+  const productosTienda = productos.map(producto => producto.nombre)
 
+  const emisionDistancia = (distance) => {
+    for (let i = 0; i < proximidad.length; i++) {
+
+      if (proximidad[i].valor < 1) {
+        return ("Emites menos de 120 g de CO2")// 120 g CO2/km.
+      } else {
+        return ("Emites " + (proximidad[i].valor * 120) + " g de CO2");
+      }
+    }
+  }
 
   return (
-    <div>
+    <div className="contenedor-elegir-tienda">
+      <div className="contenedor-enunciado">
+        <h1 className="enunciado-titulo">Para una mejor experiencia  <br />
+          <span className="enunciado-titulo-span"> Elige la tienda más cercana</span>
+        </h1>
+      </div>
+      <div className="contenedor-list-map">
+        <div id="mapContainer">
+          <MapContainer center={[6.230833, -75.590553]} zoom={12} scrollWheelZoom={true}>
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
 
-      <h1>Buscar Tienda</h1>
-      <h3>Mis tiendas cercanas...</h3>
-      <div id="mapContainer">
-        <MapContainer center={[6.230833, -75.590553]} zoom={12} scrollWheelZoom={true}>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+            {/*Prueba: mostrar tiendas en mapa!!*/}
 
-          {/*Prueba: mostrar tiendas en mapa!!*/}
-
-          {locationExample.map(tienda => (
-            <Marker position={[tienda.latitude, tienda.longitude]}>
+            {locationExample.map(tienda => (
+              <Marker position={[tienda.latitude, tienda.longitude]}>
+                <Popup>
+                  {tienda.nombre} <br /> {tienda.barrio}
+                </Popup>
+              </Marker>
+            )
+            )}
+            <Marker position={[state.latitude, state.longitude]}>
               <Popup>
-                {tienda.nombre} <br /> {tienda.barrio}
+                Tu ubicación
               </Popup>
             </Marker>
-          )
-          )}
-          <Marker position={[state.latitude, state.longitude]}>
-            <Popup>
-              Tu ubicación
-            </Popup>
-          </Marker>
 
-          {/* ////////////////////////////////////// */}
+            {/* ////////////////////////////////////// */}
 
-        </MapContainer>
-      </div>
-      <div id="misTiendas">
-        <h4>Tiendas Cercanas:</h4>
-        <ul>
-          {
-            // <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
-            
-           
-           locationExample.map(tiendas => (<><Link onClick = {()=>handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
-            </> ))
-          }
+          </MapContainer>
+        </div>
+        <div id="misTiendas">
+          <h4>Tiendas Cercanas:</h4>
+          <ul>
+            {
+              // <Link to="/tienda">{locationExample.map(tiendas => (<b> {tiendas.nombre} <br /> </b>))} </Link>
 
 
-        </ul>
-        <ul>
-          {proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>))}
-        </ul>
+              locationExample.map(tiendas => (<><Link onClick={() => handleSeleccion(tiendas.nombre)} to="/tienda"> {tiendas.nombre} </Link> <br />
+              </>))
+            }
+
+
+          </ul>
+          <ul>
+            {proximidad.map(dist => (<b> a {dist.valor} km de ti!! <br /></b>))}
+          </ul>
+          <ul>
+            {emisionDistancia(proximidad.valor)}
+          </ul>
+        </div>
       </div>
     </div>
   );

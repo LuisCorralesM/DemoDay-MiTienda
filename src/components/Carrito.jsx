@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
 import PasarelaPago from './PasarelaPago'
+import '../style/styleComponents/carrito.css'
 
 export const Carrito = () => {
     
@@ -104,7 +104,7 @@ export const Carrito = () => {
         }
         
     return (
-        <div>
+        <div className="contenedor-carrito">
             {(pasarela) ? (
                 <div >
                 <h1> Carrito de compras </h1>
