@@ -243,7 +243,7 @@ header::after {
     z-index: 2000;
     background: var(--color-8);
     clip-path: circle(0px at top right);
-    transition: clip-path ease-in-out 700ms;
+    transition: clip-path ease-in-out 500ms;
 }
 
 .animacion-open{

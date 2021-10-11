@@ -27,11 +27,11 @@ export const Navbar = () => {
         divAnimacion.classList.toggle('animacion-open')
         setTimeout(() => {
             divAnimacion.classList.toggle('animacion-close')
-        }, 1000);
+        }, 500);
         setTimeout(() => {
             divAnimacion.classList.toggle('animacion-close')
             divAnimacion.classList.toggle('animacion-open')
-        }, 1700);
+        }, 1000);
     }
 
     return (
