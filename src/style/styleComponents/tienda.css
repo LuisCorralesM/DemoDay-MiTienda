@@ -76,7 +76,7 @@
 }
 
 .img-producto-pequeña:hover{
-    border: 2px solid var(--color-4);
+    border: 3px solid var(--color-4);
 }
 
 .nombre-producto {
@@ -122,9 +122,17 @@
     color: #FFFFFF;
 }
 
+.bnt-agregar-carrito:hover{
+    background-color: var(--color-3);
+}
+
 .btn-ir-carrito {
     border-radius: 1em;
     padding: 0.5em;
     background-color: #2d2;
     color: #ffffff;
+}
+
+.btn-ir-carrito:hover{
+    background-color: rgb(4, 187, 4);
 }

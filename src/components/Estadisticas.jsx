@@ -4,7 +4,7 @@ export const Estadisticas = () => {
 
     return (
         <div>
-            <p> HOLA, estás en Estadísticas</p>
+            <p> En desarrollo</p>
         </div>
     )
 }
