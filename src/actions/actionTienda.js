@@ -1,9 +1,9 @@
-// import {typesTienda } from "../types/types"
+import {typesTienda } from "../types/types"
 
-// export const activeTienda = (tienda) => {
-//     return {
-//             type:typesTienda.select,
-//             payload: tienda
-// }
-// }
+export const activeTienda = (tienda) => {
+    return {
+            type:typesTienda.select,
+            payload: tienda
+}
+}
 
