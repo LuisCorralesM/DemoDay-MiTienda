@@ -12,13 +12,13 @@ export const ElegirPerfil = () => {
                     <div className="persona">
                         <Link to="/auth/login" className="enlace-perfiles-perfil">
                             <img src="assets/img/persona.png" alt="icono persona" className="img-persona" />
-                            <figcaption className="descripcion-img">Persona</figcaption>
+                            <figcaption className="descripcion-img"> Comprador </figcaption>
                         </Link>
                     </div>
                     <div className="vendedor">
                         <Link to="/auth/login" className="enlace-perfiles-perfil">
                             <img src="assets/img/vendedor.png" alt="icono portafolio" className="img-vendedor" />
-                            <figcaption className="descripcion-img">Administrador </figcaption>
+                            <figcaption className="descripcion-img"> Tendero </figcaption>
                         </Link>
                     </div>
                 </div>

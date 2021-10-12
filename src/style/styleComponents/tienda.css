@@ -136,3 +136,14 @@
 .btn-ir-carrito:hover{
     background-color: rgb(4, 187, 4);
 }
+
+.btn-contraer{
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: var(--color-7);
+    color: #ffffff;
+}
+
+.btn-contraer:hover{
+    background-color: #a56168;
+}
