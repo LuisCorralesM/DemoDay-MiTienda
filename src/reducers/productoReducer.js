@@ -35,10 +35,10 @@ export const productoReducer = (state = initialState, action) => {
             return {
                 productos: state.productos.filter(prod => prod.nombre !== action.payload)
             }
-        // case typesTienda.select:
-        //     return {...state,
-        //         payload:action.payload
-        //     }
+        case typesTienda.select:
+            return {...state,
+                payload:action.payload
+            }
         default:
             return state
 

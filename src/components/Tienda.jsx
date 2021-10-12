@@ -40,8 +40,8 @@ const Tienda = () => {
         }
     }
 
-    const agregarCarritoLista = (lista1) => {
-        lista1.forEach(element => {
+    const agregarCarritoLista = (lista) => {
+        lista.forEach(element => {
             element.compra = 1;
             if (localStorage.getItem("carro")) {
                 let historialCompra = JSON.parse(localStorage.getItem("carro"))
@@ -121,9 +121,9 @@ const Tienda = () => {
             {
                 (pintar) ?
                     (
-                        <div>
-                            <h1>Lista de mercado </h1>
-                            <div className="contenedor-producto" >
+                        <div className="contenedor-lista-personalizada" >
+                            <h1 className="titulo-lista-personalizada">Lista de mercado #1</h1>
+                            <div className="contenedor-tabla">
                                 <table>
                                     <thead>
                                         <tr className="cabecera-tabla">
@@ -135,6 +135,12 @@ const Tienda = () => {
                                             </th>
                                             <th>
                                                 Precio
+                                            </th>
+                                            <th>
+                                                Cantidad
+                                            </th>
+                                            <th>
+                                                Disponibles
                                             </th>
                                         </tr>
                                     </thead>
@@ -157,22 +163,28 @@ const Tienda = () => {
                                                             element.precio
                                                         }
                                                     </td>
+                                                    <td>
+                                                        1   
+                                                    </td>
+                                                    <td>
+                                                        {
+                                                            element.cantidad
+                                                        }
+                                                    </td>
                                                 </tr>
 
                                             ))
                                         }
                                     </tbody>
-                                    <tfoot>
-                                        <button className="bnt-agregar-carrito" onClick={() => agregarCarritoLista(lista1)}> Agregar lista al carrito </button>
-                                        <Link to="/carrito"><button className="btn-ir-carrito">Ir al carrito</button></Link>
-                                        <button onClick={()=> setPintar(false)} className="btn-contraer">Contraer tabla</button>
-
-                                    </tfoot>
                                 </table>
+                                <div className="btns-tabla-lista">
+                                    <button className="bnt-tabla-agregar-carrito" onClick={() => agregarCarritoLista(lista1)}> Agregar lista al carrito </button>
+                                    <Link to="/carrito"><button className="btn-tabla-ir-carrito">Ir al carrito</button></Link>
+                                    <button onClick={() => setPintar(false)} className="btn-tabla-contraer">Contraer tabla</button>
+                                </div>
                             </div>
                             <br />
-                            <h2>Seguir agragando productos al carrito <span className="fs-1">↓</span></h2>
-                            <hr />
+                            <h2 className="subtitulo-lista-personalizada">Seguir agregando productos al carrito <span className="fs-1">↓</span></h2>
                             <hr />
                         </div>
                     )
@@ -202,6 +214,7 @@ const Tienda = () => {
                                         <h1 className="nombre-producto">{element.nombre}</h1>
                                         <p className="descripcion" >{element.descripcion}</p>
                                         <p className="precio">${element.precio}</p>
+                                        <p className="precio">Disponibles: {element.cantidad}</p>
                                         <button className="bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
                                         <Link to="/carrito"><button className="btn-ir-carrito">Ir al carrito</button></Link>
                                     </div>

@@ -3,6 +3,11 @@ import { addDoc,collection,deleteDoc,getDocs, query,where,doc, updateDoc } from 
 import {db} from "../firebase/firebaseConfig"
 
 
+
+
+
+
+
 // Agregar productos
 
 //Acción síncrona

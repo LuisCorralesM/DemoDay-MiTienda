@@ -31,6 +31,7 @@
 }
 
 .tienda-seleccionada{
+    font-size: 60px;
     text-align: center;
     font-weight: 900;
     color: var(--color-3);
@@ -137,13 +138,70 @@
     background-color: rgb(4, 187, 4);
 }
 
-.btn-contraer{
+
+
+/* Lista personalizada */
+
+.contenedor-lista-personalizada{
+    /* background-color: rgb(240, 239, 239); */
+    text-align: center;
+    padding: 50px 0;
+}
+
+.titulo-lista-personalizada{
+    text-align: center;
+    font-weight: 900;
+    color: var(--color-1);
+    text-shadow: 4px 4px 4px var(--color-3);
+}
+
+.contenedor-tabla{
+    padding: 30px 260px;
+    width: 100%;
+}
+
+/* botones */
+.btns-tabla-lista{
+    width: 100%;
+    padding: 10px 0;
+}
+
+.bnt-tabla-agregar-carrito{
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: var(--color-6);
+    color: #FFFFFF;
+}
+
+.bnt-tabla-agregar-carrito:hover{
+    background-color: var(--color-3);
+}
+
+.btn-tabla-ir-carrito{
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: #2d2;
+    color: #ffffff;
+}
+
+.btn-tabla-ir-carrito:hover{
+    background-color: rgb(4, 187, 4);
+}
+
+.btn-tabla-contraer{
     border-radius: 1em;
     padding: 0.5em;
     background-color: var(--color-7);
     color: #ffffff;
 }
 
-.btn-contraer:hover{
+.btn-tabla-contraer:hover{
     background-color: #a56168;
+}
+
+.subtitulo-lista-personalizada{
+    text-align: center;
+    font-weight: 900;
+    color: var(--color-2);
+    text-shadow: 4px 4px 4px var(--color-4);
 }
