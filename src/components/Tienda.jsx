@@ -10,13 +10,14 @@ const Tienda = () => {
     const { productos } = useSelector(store => store.producto)
     const nombreTienda = localStorage.getItem('tienda')
     let productoCarrito = []
+    const [listaSelect, setListaSelect] = useState([])
     // console.log(productos)
 
     // Listas de mercado pre-definidas ----------------------------------------------
 
     const lista1 = [];
     productos.forEach(producto => {
-        if (producto.nombre === 'Cerveza Corona' && producto.tienda === nombreTienda) {
+        if (producto.nombre === 'Panela' && producto.tienda === nombreTienda) {
             lista1.push(producto)
         } else if (producto.nombre === 'Pan Baguette' && producto.tienda === nombreTienda) {
             lista1.push(producto)
@@ -24,7 +25,22 @@ const Tienda = () => {
             lista1.push(producto)
         } else if (producto.nombre === 'Arroz' && producto.tienda === nombreTienda) {
             lista1.push(producto)
-        }
+        } else if (producto.nombre === 'Huevos Mixtos' && producto.tienda === nombreTienda) {
+            lista1.push(producto) }
+    })
+
+    const lista2 = [];
+    productos.forEach(producto => {
+        if (producto.nombre === 'Queso Sabanero' && producto.tienda === nombreTienda) {
+            lista2.push(producto)
+        } else if (producto.nombre === 'Pan Baguette' && producto.tienda === nombreTienda) {
+            lista2.push(producto)
+        } else if (producto.nombre === 'Leche en caja' && producto.tienda === nombreTienda) {
+            lista2.push(producto)
+        } else if (producto.nombre === 'Arroz' && producto.tienda === nombreTienda) {
+            lista2.push(producto)
+        } else if (producto.nombre === 'Huevos Mixtos' && producto.tienda === nombreTienda) {
+            lista2.push(producto) }
     })
 
 
@@ -32,11 +48,21 @@ const Tienda = () => {
 
     const [pintar, setPintar] = useState(false)
 
-    const pintarLista = (clave) => {
+    const pintarLista1 = (clave) => {
         localStorage.setItem("lista1", JSON.stringify(lista1))
 
         if (clave = 'pintar') {
-            setPintar(true)
+            setPintar(!pintar)
+            setListaSelect(lista1)
+        }
+    }
+
+    const pintarLista2 = (clave) => {
+        localStorage.setItem("lista2", JSON.stringify(lista2))
+
+        if (clave = 'pintar') {
+            setPintar(!pintar)
+            setListaSelect(lista2)
         }
     }
 
@@ -110,8 +136,11 @@ const Tienda = () => {
 
             <div className="listas-de-mercado">
                 <ul>
-                    <button onClick={() => { pintarLista('pintar') }}>
+                    <button className = "btn btn-primary mx-2 my-1" onClick={() => { pintarLista1('pintar') }}>
                         Lista de mercado #1
+                    </button>
+                    <button className = "btn btn-primary mx-2 my-1" onClick={() => { pintarLista2('pintar') }}>
+                        Lista de mercado #2
                     </button>
                 </ul>
             </div>
@@ -122,7 +151,7 @@ const Tienda = () => {
                 (pintar) ?
                     (
                         <div className="contenedor-lista-personalizada" >
-                            <h1 className="titulo-lista-personalizada">Lista de mercado #1</h1>
+                            <h1 className="titulo-lista-personalizada">Lista de mercado </h1>
                             <div className="contenedor-tabla">
                                 <table>
                                     <thead>
@@ -146,7 +175,7 @@ const Tienda = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            lista1.map((element, index) => (
+                                            listaSelect.map((element, index) => (
                                                 <tr key={index} className="cuerpo-tabla">
                                                     <td>
                                                         {
@@ -178,9 +207,9 @@ const Tienda = () => {
                                     </tbody>
                                 </table>
                                 <div className="btns-tabla-lista">
-                                    <button className="bnt-tabla-agregar-carrito" onClick={() => agregarCarritoLista(lista1)}> Agregar lista al carrito </button>
-                                    <Link to="/carrito"><button className="btn-tabla-ir-carrito">Ir al carrito</button></Link>
-                                    <button onClick={() => setPintar(false)} className="btn-tabla-contraer">Contraer tabla</button>
+                                    <button className="bnt-tabla-agregar-carrito mx-2 my-1" onClick={() => agregarCarritoLista(lista1)}> Agregar lista al carrito </button>
+                                    <Link to="/carrito"><button className=" btn-tabla-ir-carrito mx-2 my-1">Ir al carrito</button></Link>
+                                    <button onClick={() => setPintar(false)} className="  btn-tabla-contraer mx-2 my-1"> Cerrar lista de mercado </button>
                                 </div>
                             </div>
                             <br />
@@ -215,8 +244,8 @@ const Tienda = () => {
                                         <p className="descripcion" >{element.descripcion}</p>
                                         <p className="precio">${element.precio}</p>
                                         <p className="precio">Disponibles: {element.cantidad}</p>
-                                        <button className="bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
-                                        <Link to="/carrito"><button className="btn-ir-carrito">Ir al carrito</button></Link>
+                                        <button className=" mx-2 my-1 bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
+                                        <Link to="/carrito"><button className=" mx-2 my-1 btn-ir-carrito">Ir al carrito</button></Link>
                                     </div>
                                 </div>
                             </div>

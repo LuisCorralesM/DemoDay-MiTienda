@@ -130,14 +130,13 @@
 .btn-ir-carrito {
     border-radius: 1em;
     padding: 0.5em;
-    background-color: #2d2;
+    background-color:var(--color-5);
     color: #ffffff;
 }
 
 .btn-ir-carrito:hover{
-    background-color: rgb(4, 187, 4);
+    background-color: var(--color-2) ;
 }
-
 
 
 /* Lista personalizada */
@@ -205,3 +204,8 @@
     color: var(--color-2);
     text-shadow: 4px 4px 4px var(--color-4);
 }
+
+.listas-de-mercado button , .btns-tabla-lista  button {
+    background-color: var(--color-6);
+}
+
