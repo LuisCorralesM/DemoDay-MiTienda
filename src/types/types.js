@@ -23,7 +23,8 @@ export const typesProducto = {
 
 }
 
-export const typesTienda = {
-    select:"[Tienda] Seleccionada"
+export const typesCompra = {
+    registerCompra:'carrito',
+    
     
 }
