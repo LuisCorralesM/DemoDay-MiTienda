@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PasarelaPago from './PasarelaPago'
+import { withRouter } from 'react-router-dom'
 import '../style/styleComponents/carrito.css'
 
-export const Carrito = () => {
-    
+export const Carrito = (props) => {
+    const { history } = props;
     useEffect(() => {
         // NOTA: arreglar el estado inicial de 'tCantidad' para que muestre bien las cantidades cuando se recarga la pagina 
         //como se hizo con 'tPrecio'
@@ -13,15 +14,22 @@ export const Carrito = () => {
         let initialStateCantidad = 0;
 
         const carrito1 = JSON.parse(localStorage.getItem('carro'));
-        initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
+
+        if(JSON.parse(localStorage.getItem('carro'))){
+            return initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
+        }
 
         setTCantidad(initialStateCantidad);
+
 
         // estado inicial de 'tPrecio'
         let initialStatePrecio = 0;
 
         const carrito2 = JSON.parse(localStorage.getItem("carro"));
-        initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
+
+        if(JSON.parse(localStorage.getItem('carro'))){
+            return initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
+        }
 
         setTPrecio(initialStatePrecio);
     }, [])
@@ -90,7 +98,8 @@ export const Carrito = () => {
             })
             setRecargar(!recargar)
         },
-        vaciarCarro = () => {
+        vaciarCarro = (e,accion) => {
+            dispararAnimacion(e,accion)
             setTCantidad(0)
             setTPrecio(0)
             localStorage.clear();
@@ -102,6 +111,35 @@ export const Carrito = () => {
             
 
         }
+
+            // Animacion en cada cambio de página
+
+    const dispararAnimacion = (e, accion) => {
+        e.preventDefault();
+
+        const divAnimacion = document.getElementById('animacion')
+        divAnimacion.classList.toggle('animacion-open')
+        setTimeout(() => {
+            divAnimacion.classList.toggle('animacion-close')
+            // if (accion === '') {
+            //     history.push('/')
+            //     }else if(accion === '/landingpage/privado'){
+            //         history.push('/landingpage/privado')
+            //     }
+    
+        }, 500);
+        setTimeout(() => {
+            divAnimacion.classList.toggle('animacion-close')
+            divAnimacion.classList.toggle('animacion-open')
+        }, 1000);
+
+        // if(direccion === '/mapa'){
+        //     setTimeout(() => {
+        //         history.push('/mapa')
+        //     }, 900);
+           
+        // }
+    }
         
     return (
         <div className="contenedor-carrito">
@@ -159,7 +197,7 @@ export const Carrito = () => {
                         <th scope="row" colspan="2">Total productos</th>
                         <td>{tCantidad}</td>
                         <td>
-                            <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={() => vaciarCarro()}>
+                            <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={(e) => vaciarCarro(e, 'vaciar-carrito')}>
                                 Vaciar todo
                             </button>
                             <button onClick = {finalizarCompra}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >

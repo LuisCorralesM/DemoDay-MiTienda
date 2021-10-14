@@ -11,8 +11,6 @@ import '../style/styleComponents/mapa.css';
 
 const Mapa = () => {
 
-
-
   const [state, setstate] = useState({
     longitude: 0,
     latitude: 0
