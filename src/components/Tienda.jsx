@@ -29,6 +29,7 @@ const Tienda = () => {
             lista1.push(producto)
         } else if (producto.nombre === 'Huevos Mixtos' && producto.tienda === nombreTienda) {
             lista1.push(producto) }
+            
     })
 
     const lista2 = [];

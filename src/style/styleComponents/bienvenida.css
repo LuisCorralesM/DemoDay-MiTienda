@@ -35,7 +35,7 @@
 }
 
 .contenedor-bienvenida__titulo {
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 600;
 }
 
@@ -105,6 +105,7 @@
     .parrafo1 {
         font-size: 14px;
         padding: 0 5px;
+        text-align: justify;
     }
 
     .bienvenida-btn-continuar {
@@ -113,8 +114,35 @@
         height: 40px;
         line-height: 40px;
         border-radius: 16px;
+        text-align: justify;
     }
 
 }
+
+
+.mision {
+    display:flex;
+    align-content: center;
+    background-color: var(--color-1);
+    padding: 5px;
+    border-radius: 20px;
+    text-align: justify;
+
+}
+
+.bienvenida {
+    display:flex;
+    align-content:center;
+    width:100%;
+    margin-left:30%
+}
+
+.bienvenida img {
+    width:100px;
+    height:100px;
+}
+
+
+
 
 

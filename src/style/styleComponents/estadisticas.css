@@ -31,14 +31,14 @@
 }
 
 .graficos{
-    margin: 5vh 15vw 3vh 15vw;
+    margin: 5vh 10vw 3vh 10vw;
     font-size: 14px;
-    background-color: var(--color-7);
+    /* background-color: var(--color-7); */
     padding: 50px;
 }
 
 .grafico{
-    width: 30vw;
-    height: 60vh;
+    width: 40vw;
+    height: 70vh;
     padding: 20px;
 }
