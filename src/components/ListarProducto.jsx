@@ -18,7 +18,7 @@ export const ListarProductos = ({ handleEdit }) => {
 
     return (
         <div>
-            <h1> Productos disponibles en la tienda </h1>
+            <h1 className = "titulo-lista"> Productos disponibles en la tienda </h1>
             <table className = "tablaProductos">
                 <thead>
                     <tr>

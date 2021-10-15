@@ -28,20 +28,22 @@
 /* contenedor global */
 .contenedor-tienda{
     min-height: 85vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 .tienda-seleccionada{
     font-size: 60px;
     text-align: center;
     font-weight: 900;
-    color: var(--color-3);
+    color: var(--color-8);
     text-shadow: 2px 2px 2px var(--color-1);
 }
 
 .contenedor-producto {
     display: flex;
     width: 100%;
-    font-family: 'Roboto', sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* contenedor img */
@@ -108,7 +110,7 @@
 
 .nombre-producto{
     font-size: 50px;
-    color: var(--color-3);
+    color: var(--color-8);
     font-weight: 900;
 }
 
@@ -163,6 +165,7 @@
 .btns-tabla-lista{
     width: 100%;
     padding: 10px 0;
+
 }
 
 .bnt-tabla-agregar-carrito{

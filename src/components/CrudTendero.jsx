@@ -174,12 +174,17 @@ const CrudTendero = (props) => {
                 (usuarioValido)
                     ? (
                         <div className = "interfazCrud">
-                            <h1> Zona de gestión de productos </h1>
+                            <h1 className = "titulo-crud"> Zona de gestión de productos </h1>
                             <form className = "formProductos">
                                 <div id="gestionP">
                                 
-                                <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
+                                
+                                <h2> Este formulario te permite registrar nuevos productos a tu tienda. </h2>
+                                
                                 </div>
+                                
+
+                               
                                 <div className="form-group">
                                     <div className="form-group col-md-4">
                                         <label htmlFor="codigo">Código de producto </label>
@@ -295,7 +300,7 @@ const CrudTendero = (props) => {
 
                     /> */}
                                     </div>
-                                    <div>
+                                    <div  className="form-group col-md-4">
 
 
                                        
@@ -316,12 +321,16 @@ const CrudTendero = (props) => {
                                         
                                     </div>
 
+                                    <div className="form-group col-md-4">
+                                    <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
+                                    </div>
+
 
                                 </div>
                             </form>
 
                             <ListarProductos handleEdit={handleEdit} />
-                            <Comunicate/>
+                            
 
                         </div>
 

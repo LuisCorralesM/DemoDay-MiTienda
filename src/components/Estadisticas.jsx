@@ -172,7 +172,7 @@ export const Estadisticas = () => {
         />
       </div>
 
-      <table>
+      {/* <table>
         <thead>
           <tr>
             <th>Producto</th>
@@ -183,7 +183,7 @@ export const Estadisticas = () => {
           <td>Arroz</td>
           <td>50%</td>
         </tbody>
-      </table>
+      </table> */}
     </div>
   )
 }

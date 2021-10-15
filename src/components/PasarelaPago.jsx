@@ -41,8 +41,6 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
 
         )
     }
-
-
     const {asunto, mensaje } = state
     const enviarEmail = async(e) => {
         e.preventDefault()
@@ -64,8 +62,8 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
     return (
         <div className="contenedor-pasarela">
             <div className="contenedor-factura">
-                <h1 className="titulo-pasarela"> Pasarela de pago</h1>
-                <h2 className="nombre-usuario">Sr/a {name}</h2>
+                <h1 className="titulo-pasarela"> Resumen de su compra </h1>
+                <h3 className="nombre-usuario">Sr/a {name}</h3>
                 <p>Factura # {nFactura}</p>
                 {
                     (total) ?
@@ -89,79 +87,14 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
                                 }
                                 <li>Total productos: {TotalProductos}</li>
                                 <li><span>Total a pagar: </span>{TotalPrecio}</li>
-                               <button onClick ={(e)=>handleFinalizar(e)}> Finalizar compra </button>
+                               <button id ="btn-compra" className ="btn btn-compra" onClick ={(e)=>handleFinalizar(e)}> Finalizar compra </button>
                            
                             </div>
                         ) :
                         <span>Vacio</span>
                 }
             </div>
-            {/* <div className="Registro py-5 container text-center">
-                <form className="form-signin formulario-registro" >
-                    <div
-                        className="cajita"
-                    >
-
-
-
-                        <input
-                            type="text"
-                            placeholder="Apellido paterno"
-                            name="apellido_paterno"
-                            className="form-control"
-                            autoComplete="off"
-                            required=""
-
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Apellido materno"
-                            name="apellido_materno"
-                            className="form-control"
-                            autoComplete="off"
-                            required=""
-                        />
-
-                        <input
-                            type="text"
-                            name="nombre"
-                            className="form-control"
-                            placeholder="Nombre"
-                            required=""
-                        />
-
-                        <input
-                            type="email"
-                            name="username"
-                            className="form-control"
-                            placeholder="Email"
-                            required=""
-                        />
-
-                        <input
-                            type="Password"
-                            name="password"
-                            className="form-control"
-                            placeholder="Password"
-                            required=""
-                        />
-                        <br />
-                        <button
-                            type="submit"
-                            className="btn btn-primary btn-block mb-1 boton"
-                        >
-                            Finalizar compra
-                        </button>
-                        <br />
-
-
-
-                    </div>
-                </form>
-
-            </div>
- */}
+           
 
 
         </div>

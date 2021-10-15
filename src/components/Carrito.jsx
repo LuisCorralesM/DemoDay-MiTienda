@@ -15,9 +15,9 @@ export const Carrito = (props) => {
 
         const carrito1 = JSON.parse(localStorage.getItem('carro'));
 
-        if(JSON.parse(localStorage.getItem('carro'))){
+        if (JSON.parse(localStorage.getItem('carro'))) {
             initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
-        }else{
+        } else {
             initialStateCantidad = 0;
         }
 
@@ -29,9 +29,9 @@ export const Carrito = (props) => {
 
         const carrito2 = JSON.parse(localStorage.getItem("carro"));
 
-        if(JSON.parse(localStorage.getItem('carro'))){
+        if (JSON.parse(localStorage.getItem('carro'))) {
             initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
-        }else{
+        } else {
             initialStatePrecio = 0;
         }
         setTPrecio(initialStatePrecio);
@@ -101,22 +101,22 @@ export const Carrito = (props) => {
             })
             setRecargar(!recargar)
         },
-        vaciarCarro = (e,accion) => {
-            dispararAnimacion(e,accion)
+        vaciarCarro = (e, accion) => {
+            dispararAnimacion(e, accion)
             setTCantidad(0)
             setTPrecio(0)
             localStorage.clear();
             setRecargar(!recargar)
         }
-        
-        const finalizarCompra= (e,accion) => {
-            dispararAnimacion(e,accion)
-            setTimeout(() => {
-                setPasarela(!pasarela)
-            }, 500);
-        }
 
-            // Animacion en cada cambio de página
+    const finalizarCompra = (e, accion) => {
+        dispararAnimacion(e, accion)
+        setTimeout(() => {
+            setPasarela(!pasarela)
+        }, 500);
+    }
+
+    // Animacion en cada cambio de página
 
     const dispararAnimacion = (e, accion) => {
         e.preventDefault();
@@ -130,7 +130,7 @@ export const Carrito = (props) => {
             //     }else if(accion === '/landingpage/privado'){
             //         history.push('/landingpage/privado')
             //     }
-    
+
         }, 500);
         setTimeout(() => {
             divAnimacion.classList.toggle('animacion-close')
@@ -141,82 +141,86 @@ export const Carrito = (props) => {
         //     setTimeout(() => {
         //         history.push('/mapa')
         //     }, 900);
-           
+
         // }
     }
-        
+
     return (
         <div className="contenedor-carrito">
             {(pasarela) ? (
                 <div >
-                <h1> Carrito de compras </h1>
-                <table class="table">
-                    <thead style={{ color: "white;" }}>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Acción</th>
-                            <th scope="col">Precio unidad</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    {
-                        (carrito) ?
-                            (
-                                carrito.map((element, index) => (
-                                    <tbody key={index} id="items" style={{ color: "white;" }}>
-                                        <tr>
-                                            <th scope="row">{element.codigo}</th>
-                                            <td>{element.nombre}</td>
-                                            <td>{element.compra}</td>
-                                            <td>
-                                                <button
-                                                    className="btn btn-info btn-sm sumar"
-                                                    onClick={() => btnSumar(element.codigo)}
-                                                >
-                                                    +
-                                                </button>
-                                                <button
-                                                    className="btn btn-danger btn-sm restar"
-                                                    onClick={() => btnRestar(element.codigo)}
-                                                >
-                                                    -
-                                                </button>
-                                            </td>
-                                            <td>$ <span>{element.precio}</span></td>
-                                            <td>$ <span>{element.compra * element.precio}</span></td>
-                                        </tr>
-                                    </tbody>
-
-                                )
-                                )
-                            ) :
-                            <tr id="footer">
-                                <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                    <h1 className="titulo-carrito"> Carrito de compras </h1>
+                    <table className="table">
+                        <thead style={{ color: "white;" }}>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Acción</th>
+                                <th scope="col">Precio unidad</th>
+                                <th scope="col">Total</th>
                             </tr>
-                    }
+                        </thead>
+                        {
+                            (carrito) ?
+                                (
+                                    carrito.map((element, index) => (
+                                        <tbody key={index} id="items" style={{ color: "white;" }}>
+                                            <tr>
+                                                <th scope="row">{element.codigo}</th>
+                                                <td>{element.nombre}</td>
+                                                <td>{element.compra}</td>
+                                                <td>
+                                                    <button
+                                                        className="btn btn-info btn-sm btnsumar"
+                                                        id="btn-carrito-pagar"
+                                                        onClick={() => btnSumar(element.codigo)}
+                                                    >
+                                                        +
+                                                    </button>
+                                                    <button
+                                                        className="btn  btn-danger btn-sm btnrestar"
+                                                        onClick={() => btnRestar(element.codigo)}
+                                                        id="vaciar-carrito"
+                                                    >
+                                                        -
+                                                    </button>
+                                                </td>
+                                                <td>$ <span>{element.precio}</span></td>
+                                                <td>$ <span>{element.compra * element.precio}</span></td>
+                                            </tr>
+                                        </tbody>
 
-                    <tfoot style={{ color: "white;" }}>
-                        <th scope="row" colspan="2">Total productos</th>
-                        <td>{tCantidad}</td>
-                        <td>
-                            <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={(e) => vaciarCarro(e, 'vaciar-carrito')}>
-                                Vaciar todo
-                            </button>
-                            <button onClick = {(e)=>finalizarCompra(e,'finalizar-compra')}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
-                                 Pagar
-                            </button>
-                        </td>
-                        <td className="font-weight-bold"></td>
-                        <td className="font-weight-bold">$ <span>{tPrecio}</span></td>
-                    </tfoot>
-                </table>
-            </div>
-            ): <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad} vaciar = {vaciarCarro}/>}
-            
-           
-            
+                                    )
+                                    )
+                                ) :
+                                <tr id="footer">
+                                    <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                                </tr>
+                        }
+
+                        <tfoot >
+                            <th scope="row" colspan="2">Total productos</th>
+                            <td>{tCantidad}</td>
+                            <td>
+
+                                <button className="btn btn-info" id="btn-carrito-pagar" onClick={(e) => finalizarCompra(e, 'finalizar-compra')}   >
+                                    Pagar
+                                </button>
+                                <button className="btn btn-danger" id="vaciar-carrito" onClick={(e) => vaciarCarro(e, 'vaciar-carrito')}>
+                                    Vaciar todo
+                                </button>
+
+                            </td>
+                            <td className="font-weight-bold"></td>
+                            <td className="font-weight-bold">$ <span>{tPrecio}</span></td>
+                        </tfoot>
+                    </table>
+                </div>
+            ) : <PasarelaPago total={carrito} TotalPrecio={tPrecio} TotalProductos={tCantidad} vaciar={vaciarCarro} />}
+
+
+
         </div>
     )
 }

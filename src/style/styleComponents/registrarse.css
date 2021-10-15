@@ -33,7 +33,7 @@
 
 
 .contenedorRegistro {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -50,7 +50,7 @@
 }
 
 .titulo-registrarse {
-    font-family: 'Indie Flower', cursive;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--color-4);
     font-size: 30px;
     font-weight: 900;

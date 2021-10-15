@@ -7,7 +7,7 @@ export const ElegirPerfil = () => {
     return (
         <>
             <div className="contenedor-elegirPerfil">
-                <h1 className="elegirPerfil__titulo">Mi Tienda.com </h1>
+                <h1 className="elegirPerfil__titulo">Mi Tienda  </h1>
                 <div className="contenedor-opcion__perfiles">
                     <div className="persona">
                         <Link to="/auth/login" className="enlace-perfiles-perfil">
