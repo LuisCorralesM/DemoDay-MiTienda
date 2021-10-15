@@ -15,22 +15,33 @@ export const Estadisticas = () => {
     productos.push(element.nombre)
   }); 
 
-  productos.forEach(producto => {
+  productos.forEach((producto, i) => {
 
-    let contador = 0;
+    let contador = 1;
 
-    infoTienda.forEach(element => {
+    infoTienda.forEach((element, j) => {
       if (producto === element.nombre) {
+        // si contador es igual a 0 agregamos el producto, de lo contrario, quiere decir que ya existe
+        if(contador === 1){
+          prodAcumulado.push(
+            {
+              nombre:element.nombre,
+              veces: element.compra
+            }
+          )  
+        }
+        if(contador > 1){
+          // si es la primer vez que se agrega, al sumarle 'contador' al 'prodAcumulado[i].veces', no pasa nada porque contador vale '1'
+          // si es la segunda vez, ya contador vale '2' y se debe sumar ambas cantidades
+          
+          // prodAcumulado[i].veces = prodAcumulado[i].compra + prodAcumulado[j].compra
+        }
         contador++
-        prodAcumulado.push(
-          {
-            nombre: producto,
-            veces: contador
-          }
-        )
       }
     });
   });
+  
+  // console.log("carro acu" + prodAcumulado);
 
 
   const dataGrafico = [];
@@ -40,7 +51,7 @@ export const Estadisticas = () => {
       {
         color: "#6F8DAC",
         title: prodAcumulado[0].nombre,
-        value: Math.round((prodAcumulado[0].veces))}
+        value: Math.round((prodAcumulado[0].veces / prodAcumulado[0].veces)*100)}
     )
   } else if (prodAcumulado.length === 2) {
     let
@@ -48,8 +59,8 @@ export const Estadisticas = () => {
       valor2 = Math.round((prodAcumulado[1].veces)),
       total = valor1 + valor2,
 
-      respuesta1 = (100/total)*valor1,
-      respuesta2 = (100/total)*valor2
+      respuesta1 = Math.round((100/total)*valor1),
+      respuesta2 = Math.round((100/total)*valor2)
 
     console.log(valor1);
     console.log(valor2);
@@ -72,9 +83,9 @@ export const Estadisticas = () => {
       valor3 = Math.round(((prodAcumulado[2].veces))),
       total = valor1 + valor2 + valor3,
 
-      respuesta1 = (100/total)*valor1,
-      respuesta2 = (100/total)*valor2,
-      respuesta3 = (100/total)*valor3
+      respuesta1 = Math.round((100/total)*valor1),
+      respuesta2 = Math.round((100/total)*valor2),
+      respuesta3 = Math.round((100/total)*valor3)
 
     dataGrafico.push(
       {
@@ -126,14 +137,14 @@ export const Estadisticas = () => {
     )
   }
 
-  console.log('__: ' + dataGrafico);
+  // console.log('__: ' + dataGrafico);
 
   // console.log(productos);
-  console.log(prodAcumulado);
+  // console.log(prodAcumulado);
 
   return (
     <div className="contenedor-graficos">
-      <h3 className="titulo-graficos"> Estadísticas por tienda:</h3>
+      <h3 className="titulo-graficos"> Estadísticas de ventas:</h3>
       <div className="graficos">
         <PieChart
           className="grafico"

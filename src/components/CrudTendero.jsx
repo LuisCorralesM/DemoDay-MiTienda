@@ -267,7 +267,8 @@ const CrudTendero = (props) => {
                                             <option value="Tienda El Flamingo"> Tienda El Flamingo</option>
                                             <option value="Tienda Del Campo" selected> Tienda Del Campo</option>
                                             <option value="Tienda El Diamante"> Tienda El Diamante</option>
-
+                                            <option value="Tienda Los Arrayanes"> Tienda Los Arrayanes</option>
+                                            <option value="Tienda El Guadual"> Tienda El Guadual</option>
                                         </select>
                                        
                                     </div>

@@ -29,7 +29,7 @@
 }
 
 .elegirPerfil__titulo {
-    background-color: var(--color-4);
+    background-color: var(--color-8);
     font-family: 'Indie Flower', cursive;
     font-size: 30px;
     font-weight: 900;
@@ -76,7 +76,7 @@
     text-align: center;
     font-weight: 900;
     color: var(--color-4);
-    background-color: var(--color-6);
+    background-color: var(--color-8);
 }
 
 /* DESKTOP */

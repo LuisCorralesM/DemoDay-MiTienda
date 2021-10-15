@@ -61,7 +61,7 @@ const Navbar = (props) => {
             <div id="animacion" className="animacion"></div>
             <header>
                 <div className="container">
-                    <h1 className="logo" onClick={(e) => dispararAnimacion(e, '/tienda')}><span className="logo-mi-tienda">Mi Tienda</span></h1>
+                    <h1 className="logo" onClick={(e) => dispararAnimacion(e, '/tienda')}> <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1634302438/Capturaaaaa_eyanrt.png" alt="" /><span className="logo-mi-tienda">Mi Tienda </span></h1>
                 </div>
                 <nav id="site-nav" className="site-nav">
                     <ul>

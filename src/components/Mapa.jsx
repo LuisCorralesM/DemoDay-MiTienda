@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { activeProduct } from "../actions/actionProducto";
 import { useSelector } from "react-redux";
 import '../style/styleComponents/mapa.css';
+import * as L from "leaflet";
 
 const Mapa = () => {
 
@@ -71,6 +72,21 @@ const Mapa = () => {
     }
   }
 
+// Create icon
+const LeafIcon = L.Icon.extend({
+  options: {}
+});
+
+// Defining icons type
+const blueIcon = new LeafIcon({
+  iconUrl:
+    "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|abcdef&chf=a,s,ee00FFFF"
+}),
+greenIcon = new LeafIcon({
+  iconUrl:
+    "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|2ecc71&chf=a,s,ee00FFFF"
+});
+
   return (
     <div className="contenedor-elegir-tienda">
       <div className="contenedor-enunciado">
@@ -89,14 +105,14 @@ const Mapa = () => {
             {/*Prueba: mostrar tiendas en mapa!!*/}
 
             {locationExample.map(tienda => (
-              <Marker position={[tienda.latitude, tienda.longitude]}>
+              <Marker position={[tienda.latitude, tienda.longitude]} icon={blueIcon}>
                 <Popup>
                   {tienda.nombre} <br /> {tienda.barrio}
                 </Popup>
               </Marker>
             )
             )}
-            <Marker position={[state.latitude, state.longitude]}>
+            <Marker position={[state.latitude, state.longitude]} icon={greenIcon}>
               <Popup>
                 Tu ubicación
               </Popup>
