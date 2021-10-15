@@ -1,16 +1,63 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../style/styleComponents/pasarelaDePago.css'
+import axios from 'axios'
 
 //NOTA hacer que el #Factura no se pierda al recargar la pagina (idea: que el numero se genere solo cuando se da click en el btn pasarela)
 const nFactura = Math.round(Math.random() * 100000)
 
 const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
     const { name } = useSelector(store => store.login)
+    const { email} = useSelector(store => store.login)
+    console.log("email"+ email)
 
-    const handleFinalizar = () => {
+    const [state, setstate] = useState({
+        
+        asunto:"Confirmacion de la compra desde Mi Tienda", 
+        mensaje:`El precio total de la compra fue ${TotalPrecio}. Acabas de comprar en mi tienda. Esperamos que vuelvas pronto. `,
+        
+    })
+
+    const productosTotal = ()=> {
+        
+        
+            return(
+                
+                total.map((element, index) => (
+                <div key={index} id="items">
+                    <ul className="lista-productos">
+                        <li>Nombre: {element.nombre}</li>
+                        <li>Descripcion: {element.descripcion}</li>
+                        <li>Cantidad: {element.compra}</li>
+                        <li>Precion unitario: ${element.precio}</li>
+                        <li>Precio total: ${element.precio * element.compra}</li>
+                    </ul>
+                </div>
+
+            )
+            )
+            
+
+        )
+    }
+
+
+    const {asunto, mensaje } = state
+    const enviarEmail = async(e) => {
+        e.preventDefault()
+        await axios.post ("/api/form",{
+            name,
+            email,
+            asunto,
+            mensaje,
+            
+        })
+    }
+
+    const handleFinalizar = (e) => {
         vaciar()
+        enviarEmail(e)
         
     }
 
@@ -42,7 +89,7 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
                                 }
                                 <li>Total productos: {TotalProductos}</li>
                                 <li><span>Total a pagar: </span>{TotalPrecio}</li>
-                               <button onClick ={handleFinalizar}><Link to ="/mapa" > Finalizar compra </Link> </button>
+                               <button onClick ={(e)=>handleFinalizar(e)}> Finalizar compra </button>
                            
                             </div>
                         ) :

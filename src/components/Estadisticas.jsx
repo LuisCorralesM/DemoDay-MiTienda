@@ -4,6 +4,8 @@ import { PieChart } from 'react-minimal-pie-chart'
 export const Estadisticas = () => {
        let infoTienda = JSON.parse(localStorage.getItem("carro"));
 
+      
+
     return (
         <div>
             <h3> Estadísticas por tienda:</h3>

@@ -13,6 +13,7 @@ const Navbar = (props) => {
         dispatch(startLogout())
     }
     const { name } = useSelector(store => store.login)
+    const { photo } = useSelector(store => store.login)
 
     // Menu hamburguesa
     const cambiarClase = () => {
@@ -65,7 +66,7 @@ const Navbar = (props) => {
                 </div>
                 <nav id="site-nav" className="site-nav">
                     <ul>
-                        <li>Bienvenido: <span className="title-bienvenido">👤 {name}</span></li>
+                        <li>Bienvenido: <span className="title-bienvenido"> <img src={photo} alt="" /> {name}</span></li>
                         <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/landingpage/privado')}>Nosotros</li>
                         <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/mapa')}>Elegir Tienda</li>
                         <li className="list-item-nav" onClick={(e) => dispararAnimacion(e, '/carrito')}>Carrito</li>

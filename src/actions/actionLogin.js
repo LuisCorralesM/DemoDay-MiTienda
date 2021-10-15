@@ -19,7 +19,7 @@ export const loginEmailPassword = (email,password) =>{
         signInWithEmailAndPassword(auth,email,password)
        .then(({user}) =>{
              dispatch(
-                loginSincrono(user.uid,user.displayName)
+                loginSincrono(user.uid,user.displayName, user.email, user.photoURL)
              ) 
              console.log(user)
              console.log('Bienvenid@');
@@ -38,7 +38,9 @@ export const loginGoogle = () => {
         const auth = getAuth();
         signInWithPopup(auth,google)
         .then(({user}) => {
-            dispatch(loginSincrono(user.uid,user.displayName))
+            console.log(user)
+            dispatch(loginSincrono(user.uid,user.displayName, user.email, user.photoURL))
+            console.log(user.email)
         })
         .catch(e =>{
             console.log(e);
@@ -53,7 +55,7 @@ export const loginFacebook = () => {
         const auth = getAuth();
         signInWithPopup(auth,facebook)
         .then(({user}) => {
-            dispatch(loginSincrono(user.uid,user.displayName))
+            dispatch(loginSincrono(user.uid,user.displayName, user.email, user.photoURL))
         })
         .catch(e =>{
             console.log(e);
@@ -63,12 +65,14 @@ export const loginFacebook = () => {
 
 // Login manual
 
-export const loginSincrono = (id, displayname) => {
+export const loginSincrono = (id, displayname,email,photo) => {
     return {
         type: types.login,
         payload:{
             id, 
-            displayname
+            displayname,
+            email,
+            photo
         }
     }
 }

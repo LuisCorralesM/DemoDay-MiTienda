@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import '../style/styleComponents/crudTendero.css';
 import { setLocale } from 'yup';
+import Comunicate from './Comunicate';
 
 const CrudTendero = (props) => {
 
@@ -319,6 +320,7 @@ const CrudTendero = (props) => {
                             </form>
 
                             <ListarProductos handleEdit={handleEdit} />
+                            <Comunicate/>
 
                         </div>
 
