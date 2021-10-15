@@ -16,7 +16,9 @@ export const Carrito = (props) => {
         const carrito1 = JSON.parse(localStorage.getItem('carro'));
 
         if(JSON.parse(localStorage.getItem('carro'))){
-            return initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
+            initialStateCantidad = carrito1.reduce((acc, { compra }) => acc + compra, 0);
+        }else{
+            initialStateCantidad = 0;
         }
 
         setTCantidad(initialStateCantidad);
@@ -28,9 +30,10 @@ export const Carrito = (props) => {
         const carrito2 = JSON.parse(localStorage.getItem("carro"));
 
         if(JSON.parse(localStorage.getItem('carro'))){
-            return initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
+            initialStatePrecio = carrito2.reduce((acc, { compra, precio }) => acc + (precio * compra), 0);
+        }else{
+            initialStatePrecio = 0;
         }
-
         setTPrecio(initialStatePrecio);
     }, [])
 
@@ -106,10 +109,11 @@ export const Carrito = (props) => {
             setRecargar(!recargar)
         }
         
-        const finalizarCompra= () => {
-            setPasarela(!pasarela)
-            
-
+        const finalizarCompra= (e,accion) => {
+            dispararAnimacion(e,accion)
+            setTimeout(() => {
+                setPasarela(!pasarela)
+            }, 500);
         }
 
             // Animacion en cada cambio de página
@@ -200,7 +204,7 @@ export const Carrito = (props) => {
                             <button className="btn-carrito-vaciar" id="vaciar-carrito" onClick={(e) => vaciarCarro(e, 'vaciar-carrito')}>
                                 Vaciar todo
                             </button>
-                            <button onClick = {finalizarCompra}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
+                            <button onClick = {(e)=>finalizarCompra(e,'finalizar-compra')}className="btn btn-info btn-sm" id="finalizar-compra" style={{ color: "white" }, { fontSize: "16px;" }} >
                                  Pagar
                             </button>
                         </td>

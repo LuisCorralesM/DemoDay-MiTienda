@@ -1,65 +1,178 @@
 import React, { useState } from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
+import '../style/styleComponents/estadisticas.css'
 
 export const Estadisticas = () => {
-       let infoTienda = JSON.parse(localStorage.getItem("carro"));
+  // NOTA: hay que guardar los productos del carrito asociados a la cantidad guardada en 'compra' (infoTienda[].compra)
+  // y validar si el producto está repetido dentro del 'carrito'; en tal caso hay que unificarlo y calcular el total 
+  //"compra"
 
-      
+  let infoTienda = JSON.parse(localStorage.getItem("carro"));
+  let productos = [];
+  let prodAcumulado = [];
 
-    return (
-        <div>
-            <h3> Estadísticas por tienda:</h3>
-            <br/>
-            <PieChart
-              animate
-              animationDuration={750}
-              animationEasing="ease-out"
-              center={[125, 50]}
-              data={[
-     {
-     color: "#6F8DAC",
-     title: "Producto #1",
-     value: 33.3,
-     },
-     {
-     color: "#B4CFEA",
-     title: "Producto #2",
-     value: 50,
-     },
-     {
-     color: "#00a2e8",
-     title: "Producto #3",
-     value: 16.7,
-     },
-   ]}
-              lengthAngle={360}
-              lineWidth={15}
-              paddingAngle={0}
-              radius={50}
-              rounded
-              startAngle={0}
-              viewBoxSize={[250, 250]}
-              label = {(data) => data.dataEntry.title+": "+data.dataEntry.value+"%"}
-              labelPosition={110}
-              labelStyle={{
-                fontSize: "10px",
-                fontColor: "FFFFFA",
-                fontWeight: "400",
-              }}
-            />
-            
-            <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Porcentaje</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>Arroz</td>
-              <td>50%</td>
-            </tbody>
-          </table>
-        </div>
+  infoTienda.forEach(element => {
+    productos.push(element.nombre)
+  }); 
+
+  productos.forEach(producto => {
+
+    let contador = 0;
+
+    infoTienda.forEach(element => {
+      if (producto === element.nombre) {
+        contador++
+        prodAcumulado.push(
+          {
+            nombre: producto,
+            veces: contador
+          }
+        )
+      }
+    });
+  });
+
+
+  const dataGrafico = [];
+
+  if (prodAcumulado.length === 1) {
+    dataGrafico.push(
+      {
+        color: "#6F8DAC",
+        title: prodAcumulado[0].nombre,
+        value: Math.round((prodAcumulado[0].veces))}
     )
+  } else if (prodAcumulado.length === 2) {
+    let
+      valor1 = Math.round((prodAcumulado[0].veces)),
+      valor2 = Math.round((prodAcumulado[1].veces)),
+      total = valor1 + valor2,
+
+      respuesta1 = (100/total)*valor1,
+      respuesta2 = (100/total)*valor2
+
+    console.log(valor1);
+    console.log(valor2);
+    dataGrafico.push(
+      {
+        color: "#6F8DAC",
+        title: prodAcumulado[0].nombre,
+        value: respuesta1
+      },
+      {
+        color: "#B4CFEA",
+        title: prodAcumulado[1].nombre,
+        value: respuesta2
+      }
+    )
+  } else if (prodAcumulado.length === 3) {
+    let
+      valor1 = Math.round(((prodAcumulado[0].veces))),
+      valor2 = Math.round(((prodAcumulado[1].veces))),
+      valor3 = Math.round(((prodAcumulado[2].veces))),
+      total = valor1 + valor2 + valor3,
+
+      respuesta1 = (100/total)*valor1,
+      respuesta2 = (100/total)*valor2,
+      respuesta3 = (100/total)*valor3
+
+    dataGrafico.push(
+      {
+        color: "#6F8DAC",
+        title: prodAcumulado[0].nombre,
+        value: respuesta1,
+      },
+      {
+        color: "#B4CFEA",
+        title: prodAcumulado[1].nombre,
+        value: respuesta2,
+      },
+      {
+        color: "#00a2e8",
+        title: prodAcumulado[2].nombre,
+        value: respuesta3,
+      },
+    )
+  }
+  // Aqui hay que hacer algunos calculos matemáticos
+  else if (prodAcumulado.length > 3) {
+    let
+      valor1 = Math.round(((prodAcumulado[0].veces))),
+      valor2 = Math.round(((prodAcumulado[1].veces))),
+      valor3 = Math.round(((prodAcumulado[2].veces))),
+      valor4 = 0;
+
+    dataGrafico.push(
+      {
+        color: "#6F8DAC",
+        title: prodAcumulado[0].nombre,
+        value: valor1
+      },
+      {
+        color: "#B4CFEA",
+        title: prodAcumulado[1].nombre,
+        value: valor2
+      },
+      {
+        color: "#00a2e8",
+        title: 'otros',
+        value: valor3
+      },
+      {
+        color: "#00a2e8",
+        title: 'otros',
+        value: valor4
+      }
+    )
+  }
+
+  console.log('__: ' + dataGrafico);
+
+  // console.log(productos);
+  console.log(prodAcumulado);
+
+  return (
+    <div className="contenedor-graficos">
+      <h3 className="titulo-graficos"> Estadísticas por tienda:</h3>
+      <div className="graficos">
+        <PieChart
+          className="grafico"
+          animate
+          animationDuration={750}
+          animationEasing="ease-out"
+          center={[150, 70]}
+
+          data={dataGrafico}
+
+          lengthAngle={360}
+          lineWidth={15}
+          paddingAngle={0}
+          radius={50}
+          rounded
+          startAngle={0}
+          viewBoxSize={[250, 250]}
+          label={(data) => data.dataEntry.title + ": " + data.dataEntry.value + "%"}
+          labelPosition={110}
+          labelStyle={{
+            fontSize: "10px",
+            fontColor: "FFFFFA",
+            fontWeight: "400",
+          }}
+        />
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Porcentaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>Arroz</td>
+          <td>50%</td>
+        </tbody>
+      </table>
+    </div>
+  )
 }

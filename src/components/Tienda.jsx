@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 import '../style/styleComponents/tienda.css'
 import Swal from 'sweetalert2'
 
+import {compraAsincrona} from "../actions/actionCompra"
+
 const Tienda = () => {
     const { productos } = useSelector(store => store.producto)
     const nombreTienda = localStorage.getItem('tienda')
@@ -109,6 +111,7 @@ const Tienda = () => {
         productos.forEach(producto => {
 
             if (producto.codigo === id) {
+                dispatch(compraAsincrona(producto))
                 producto.compra = 1;
                 if (localStorage.getItem("carro")) {
                     let historialCompra = JSON.parse(localStorage.getItem("carro"))

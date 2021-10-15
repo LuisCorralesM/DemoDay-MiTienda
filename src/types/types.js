@@ -24,7 +24,6 @@ export const typesProducto = {
 }
 
 export const typesCompra = {
-    registerCompra:'carrito',
-    
+    registerCompra:"register Compra"
     
 }
