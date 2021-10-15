@@ -14,8 +14,8 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
 
     const [state, setstate] = useState({
         
-        asunto:"Confirmacion de la compra desde Mi Tienda", 
-        mensaje:`El precio total de la compra fue ${TotalPrecio}. Acabas de comprar en mi tienda. Esperamos que vuelvas pronto. `,
+        asunto:"Notificación de compra desde Mi Tienda", 
+        mensaje:`El precio total de la compra fue ${TotalPrecio}. `,
         
     })
 
@@ -56,7 +56,7 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
     }
 
     const handleFinalizar = (e) => {
-        vaciar()
+        vaciar(e)
         enviarEmail(e)
         
     }
