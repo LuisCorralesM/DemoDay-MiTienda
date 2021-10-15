@@ -67,7 +67,7 @@ const Mapa = () => {
     if (distance < 1) {
       return ("emites menos de 120 g de CO2")// 120 g CO2/km.
     } else {
-      return ("emites " + (distance * 120) + " g de CO2");
+      return ("emites " + Math.ceil((distance * 120)) + " g de CO2");
     }
   }
 
