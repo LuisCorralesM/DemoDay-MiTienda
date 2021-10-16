@@ -76,13 +76,20 @@
 #btnEstadisticas {
     border-radius: 1em;
     background-color: var(--color-8);
+    opacity: 0.5;
     padding: 0.5em;
+    font-weight: 900;
+}
+
+#btnEstadisticas:hover{
+    opacity: 1;
 }
 
 #gestionP {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed;
+    z-index: 4000;
+    bottom: 5px;
+    right: 5px;
 }
 
 #btnEstadisticas span {
@@ -103,10 +110,9 @@
 
 #btnEstadisticas:hover span {
     padding-right: 10px;
-    color: var(--color-1);
+    color: #fff;
 }
 
 #btnEstadisticas:hover span:after {
-    opacity: 1;
     right: 0;
 }

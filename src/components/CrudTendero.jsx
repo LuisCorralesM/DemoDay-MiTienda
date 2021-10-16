@@ -12,7 +12,7 @@ import '../style/styleComponents/crudTendero.css';
 import { setLocale } from 'yup';
 
 const CrudTendero = (props) => {
-
+ 
     const { history } = props;
 
     const dispatch = useDispatch();
