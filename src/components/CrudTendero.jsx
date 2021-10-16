@@ -293,11 +293,6 @@ const CrudTendero = (props) => {
                                         }
                                     </div>
 
-                                    <div className="form-group col-md-4">
-                                    <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
-                                    </div>
-
-
                                 </div>
                             </form>
 
