@@ -2,11 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { agregarAsincrono, deleteAsincrono } from '../actions/actionProducto'
+import '../style/styleComponents/listarProductos.css';
 
-   //Causa del bucle infinito
-//    useEffect(() => {
-//        dispatch(agregarAsincrono)
-//    }, [dispatch])
 export const ListarProductos = ({ handleEdit }) => {
     const { productos } = useSelector(store => store.producto)
     console.log(productos)
@@ -18,10 +15,10 @@ export const ListarProductos = ({ handleEdit }) => {
 
     return (
         <div>
-            <h1> Productos disponibles en la tienda </h1>
+            <h1 className="titulo-tabla-listar-productos"> Productos disponibles en la tienda </h1>
             <table className = "tablaProductos">
                 <thead>
-                    <tr>
+                    <tr className="cabecera-tabla-litar-productos">
                         <th>Código</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
@@ -40,7 +37,7 @@ export const ListarProductos = ({ handleEdit }) => {
 
                                 productos.map((element, index) => (
 
-                                    <tr key={index}>
+                                    <tr key={index} className="cuerpo-tabla-litar-productos">
                                         <td>{element.codigo}</td>
                                         <td>{element.nombre}</td>
                                         <td>{element.precio}</td>

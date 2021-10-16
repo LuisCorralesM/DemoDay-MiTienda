@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from '../hooks/useForm';
 import { fileUpload } from '../helpers/fileUpload';
@@ -56,12 +56,6 @@ const CrudTendero = (props) => {
             })
     }
 
-    //causa del bucle infinito
-
-    // useEffect(() => {
-    //     dispatch(listAsincronica());
-    //   }, [dispatch])
-
     const [editForm, setEditform] = useState(false)
     const handleEdit = (producto) => {
 
@@ -78,13 +72,13 @@ const CrudTendero = (props) => {
         setEditform(false)
         setRecargar(!recargar)
     }
-    
+
     // validar usuario admin
     // NOTA: FALTA HACER EL LOGOUT
     const usuarioAdmin = [];
 
     useEffect(() => {
-        if(JSON.parse(localStorage.getItem("uAdmin"))){
+        if (JSON.parse(localStorage.getItem("uAdmin"))) {
             setUsuarioValido(true)
         }
     }, []);
@@ -96,29 +90,30 @@ const CrudTendero = (props) => {
             email = document.getElementById('inputEmail').value,
             password = document.getElementById('inputPassword').value
 
-        if (email === 'luis' && password === '123') {
+        // usuario para la presentacion: 'ususarioAdmin'
+        if (email === 'usuarioAdmin' && password === '123') {
             Swal.fire({
                 title: `Bienvenido ${name} `,
                 icon: 'success',
                 confirmButtonText: 'Continuar'
-              })
-            usuarioAdmin.push(email,password)
+            })
+            usuarioAdmin.push(email, password)
             localStorage.setItem("uAdmin", JSON.stringify(usuarioAdmin))
             setUsuarioValido(true)
-        }else{
+        } else {
             Swal.fire({
                 title: `Usted no puede acceder a la zona de administración de productos `,
                 icon: 'error',
                 confirmButtonText: 'Reintentarlo'
-              })
-            
+            })
+
         }
     }
 
     // Estadisticas, ir a:
-    
-    const RedireccionEstadisticas = () =>{
-            props.history.push('/estadisticas');
+
+    const RedireccionEstadisticas = () => {
+        props.history.push('/estadisticas');
     }
 
     return (
@@ -172,14 +167,10 @@ const CrudTendero = (props) => {
             {
                 (usuarioValido)
                     ? (
-                        <div className = "interfazCrud">
-                            <h1> Zona de gestión de productos </h1>
-                            <form className = "formProductos">
-                                <div id="gestionP">
-                                
-                                <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
-                                </div>
-                                <div className="form-group">
+                        <div className="interfazCrud">
+                            <h1 className="titulo-crud-tendero"> Zona de gestión de productos </h1>
+                            <form className="formProductos">
+                                <div className="form-group contenedor-formulario-crud-tendero">
                                     <div className="form-group col-md-4">
                                         <label htmlFor="codigo">Código de producto </label>
                                         <input
@@ -245,7 +236,7 @@ const CrudTendero = (props) => {
                                     </div>
 
                                     <div className="form-group col-md-4">
-                                        <label htmlFor="fecha"> Fecha de ingreso del producto </label>
+                                        <label htmlFor="fecha"> Fecha de ingreso</label>
                                         <input
                                             className="form-control"
                                             type="date"
@@ -270,11 +261,8 @@ const CrudTendero = (props) => {
                                             <option value="Tienda Los Arrayanes"> Tienda Los Arrayanes</option>
                                             <option value="Tienda El Guadual"> Tienda El Guadual</option>
                                         </select>
-                                       
+
                                     </div>
-
-
-                                    <br />
                                     <div className="form-group col-md-4">
                                         <input
                                             id="fileSelector"
@@ -286,33 +274,22 @@ const CrudTendero = (props) => {
 
                                         <button className="btn btn-secondary"
                                             onClick={handlePictureClick} type="button"> Subir imagen de producto </button>
-                                        {/* <input type = "text"
-                    value = {imagen}
-                    onBlur = {handleInputChange}
-                    id = "imagen"
-                    name = "imagen"
-
-                    /> */}
                                     </div>
-                                    <div>
+                                    <div className="contenedor-btns-enviar-guardar">
+                                        {
+                                            !editForm
+                                                ?
+                                                <button
+                                                    id="btn-enviar"
+                                                    className="btn"
+                                                    type="submit" onClick={handleRegistro}>Enviar</button>
+                                                :
+                                                <button
+                                                    id="btn-enviar"
+                                                    className="btn"
+                                                    type="submit" onClick={handlePut}>Guardar</button>
 
-
-                                       
-                                            {
-                                                !editForm
-                                                    ?
-                                                    <button
-                                                    id = "btn-enviar"
-                                                        className="btn"
-                                                        type="submit" onClick={handleRegistro}>Enviar</button>
-                                                    :
-                                                    <button
-                                                        id = "btn-enviar"
-                                                        className="btn"
-                                                        type="submit" onClick={handlePut}>Guardar</button>
-
-                                            }
-                                        
+                                        }
                                     </div>
 
 
@@ -320,7 +297,6 @@ const CrudTendero = (props) => {
                             </form>
 
                             <ListarProductos handleEdit={handleEdit} />
-
                         </div>
 
                     )
@@ -328,6 +304,10 @@ const CrudTendero = (props) => {
                         <div></div>
                     )
             }
+            <div id="gestionP">
+                <button onClick={() => RedireccionEstadisticas()} id="btnEstadisticas"><span> Ver Estadísticas </span></button>
+            </div>
+
         </div>
     )
 }

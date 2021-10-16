@@ -19,60 +19,67 @@
     --color-8: #00a2e8;
 }
 
-
-
-.formProductos {
-    
-    padding-left: 10%;
-    font-family: 'Roboto', sans-serif;
-    margin-left: 20%;
-    margin-right: 20%;
-    background-color: var(--color-1);
-    
-}
-
 .interfazCrud {
     width: 100%;
-    padding: 2%;
+    padding: 0 2%;
     font-family: 'Roboto', sans-serif;
+}
 
+.titulo-crud-tendero {
+    color: var(--color-1);
+    text-shadow: 2px 2px 2px var(--color-4);
+    text-align: center;
+    font-weight: 900;
+    padding: 10px 0;
+}
+
+.formProductos {
+    margin: 0 200px;
+    padding: 20px 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-8);
+    color: #fff;
+    font-weight: 900;
+}
+
+.contenedor-formulario-crud-tendero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+        'uno dos'
+        'tres cuatro'
+        'cinco seis'
+        'siete ocho'
+        'btn-enviar btn-enviar';
+    gap: 10px;
+    justify-items: center;
+}
+
+.contenedor-btns-enviar-guardar {
+    grid-area: btn-enviar;
 }
 
 
 #btn-enviar {
-   margin-top:2%;
-    background-color: var(--color-8);
+    margin-top: 2%;
+    font-weight: 900;
+    background-color: var(--color-7);
+    color: #fff;
+}
+
+#btn-enviar:hover {
+    background-color: var(--color-6);
 }
 
 
-
-.tablaProductos {
-    text-align: center;
-}
-
-
-.tablaProductos {
-    width:100%;
-    padding:1%;
-    border:solid black 1px
-
-}
-
-.tablaProductos tr {
-    margin:2%;
-    border:solid black 1px;
-    padding:2%;
-    
-
-}
-
-#btnEstadisticas{
+#btnEstadisticas {
     border-radius: 1em;
     background-color: var(--color-8);
     padding: 0.5em;
 }
 
-#gestionP{
+#gestionP {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,23 +90,23 @@
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  #btnEstadisticas span:after {
+}
+
+#btnEstadisticas span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
-  
-  #btnEstadisticas:hover span {
+}
+
+#btnEstadisticas:hover span {
     padding-right: 10px;
     color: var(--color-1);
-  }
-  
-  #btnEstadisticas:hover span:after {
+}
+
+#btnEstadisticas:hover span:after {
     opacity: 1;
     right: 0;
-  }
+}
