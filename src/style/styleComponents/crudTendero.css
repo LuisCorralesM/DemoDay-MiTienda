@@ -17,6 +17,8 @@
     --color-6: #4D56B9;
     --color-7: #AA7278;
     --color-8: #00a2e8;
+    --fuente1:'Roboto', sans-serif;
+    --fuente2:'Indie Flower', 'cursive';
 }
 
 .interfazCrud {

@@ -17,6 +17,8 @@
     --color-6: #4D56B9;
     --color-7: #AA7278;
     --color-8: #00a2e8;
+    --fuente1:'Roboto', sans-serif;
+    --fuente2:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* MOBILE FIRST */
@@ -25,13 +27,14 @@
 .contenedor-bienvenida {
     /* background-color: var(--color-1); */
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ;
 }
 
 .contenedor-bienvenida__enunciados {
     color: var(--color-4);
     text-align: center;
     margin-top: 30px;
+
 }
 
 .contenedor-bienvenida__titulo {
@@ -40,7 +43,7 @@
 }
 
 .contenedor-bienvenida__titulo span {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 70px;
     font-weight: 900;
     text-shadow: 2px 2px #aed2f5;
@@ -102,11 +105,7 @@
     }
 
 
-    .parrafo1 {
-        font-size: 14px;
-        padding: 0 5px;
-        text-align: justify;
-    }
+
 
     .bienvenida-btn-continuar {
         width: 150px;
@@ -130,6 +129,8 @@
 
 }
 
+
+
 .bienvenida {
     display:flex;
     align-content:center;
@@ -140,6 +141,25 @@
 .bienvenida img {
     width:100px;
     height:100px;
+}
+
+.parrafo0 {
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:10px;
+    margin:100px;
+    text-align: center;
+
+
+}
+
+.parrafo1 {
+    font-size: 45;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:10px;
+    margin:100px;
+    text-align: center;
+
 }
 
 

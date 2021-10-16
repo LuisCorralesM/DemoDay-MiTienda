@@ -17,6 +17,8 @@
     --color-6: #4D56B9;
     --color-7: #AA7278;
     --color-8: #00a2e8;
+    --fuente1:'Roboto', sans-serif;
+    --fuente2:'Indie Flower', 'cursive';
 }
 
 /* MOBILE FIRST */
@@ -24,6 +26,7 @@
 /* DESKTOP */
 body {
     overflow-x: hidden;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
 }
 
 .contenedor-elegir-tienda {
@@ -37,14 +40,14 @@ body {
 
 .enunciado-titulo {
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    color: var(--color-6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    color: var(--color-8);
 }
 
 .enunciado-titulo-span {
     font-size: 34px;
     font-weight: 900;
-    color: var(--color-3);
+    color: var(--color-8);
     text-shadow: 2px 2px 2px var(--color-1);
 }
 
@@ -78,10 +81,12 @@ body {
     font-size: 18px;
     border-top: 1px double rgb(143, 141, 141);
     border-bottom: 1px double rgb(143, 141, 141);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .enlace-tienda{
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
 }
 
 .enlace-tienda:hover{
@@ -91,12 +96,15 @@ body {
 .cuerpo-tabla {
     padding: 20px 0;
     color: #777;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pie-tabla-mensaje{
     font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pie-tabla-mensaje span{
     font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

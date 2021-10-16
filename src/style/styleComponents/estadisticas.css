@@ -23,11 +23,12 @@
 /* DESKTOP */
 
 .titulo-graficos{
+    font-size: 60px;
     text-align: center;
     font-weight: 900;
-    font-size: 30px;
-    color: #fff;
-    text-shadow: 4px 4px 4px var(--color-4);
+    color: var(--color-8);
+    text-shadow: 2px 2px 2px var(--color-1);
+    margin: 10px;
 }
 
 .graficos{
@@ -41,4 +42,9 @@
     width: 40vw;
     height: 70vh;
     padding: 20px;
+}
+
+.contenedor-graficos {
+    text-align: center;
+    padding-left: 100px;
 }

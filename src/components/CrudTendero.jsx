@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import '../style/styleComponents/crudTendero.css';
 import { setLocale } from 'yup';
+import Comunicate from './Comunicate';
 
 const CrudTendero = (props) => {
  
@@ -290,6 +291,10 @@ const CrudTendero = (props) => {
                                                     type="submit" onClick={handlePut}>Guardar</button>
 
                                         }
+                                    </div>
+
+                                    <div className="form-group col-md-4">
+                                    <button onClick ={()=>RedireccionEstadisticas()} id= "btnEstadisticas"><span> Ver Estadísticas </span></button>
                                     </div>
 
 
