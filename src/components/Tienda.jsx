@@ -134,9 +134,23 @@ const Tienda = () => {
 
     }
 
+    // whatsapp
+
+    const handleChatWsp = ()=>{
+        let 
+        numero = 573126505633,
+        mensaje = 'Bienvenido a Mi Tienda, la mejor opción para reabastecer su alacena, ¿En qué le podemos colaborar?';
+        mensaje.replaceAll(" ", '%')
+        window.open(`https://wa.me/+${numero}?text=${mensaje}`)
+    }
+
     return (
 
         <div className="contenedor-tienda">
+
+            <div className="btn-whatsapp">
+                <img src="assets/img/wsp.png" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={()=>handleChatWsp()}/>
+            </div>
 
             <div className="listas-de-mercado">
                 <ul>

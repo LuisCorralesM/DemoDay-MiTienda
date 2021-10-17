@@ -212,3 +212,18 @@
     background-color: var(--color-6);
 }
 
+/* btn whatsapp */
+
+.btn-whatsapp{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 4000;
+    opacity: 0.7;
+}
+
+.btn-whatsapp:hover{
+    opacity: 1;
+    height: 65px;
+    cursor: pointer;
+}
