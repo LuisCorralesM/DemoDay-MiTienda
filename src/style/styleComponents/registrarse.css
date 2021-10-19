@@ -41,8 +41,11 @@
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633882475/fondo_mgmhf3.png); */
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633884363/fondo2_hwzxht.png); */
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633894630/fondo3_fyewmi.png); */
-    background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633886507/fondo3_zubgri.png);
-    background-size: cover;
+
+
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633886507/fondo3_zubgri.png);
+    background-size: cover; */
+    background-color: var(--color-8);
 }
 
 .formulario-registro {

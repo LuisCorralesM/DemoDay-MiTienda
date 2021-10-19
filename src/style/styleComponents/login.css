@@ -38,8 +38,11 @@
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633882475/fondo_mgmhf3.png); */
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633884363/fondo2_hwzxht.png); */
     /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633894601/fondo3_gaxha5.png); */
-    background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633885429/fondo3_cxmvfa.png);
-    background-size: cover;
+
+
+    /* background-image: url(https://res.cloudinary.com/academia-geek/image/upload/v1633885429/fondo3_cxmvfa.png);
+    background-size: cover; */
+    background-color: var(--color-8);
 }
 
 .contenedor-login{
