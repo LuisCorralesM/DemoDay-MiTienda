@@ -137,11 +137,6 @@ export const Estadisticas = () => {
     )
   }
 
-  // console.log('__: ' + dataGrafico);
-
-  // console.log(productos);
-  // console.log(prodAcumulado);
-
   return (
     <div className="contenedor-graficos">
       <h3 className="titulo-graficos"> Estadísticas de ventas:</h3>
@@ -172,18 +167,6 @@ export const Estadisticas = () => {
         />
       </div>
 
-      {/* <table>
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Porcentaje</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td>Arroz</td>
-          <td>50%</td>
-        </tbody>
-      </table> */}
     </div>
   )
 }

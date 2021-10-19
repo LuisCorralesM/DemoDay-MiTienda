@@ -66,16 +66,23 @@
 }
 
 
-.btn-whatsapp{
+.btn-whatsapp-domiciliario{
     position: fixed;
-    bottom: 10px;
+    bottom: 15px;
     right: 10px;
     z-index: 4000;
     opacity: 0.7;
 }
 
-.btn-whatsapp:hover{
+.btn-whatsapp-domiciliario:hover{
     opacity: 1;
-    height: 65px;
     cursor: pointer;
+}
+
+.btn-whatsapp-domiciliario > img{
+    width: 60px;
+}
+
+.btn-whatsapp-domiciliario > img:hover{
+    width: 65px;
 }

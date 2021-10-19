@@ -157,8 +157,8 @@ export const Carrito = (props) => {
         <div className="contenedor-carrito">
             {(pasarela) ? (
                 <div >
-                    <div className="btn-whatsapp">
-                        <img src="https://tse2.mm.bing.net/th?id=OIP.G_cpDz1yBEGvVwns6s3kUAHaGC&pid=Api&P=0&w=212&h=174" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={() => handleChatWsp()} />
+                    <div className="btn-whatsapp-domiciliario">
+                        <img src="https://res.cloudinary.com/academia-geek/image/upload/v1634676199/domiciliario_m3clbc.png" alt="chat de whatsapp-whatsapp-chat" onClick={() => handleChatWsp()} />
                     </div>
                     <h1 className="titulo-carrito"> Carrito de compras </h1>
                     <table className="table">

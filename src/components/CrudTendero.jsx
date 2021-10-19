@@ -114,7 +114,15 @@ const CrudTendero = (props) => {
     // Estadisticas, ir a:
 
     const RedireccionEstadisticas = () => {
-        props.history.push('/estadisticas');
+        if(JSON.parse(localStorage.getItem('carro'))){
+            props.history.push('/estadisticas');
+        }else{
+            Swal.fire({
+                title: `Aun no tiene ventas`,
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
     }
 
     return (
