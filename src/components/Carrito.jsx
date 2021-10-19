@@ -145,10 +145,21 @@ export const Carrito = (props) => {
         // }
     }
 
+    const handleChatWsp = () => {
+        let
+            numero = 573126505633,
+            mensaje = 'Buenos dias, quisiera reportar mi compra y comunicarme con usted para conocer la gestion del domicilio';
+        mensaje.replaceAll(" ", '%')
+        window.open(`https://wa.me/+${numero}?text=${mensaje}`)
+    }
+
     return (
         <div className="contenedor-carrito">
             {(pasarela) ? (
                 <div >
+                    <div className="btn-whatsapp">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.G_cpDz1yBEGvVwns6s3kUAHaGC&pid=Api&P=0&w=212&h=174" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={() => handleChatWsp()} />
+                    </div>
                     <h1 className="titulo-carrito"> Carrito de compras </h1>
                     <table className="table">
                         <thead style={{ color: "white;" }}>

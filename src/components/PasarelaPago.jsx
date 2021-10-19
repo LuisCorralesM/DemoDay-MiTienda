@@ -15,7 +15,7 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
     const [state, setstate] = useState({
         
         asunto:"Notificación de compra desde Mi Tienda", 
-        mensaje:`El precio total de la compra fue ${TotalPrecio}. `,
+        mensaje:`El precio total de la compra fue $${TotalPrecio}. `,
         
     })
 
@@ -42,21 +42,28 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
         )
     }
     const {asunto, mensaje } = state
-    const enviarEmail = async(e) => {
-        e.preventDefault()
-        await axios.post ("/api/form",{
-            name,
-            email,
-            asunto,
-            mensaje,
+    // const enviarEmail = async(e) => {
+    //     e.preventDefault()
+    //     await axios.post ("/api/form",{
+    //         name,
+    //         email,
+    //         asunto,
+    //         mensaje,
             
-        })
-    }
+    //     })
+    // }
 
     const handleFinalizar = (e) => {
         vaciar(e)
-        enviarEmail(e)
-        
+        // enviarEmail(e)
+        // Daviplata
+        window.open("https://transacciones.nequi.com/bdigital/login.jsp", "_blank");
+    }
+    const handleFinalizar2 = (e) => {
+        vaciar(e)
+        // enviarEmail(e)
+        // Daviplata
+        window.open("https://www.psepagos.co/PSEHostingUI/ShowTicketOffice.aspx?ID=2508", "_blank");
     }
 
     return (
@@ -87,7 +94,13 @@ const PasarelaPago = ({ total, TotalPrecio, TotalProductos,vaciar }) => {
                                 }
                                 <li>Total productos: {TotalProductos}</li>
                                 <li><span>Total a pagar: </span>{TotalPrecio}</li>
-                               <button id ="btn-compra" className ="btn btn-compra" onClick ={(e)=>handleFinalizar(e)}> Finalizar compra </button>
+                                <br/>
+                                <p> {`Te invitamos a pagar la factura en los medios electronicos como Nequi o daviPlata, realizando una transferencia por el valor de $${TotalPrecio} a la cuenta: 3209953927`} </p>
+                               
+                               <button id ="btn-compra" className ="btn btn-compra" onClick ={(e)=>handleFinalizar(e)}> <img src="https://www.nequi.com.co/wp-content/themes/nequi/img/logo_nequi_header.svg" alt=""  /></button>
+                               <button id ="btn-compra" className ="btn btn-compra" onClick ={(e)=>handleFinalizar2(e)}><img src="https://www.psepagos.co/PSEHostingUI/GetTicketLogo.aspx?InternalIdentifier=f3e7c8bf-1d42-4494-80ac-3d571338572a" alt=""  />  </button>
+                               <a href = "https://transacciones.nequi.com/bdigital/login.jsp" target ="blank">  </a>
+                               <a  href = "https://www.psepagos.co/PSEHostingUI/ShowTicketOffice.aspx?ID=2508" target ="blanck">  </a>
                            
                             </div>
                         ) :
