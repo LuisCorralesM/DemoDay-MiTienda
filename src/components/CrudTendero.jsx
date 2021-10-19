@@ -92,7 +92,7 @@ const CrudTendero = (props) => {
             password = document.getElementById('inputPassword').value
 
         // usuario para la presentacion: 'ususarioAdmin'
-        if (email === 'usuarioAdmin' && password === '123') {
+        if (email === 'admin' && password === '123') {
             Swal.fire({
                 title: `Bienvenido ${name} `,
                 icon: 'success',

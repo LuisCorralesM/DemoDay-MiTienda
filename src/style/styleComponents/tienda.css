@@ -24,15 +24,13 @@
 
 /* DESKTOP */
 
-
 /* contenedor global */
-.contenedor-tienda{
+.contenedor-tienda {
     min-height: 85vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
 }
 
-.tienda-seleccionada{
+.tienda-seleccionada {
     font-size: 60px;
     text-align: center;
     font-weight: 900;
@@ -40,190 +38,208 @@
     text-shadow: 2px 2px 2px var(--color-1);
 }
 
-.contenedor-producto {
-    display: flex;
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Cards productos ------------------------------------------------------------------------------------------------- */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    transition: all 0.4s ease-out;
+    box-shadow: 4px 4px 4px #000;
+    text-align: center;
 }
 
 /* contenedor img */
 .contenedor-img {
-    width: 50%;
+    margin-top: 10px;
 }
 
-.img-producto{
-    width: 100%;
-    height: 400px;
+.img-producto {
+    width: 20vw;
+    height: 250px;
+    border-radius: 16px;
     object-fit: cover;
-    padding: 50px 100px 25px 100px;
-    border-radius: 20%;
-}
-
-.img-producto:hover{
-    width: 105%;
-}
-
-.contenedor-img-pequeñas{
-    display: flex;
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    padding: 20px 50px;
-    background-color: var(--color-1);
-}
-
-.img-producto-pequeña{
-    width: calc((100% - 100px)/6);
-    margin: 0 10px;
-    border-radius: 8px;
-}
-
-.img-producto-pequeña:hover{
-    border: 3px solid var(--color-4);
 }
 
 .nombre-producto {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.imagen-producto {
-    width: 600px;
-    height: 400px;
-    padding: 50px;
-    object-fit: cover;
-    object-position: top;
+    color: var(--color-1);
+    text-shadow: 2px 2px 2px var(--color-3);
 }
 
 /* contenedor descripcion */
-.contenedor-descripcion {
-    width: 50%;
-    padding: 100px;
-    text-align: center;
-}
 
 .descripcion {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-
-.nombre-producto{
-    font-size: 50px;
-    color: var(--color-8);
     font-weight: 900;
 }
 
-.nombre-producto:hover{
-    font-size: 55px;
-}
-
 .bnt-agregar-carrito {
-    border-radius: 1em;
-    padding: 0.5em;
-    background-color: var(--color-6);
-    color: #FFFFFF;
+    background-color: var(--color-3);
+    color: #fff;
+    padding: 2px;
+    border-radius: 8px;
 }
 
-.bnt-agregar-carrito:hover{
-    background-color: var(--color-3);
+.bnt-agregar-carrito:hover {
+    background-color: var(--color-6);
 }
 
 .btn-ir-carrito {
-    border-radius: 1em;
-    padding: 0.5em;
-    background-color:var(--color-5);
-    color: #ffffff;
+    background-color: var(--color-5);
+    color: #fff;
+    padding: 2px;
+    border-radius: 8px;
 }
 
-.btn-ir-carrito:hover{
-    background-color: var(--color-2) ;
+.btn-ir-carrito:hover {
+    background-color: var(--color-6);
 }
 
 
-/* Lista personalizada */
+/*  Filtro de busqueda ------------------------------------------------------------------------------------------------------*/
+.filtro-de-busqueda-productos{
+    background-color: var(--color-1);
+    margin: 0 250px;
+    padding: 20px 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.contenedor-lista-personalizada{
-    /* background-color: rgb(240, 239, 239); */
+.input-buscar{
+    width: 60%;
+    height: 40px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--color-7);
+    border-radius: 16px;
+}
+
+.input-buscar::placeholder{
+    color: var(--color-7);
+}
+
+.ignore {
+    visibility: hidden;
+    opacity: 0;
+    order: 10;
+}
+
+/* Lista personalizada --------------------------------------------------------------------------------------------------------*/
+
+.contenedor-lista-personalizada {
     text-align: center;
     padding: 50px 0;
 }
 
-.titulo-lista-personalizada{
+.titulo-lista-personalizada {
     text-align: center;
     font-weight: 900;
     color: var(--color-1);
     text-shadow: 4px 4px 4px var(--color-3);
 }
 
-.contenedor-tabla{
+.contenedor-tabla {
     padding: 30px 260px;
     width: 100%;
 }
 
 /* botones */
-.btns-tabla-lista{
+.btns-tabla-lista {
     width: 100%;
     padding: 10px 0;
-
 }
 
-.bnt-tabla-agregar-carrito{
+.bnt-tabla-agregar-carrito {
     border-radius: 1em;
     padding: 0.5em;
     background-color: var(--color-6);
     color: #FFFFFF;
 }
 
-.bnt-tabla-agregar-carrito:hover{
+.bnt-tabla-agregar-carrito:hover {
     background-color: var(--color-3);
 }
 
-.btn-tabla-ir-carrito{
+.btn-tabla-ir-carrito {
     border-radius: 1em;
     padding: 0.5em;
     background-color: #2d2;
     color: #ffffff;
 }
 
-.btn-tabla-ir-carrito:hover{
+.btn-tabla-ir-carrito:hover {
     background-color: rgb(4, 187, 4);
 }
 
-.btn-tabla-contraer{
+.btn-tabla-contraer {
     border-radius: 1em;
     padding: 0.5em;
     background-color: var(--color-7);
     color: #ffffff;
 }
 
-.btn-tabla-contraer:hover{
+.btn-tabla-contraer:hover {
     background-color: #a56168;
 }
 
-.subtitulo-lista-personalizada{
+.subtitulo-lista-personalizada {
     text-align: center;
     font-weight: 900;
     color: var(--color-2);
     text-shadow: 4px 4px 4px var(--color-4);
 }
 
-.listas-de-mercado button , .btns-tabla-lista  button {
+.listas-de-mercado button,
+.btns-tabla-lista button {
     background-color: var(--color-6);
 }
 
 /* btn whatsapp */
 
-.btn-whatsapp{
+.btn-whatsapp {
+    position: fixed;
+    bottom: 10px;
+    right: 80px;
+    z-index: 4000;
+    opacity: 0.7;
+}
+
+.btn-whatsapp:hover {
+    opacity: 1;
+    height: 65px;
+    cursor: pointer;
+}
+
+/* btn subir */
+
+.boton-subir{
     position: fixed;
     bottom: 10px;
     right: 10px;
     z-index: 4000;
     opacity: 0.7;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-8);
 }
 
-.btn-whatsapp:hover{
+.boton-subir span{
+    font-size: 40px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.boton-subir:hover {
     opacity: 1;
-    height: 65px;
+    height: 62px;
     cursor: pointer;
 }

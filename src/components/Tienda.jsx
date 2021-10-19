@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import '../style/styleComponents/tienda.css'
 import Swal from 'sweetalert2'
 
-import {compraAsincrona} from "../actions/actionCompra"
+import { compraAsincrona } from "../actions/actionCompra"
 
 const Tienda = () => {
     const { productos } = useSelector(store => store.producto)
@@ -28,8 +28,25 @@ const Tienda = () => {
         } else if (producto.nombre === 'Arroz' && producto.tienda === nombreTienda) {
             lista1.push(producto)
         } else if (producto.nombre === 'Huevos Mixtos' && producto.tienda === nombreTienda) {
-            lista1.push(producto) }
-            
+            lista1.push(producto)
+        } else if (producto.nombre === 'Queso Sabanero' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Lentejas' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Pollo' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Azucar' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'papas' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Leche en polvo' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Aceite' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        } else if (producto.nombre === 'Cerveza Corona' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
+        }
+
     })
 
     const lista2 = [];
@@ -43,7 +60,8 @@ const Tienda = () => {
         } else if (producto.nombre === 'Arroz' && producto.tienda === nombreTienda) {
             lista2.push(producto)
         } else if (producto.nombre === 'Huevos Mixtos' && producto.tienda === nombreTienda) {
-            lista2.push(producto) }
+            lista2.push(producto)
+        }
     })
 
 
@@ -134,36 +152,74 @@ const Tienda = () => {
 
     }
 
-    // whatsapp
+    // btn-whatsapp
 
-    const handleChatWsp = ()=>{
-        let 
-        numero = 573126505633,
-        mensaje = 'Bienvenido a Mi Tienda, la mejor opción para reabastecer su alacena, ¿En qué le podemos colaborar?';
+    const handleChatWsp = () => {
+        let
+            numero = 573126505633,
+            mensaje = '¿Qué costo tiene el domicilio?';
         mensaje.replaceAll(" ", '%')
         window.open(`https://wa.me/+${numero}?text=${mensaje}`)
     }
+
+    // btn-subir 
+
+    const subir = (e)=> {
+        if(e.target.matches('.boton-subir, .subir'))window.scrollTo(0,0)
+    }
+
+    // filtro
+
+    const
+        filtrar = (e) => {
+            if (e.target.matches('.card-filter')) {
+                if (e.key === 'Escape') e.target.value = ""
+                document.querySelectorAll('.card').forEach(el => {
+                    let contenido = el.textContent.toLowerCase().includes(e.target.value)
+                    if (contenido === true) {
+                        el.classList.remove('ignore')
+                    } else {
+                        el.classList.add('ignore')
+                    }
+                })
+            }
+        }
+
+
 
     return (
 
         <div className="contenedor-tienda">
 
+            {/* btn-whatsap */}
             <div className="btn-whatsapp">
-                <img src="assets/img/wsp.png" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={()=>handleChatWsp()}/>
+                <img src="assets/img/wsp.png" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={() => handleChatWsp()} />
             </div>
 
+            {/*  btn-subir */}
+            <button class="boton-subir" onClick={e=>subir(e)}>
+                <span className='subir'>↑</span>
+            </button>
+
+            <h1 className="tienda-seleccionada">{nombreTienda}</h1>
+
+
+            {/* Filtro */}
+            <div className="filtro-de-busqueda-productos" data-scroll-spy>
+                <input type="search" placeholder="Buscar..." class="card-filter input-buscar" onKeyUp={(e) => filtrar(e)} />
+            </div>
+
+            {/* Listas predeterminadas */}
             <div className="listas-de-mercado">
                 <ul>
-                    <button className = "btn btn-primary mx-2 my-1" onClick={() => { pintarLista1('pintar') }}>
-                        Lista de mercado #1
+                    <button className="btn btn-primary mx-2 my-1" onClick={() => { pintarLista1('pintar') }}>
+                        Lista de mercado familiar
                     </button>
-                    <button className = "btn btn-primary mx-2 my-1" onClick={() => { pintarLista2('pintar') }}>
-                        Lista de mercado #2
+                    <button className="btn btn-primary mx-2 my-1" onClick={() => { pintarLista2('pintar') }}>
+                        Lista de mercado personal
                     </button>
                 </ul>
             </div>
-
-            <h1 className="tienda-seleccionada">{nombreTienda}</h1>
 
             {
                 (pintar) ?
@@ -211,7 +267,7 @@ const Tienda = () => {
                                                         }
                                                     </td>
                                                     <td>
-                                                        1   
+                                                        1
                                                     </td>
                                                     <td>
                                                         {
@@ -238,24 +294,15 @@ const Tienda = () => {
                     : <div></div>
             }
 
-            {
-                (productosTienda) ?
-                    (
-                        productosTienda.map((element, index) => (
+            <div className="cards">
+                {
+                    (productosTienda) ?
+                        (
+                            productosTienda.map((element, index) => (
 
-                            <div key={index}>
-
-                                <div className="contenedor-producto" >
+                                <div key={index} className="card" >
                                     <div className="contenedor-img">
                                         <img src={element.imagen} alt="..." className="img-producto" />
-                                        <div className="contenedor-img-pequeñas">
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                            <img src={element.imagen} className="img-producto-pequeña" alt="..." />
-                                        </div>
                                     </div>
                                     <div className="contenedor-descripcion">
                                         <h1 className="nombre-producto">{element.nombre}</h1>
@@ -266,12 +313,12 @@ const Tienda = () => {
                                         <Link to="/carrito"><button className=" mx-2 my-1 btn-ir-carrito">Ir al carrito</button></Link>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                        )
-                    ) :
-                    <p>Datos no disponibles</p>
-            }
+                            )
+                            )
+                        ) :
+                        <p>Datos no disponibles</p>
+                }
+            </div>
 
 
         </div>
