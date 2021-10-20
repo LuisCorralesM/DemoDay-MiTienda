@@ -85,6 +85,10 @@ header::after {
     color: var(--color-7);
 }
 
+.imagen-usuario{
+    border-radius: 50%;
+}
+
 .site-nav {
     top: 100%;
     right: 0;

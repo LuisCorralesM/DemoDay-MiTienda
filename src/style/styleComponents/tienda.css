@@ -44,7 +44,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .card {
@@ -131,6 +131,14 @@
 }
 
 /* Lista personalizada --------------------------------------------------------------------------------------------------------*/
+.listas-de-mercado{
+    display: flex;
+    justify-content: center;
+}
+
+.listas{
+    margin: 0;
+}
 
 .contenedor-lista-personalizada {
     text-align: center;

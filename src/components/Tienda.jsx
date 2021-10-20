@@ -211,11 +211,11 @@ const Tienda = () => {
 
             {/* Listas predeterminadas */}
             <div className="listas-de-mercado">
-                <ul>
-                    <button className="btn btn-primary mx-2 my-1" onClick={() => { pintarLista1('pintar') }}>
+                <ul className="listas">
+                    <button className="btn btn-primary mx-1 my-1" onClick={() => { pintarLista1('pintar') }}>
                         Lista de mercado familiar
                     </button>
-                    <button className="btn btn-primary mx-2 my-1" onClick={() => { pintarLista2('pintar') }}>
+                    <button className="btn btn-primary mx-1 my-1" onClick={() => { pintarLista2('pintar') }}>
                         Lista de mercado personal
                     </button>
                 </ul>
