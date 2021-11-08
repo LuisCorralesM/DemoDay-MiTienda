@@ -64,6 +64,7 @@ export const Login = () => {
                             name="password"
                             value = {password}
                             onChange = {handleInputChange}
+                            min="6"
                         />
 
                         <button

@@ -264,7 +264,7 @@
         width: 90vw;
     }
 
-    .tienda-seleccionada{
+    .tienda-seleccionada {
         font-size: 30px;
     }
 
@@ -277,7 +277,36 @@
         width: 100%;
         height: 40px;
         font-size: 20px;
-    }    
+    }
+
+    /* lista personalizada -------------------------------*/
+    .contenedor-lista-personalizada {
+        padding: 0;
+        margin: 10px;
+        border-radius: 4px;
+    }
+
+    .contenedor-tabla {
+        padding: 0;
+        width: 100%;
+    }
+
+    .cabecera-tabla > th,
+    .cuerpo-tabla > td{
+        font-size: 12px;
+        padding: 1px;
+        border: 0.5px solid rgb(189, 184, 184);
+    }
+
+    /* btns listas personalizadas */
+
+    .bnt-tabla-agregar-carrito,
+    .btn-tabla-ir-carrito,
+    .btn-tabla-contraer {
+        padding: 2px;
+        font-size: 14px;
+    }
+    
 }
 
 @media screen and (min-width: 450px) and (max-width: 700px) {
@@ -290,7 +319,7 @@
         width: 45vw;
     }
 
-    .tienda-seleccionada{
+    .tienda-seleccionada {
         font-size: 30px;
     }
 
@@ -303,5 +332,61 @@
         width: 100%;
         height: 40px;
         font-size: 20px;
-    }    
+    }
+
+        /* lista personalizada -------------------------------*/
+        .contenedor-lista-personalizada {
+            padding: 0;
+            margin: 10px;
+            border-radius: 4px;
+        }
+    
+        .contenedor-tabla {
+            padding: 0;
+            width: 100%;
+        }
+
+        table{
+            margin: auto;
+        }
+    
+        .cabecera-tabla > th,
+        .cuerpo-tabla > td{
+            font-size: 12px;
+            padding: 1px;
+            border: 0.5px solid rgb(189, 184, 184);
+        }
+    
+        /* btns listas personalizadas */
+    
+        .bnt-tabla-agregar-carrito,
+        .btn-tabla-ir-carrito,
+        .btn-tabla-contraer {
+            padding: 2px;
+            font-size: 14px;
+        }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .contenedor-lista-personalizada {
+        padding: 0;
+        margin: 10px;
+    }
+
+    .contenedor-tabla {
+        padding: 0;
+        width: 100%;
+    }
+
+    .cabecera-tabla > th,
+    .cuerpo-tabla > td{
+        font-size: 18px;
+        padding: 1px;
+        border: 0.5px solid rgb(189, 184, 184);
+    }
+
+    table{
+        margin: auto;
+    }
+
 }

@@ -15,7 +15,6 @@ export const registroEmailPasswordNombre = (email,password,name) => {
         })
         .catch(e =>{
             console.log(e);
-            
         })
     }
 }

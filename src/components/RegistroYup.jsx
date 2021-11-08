@@ -76,6 +76,7 @@ export const RegistroYup = () => {
                             className="form-control input-formulario"
                             placeholder="Password"
                             onChange={formik.handleChange}
+                            min="6"
                         />
 
                         <input
@@ -84,6 +85,7 @@ export const RegistroYup = () => {
                             className="form-control input-formulario"
                             placeholder="Password"
                             onChange={formik.handleChange}
+                            min="6"
                         />      
                         <br />
                         <button

@@ -45,7 +45,10 @@ const Tienda = () => {
             lista1.push(producto)
         } else if (producto.nombre === 'Cerveza Corona' && producto.tienda === nombreTienda) {
             lista1.push(producto)
+        } else if (producto.nombre === 'Banano' && producto.tienda === nombreTienda) {
+            lista1.push(producto)
         }
+
 
     })
 
