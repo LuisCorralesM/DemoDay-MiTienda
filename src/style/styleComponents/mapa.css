@@ -108,3 +108,54 @@ body {
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+@media screen and (max-width: 700px) {
+    .enunciado-titulo-span {
+        font-size: 26px;
+    }
+    
+    #mapContainer{
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    .contenedor-list-map{
+        grid-template-columns: 1fr;
+    }
+
+    .tabla-tiendas {
+        margin: 0;
+        padding: 0;
+    }    
+
+    .encabezado-tabla {
+        font-size: 24px;
+    }
+    
+    .cabecera-tabla th {
+        padding: 0;
+        font-size: 18px;
+    }
+
+    .cuerpo-tabla {
+        padding: 0;
+    }   
+    
+}
+
+@media screen and (max-width: 240px) {
+    .encabezado-tabla {
+        font-size: 20px;
+    }
+    
+    .cabecera-tabla th {
+        padding: 0;
+        font-size: 14px;
+    }
+
+    .cuerpo-tabla {
+        padding: 0;
+    }   
+}

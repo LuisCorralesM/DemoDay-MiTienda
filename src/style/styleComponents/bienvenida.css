@@ -82,43 +82,6 @@
     background-color: var(--color-7);
 }
 
-@media screen and (max-width: 700px) {
-
-    .contenedor-bienvenida__enunciados {
-        margin: 5px 0;
-    }
-
-    .contenedor-bienvenida__titulo {
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    .contenedor-bienvenida__titulo span {
-        font-size: 40px;
-        font-weight: 900;
-        text-shadow: 2px 2px #aed2f5;
-    }
-
-    .mi-tienda__slogan {
-        font-size: 14px;
-        font-weight: 900;
-    }
-
-
-
-
-    .bienvenida-btn-continuar {
-        width: 150px;
-        margin: 25px 20vw;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 16px;
-        text-align: justify;
-    }
-
-}
-
-
 .mision {
     display:flex;
     align-content: center;
@@ -126,7 +89,6 @@
     padding: 5px;
     border-radius: 20px;
     text-align: justify;
-
 }
 
 
@@ -149,8 +111,6 @@
     padding:10px;
     margin:100px;
     text-align: center;
-
-
 }
 
 .parrafo1 {
@@ -163,6 +123,70 @@
 }
 
 
+@media screen and (max-width: 700px) {
+
+    .contenedor-bienvenida__enunciados {
+        margin: 5px 0;
+    }
+
+    .contenedor-bienvenida__titulo {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .contenedor-bienvenida__titulo span {
+        font-size: 30px;
+        font-weight: 900;
+        text-shadow: 2px 2px #aed2f5;
+        display: block;
+    }
+
+    .mi-tienda__slogan {
+        font-size: 14px;
+        font-weight: 900;
+    }
+
+    .bienvenida-btn-continuar {
+        width: 150px;
+        margin: 25px 20vw;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 16px;
+        text-align: justify;
+    }
+
+    .mision {
+        display:block;
+        padding: 0;
+        margin: 0;
+        border-radius: 20px;
+    }
+
+    .mision img{
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .parrafo0 {
+        font-size: 20px;
+        padding:0;
+        margin:0;
+        text-align: center;
+    
+    
+    }
+    
+    .parrafo1 {
+        font-size: 45;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding:0;
+        margin:0;
+        text-align: center;
+    
+    }
+    
+    
+}
 
 
 

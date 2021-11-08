@@ -164,10 +164,10 @@ export const Carrito = (props) => {
                     <table className="table">
                         <thead style={{ color: "white;" }}>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" className="th-none">#</th>
                                 <th scope="col">Item</th>
                                 <th scope="col">Cantidad</th>
-                                <th scope="col">Acción</th>
+                                <th scope="col" className="th-none">Acción</th>
                                 <th scope="col">Precio unidad</th>
                                 <th scope="col">Total</th>
                             </tr>
@@ -178,10 +178,10 @@ export const Carrito = (props) => {
                                     carrito.map((element, index) => (
                                         <tbody key={index} id="items" style={{ color: "white;" }}>
                                             <tr>
-                                                <th scope="row">{element.codigo}</th>
+                                                <th scope="row" className="th-none">{element.codigo}</th>
                                                 <td>{element.nombre}</td>
                                                 <td>{element.compra}</td>
-                                                <td>
+                                                <td className="th-none">
                                                     <button
                                                         className="btn btn-info btn-sm btnsumar"
                                                         id="btn-carrito-pagar"
@@ -206,12 +206,12 @@ export const Carrito = (props) => {
                                     )
                                 ) :
                                 <tr id="footer">
-                                    <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                                    <th scope="row" colspan="4">Carrito vacío - comience a comprar!</th>
                                 </tr>
                         }
 
                         <tfoot >
-                            <th scope="row" colspan="2">Total productos</th>
+                            <th scope="row" colspan="1" id="th-total">Total productos</th>
                             <td>{tCantidad}</td>
                             <td>
 
@@ -223,7 +223,6 @@ export const Carrito = (props) => {
                                 </button>
 
                             </td>
-                            <td className="font-weight-bold"></td>
                             <td className="font-weight-bold">$ <span>{tPrecio}</span></td>
                         </tfoot>
                     </table>

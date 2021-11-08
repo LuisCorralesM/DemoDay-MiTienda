@@ -16,17 +16,17 @@
     --color-5: #00a2e8;
     --color-6: #4D56B9;
     --color-7: #AA7278;
-    --fuente1:'Roboto', sans-serif;
-    --fuente2:'Indie Flower', 'cursive';
+    --fuente1: 'Roboto', sans-serif;
+    --fuente2: 'Indie Flower', 'cursive';
 
 }
 
 /* MOBILE FIRST */
 
 /* DESKTOP */
-.contenedor-carrito{
+.contenedor-carrito {
     min-height: 85vh;
-    margin:10px;
+    margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     /* background-image: url("https://cdn.pixabay.com/photo/2019/03/05/02/02/grocery-shopping-4035413__340.png"); */
@@ -35,38 +35,38 @@
 }
 
 .titulo-carrito {
-    
     font-size: 60px;
     text-align: center;
     font-weight: 900;
     color: var(--color-8);
     text-shadow: 2px 2px 2px var(--color-1);
-
 }
 
 .btnsumar {
     background-color: var(--color-5);
 }
+
 .btnrestar {
     background-color: var(--color-7);
 }
 
 
 #btn-carrito-pagar {
-    background-color:var(--color-5);
+    background-color: var(--color-5);
 }
 
 #vaciar-carrito {
-    background-color:var(--color-7);
-    margin:5px;
+    background-color: var(--color-7);
+    margin: 5px;
 
 }
+
 .table {
-    margin:50px
+    margin: 50px;
 }
 
 
-.btn-whatsapp-domiciliario{
+.btn-whatsapp-domiciliario {
     position: fixed;
     bottom: 15px;
     right: 10px;
@@ -74,15 +74,56 @@
     opacity: 0.7;
 }
 
-.btn-whatsapp-domiciliario:hover{
+.btn-whatsapp-domiciliario:hover {
     opacity: 1;
     cursor: pointer;
 }
 
-.btn-whatsapp-domiciliario > img{
+.btn-whatsapp-domiciliario>img {
     width: 60px;
 }
 
-.btn-whatsapp-domiciliario > img:hover{
+.btn-whatsapp-domiciliario>img:hover {
     width: 65px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .contenedor-carrito {
+        margin: 0;
+    }
+
+    .titulo-carrito {
+        font-size: 30px;
+    }
+
+    .table {
+        margin: 0;
+    }
+
+    .table>thead {
+        font-size: 12px;
+    }
+
+    .th-none{
+        display: none;
+    }
+
+    tbody{
+        font-size: 12px;
+    }
+    
+    tfoot{
+        font-size: 12px;
+    }
+
+    #btn-carrito-pagar,
+    #vaciar-carrito{
+        padding: 2px;
+        margin: 0;
+    }
+
+    #th-total{
+        column-span: 1;
+    }
 }
