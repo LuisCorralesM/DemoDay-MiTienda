@@ -83,7 +83,7 @@ export const ListarProductos = ({ handleEdit }) => {
                         <th>Descripción</th>
                         <th>Precio</th>
                         <th>Fecha ingreso</th>
-                        <th>Imagen</th>
+                        <th className="tabla-imagen">Imagen</th>
                         <th>Stock</th>
                         <th>Tienda</th>
                         <th>Acciones</th>
@@ -102,7 +102,7 @@ export const ListarProductos = ({ handleEdit }) => {
                                         <td>{element.precio}</td>
                                         <td>{element.descripcion}</td>
                                         <td>{element.fecha}</td>
-                                        <td><img src={element.imagen} alt="" width="50px" height="35px" /></td>
+                                        <td className="tabla-imagen"><img src={element.imagen} alt="" width="50px" height="35px"/></td>
                                         <td>{element.cantidad}</td>
                                         <td>{element.tienda}</td>
                                         <td>
@@ -130,14 +130,14 @@ export const ListarProductos = ({ handleEdit }) => {
                                         <td>{element.precio}</td>
                                         <td>{element.descripcion}</td>
                                         <td>{element.fecha}</td>
-                                        <td><img src={element.imagen} alt="" width="50px" height="35px" /></td>
+                                        <td className="tabla-imagen"><img src={element.imagen} alt="" width="50px" height="35px"/></td>
                                         <td>{element.cantidad}</td>
                                         <td>{element.tienda}</td>
                                         <td>
-                                            <button className="btn btn-secondary" onClick={() => handleEdit(element)}>
+                                            <button className="btn btn-secondary" onClick={() => handleEdit(element)} id="btn-editar">
                                                 Editar
                                             </button>
-                                            <button className="btn btn-danger" onClick={() => dispatch(deleteAsincrono(element.nombre))}>
+                                            <button className="btn btn-danger" onClick={() => dispatch(deleteAsincrono(element.nombre))} id="btn-eliminar">
                                                 Eliminar
                                             </button>
 

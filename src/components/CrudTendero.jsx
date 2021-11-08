@@ -180,7 +180,7 @@ const CrudTendero = (props) => {
                             <h1 className="titulo-crud-tendero"> Zona de gestión de productos </h1>
                             <form className="formProductos">
                                 <div className="form-group contenedor-formulario-crud-tendero">
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="codigo">Código de producto </label>
                                         <input
                                             className="form-control"
@@ -192,7 +192,7 @@ const CrudTendero = (props) => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="nombre">Nombre de producto </label>
                                         <input
                                             className="form-control"
@@ -205,7 +205,7 @@ const CrudTendero = (props) => {
                                         />
                                     </div>
 
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="precio">Precio de producto </label>
                                         <input
                                             className="form-control"
@@ -218,7 +218,7 @@ const CrudTendero = (props) => {
                                         />
                                     </div>
 
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="descripcion"> Descripción </label>
                                         <input
                                             className="form-control"
@@ -231,7 +231,7 @@ const CrudTendero = (props) => {
                                         />
                                     </div>
 
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="cantidad"> Stocks </label>
                                         <input
                                             className="form-control"
@@ -244,7 +244,7 @@ const CrudTendero = (props) => {
                                         />
                                     </div>
 
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="fecha"> Fecha de ingreso</label>
                                         <input
                                             className="form-control"
@@ -254,7 +254,7 @@ const CrudTendero = (props) => {
                                             value={fecha}
                                             onChange={handleInputChange} />
                                     </div>
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <label htmlFor="fecha"> Tienda </label>
 
                                         <select className="form-control"
@@ -272,7 +272,7 @@ const CrudTendero = (props) => {
                                         </select>
 
                                     </div>
-                                    <div className="form-group col-md-4">
+                                    <div className="form-group">
                                         <input
                                             id="fileSelector"
                                             type="file"

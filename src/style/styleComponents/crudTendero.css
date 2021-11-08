@@ -118,3 +118,21 @@
 #btnEstadisticas:hover span:after {
     right: 0;
 }
+
+
+@media screen and (max-width: 700px) {
+    .formProductos {
+        margin: 0;
+        padding: 10px;
+    }  
+    
+    .contenedor-formulario-crud-tendero {
+        gap: 5x;
+    }
+
+    #btnEstadisticas {
+        padding: 4px;
+        font-size: 12px;
+    }
+    
+}
