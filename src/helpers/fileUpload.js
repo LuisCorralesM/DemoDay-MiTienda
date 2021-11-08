@@ -1,8 +1,8 @@
 export const fileUpload = async (file) =>{
 
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/dobboq5dt/upload';
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/academia-geek/upload';
     const formData = new FormData();
-    formData.append('upload_preset','Amazonas');
+    formData.append('upload_preset','ejercicio-estudiantes-firebase');
     formData.append('file',file);
     
     try{

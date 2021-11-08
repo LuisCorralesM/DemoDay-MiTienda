@@ -167,8 +167,8 @@ const Tienda = () => {
 
     // btn-subir 
 
-    const subir = (e)=> {
-        if(e.target.matches('.boton-subir, .subir'))window.scrollTo(0,0)
+    const subir = (e) => {
+        if (e.target.matches('.boton-subir, .subir')) window.scrollTo(0, 0)
     }
 
     // filtro
@@ -196,11 +196,11 @@ const Tienda = () => {
 
             {/* btn-whatsap */}
             <div className="btn-whatsapp">
-                <img src="assets/img/wsp.png" alt="chat de whatsapp-whatsapp-chat" width="60px" onClick={() => handleChatWsp()} />
+                <img src="assets/img/wsp.png" alt="chat de whatsapp-whatsapp-chat" onClick={() => handleChatWsp()} />
             </div>
 
             {/*  btn-subir */}
-            <button class="boton-subir" onClick={e=>subir(e)}>
+            <button class="boton-subir" onClick={e => subir(e)}>
                 <span className='subir'>↑</span>
             </button>
 
@@ -312,8 +312,12 @@ const Tienda = () => {
                                         <p className="descripcion" >{element.descripcion}</p>
                                         <p className="precio">${element.precio}</p>
                                         <p className="precio">Disponibles: {element.cantidad}</p>
-                                        <button className=" mx-2 my-1 bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}> Agregar al carrito </button>
-                                        <Link to="/carrito"><button className=" mx-2 my-1 btn-ir-carrito">Ir al carrito</button></Link>
+                                        <button className=" mx-2 my-1 bnt-agregar-carrito" onClick={() => agregarCarrito(element.codigo)}>
+                                            Agregar al carrito
+                                        </button>
+                                        <Link to="/carrito">
+                                            <button className=" mx-2 my-1 btn-ir-carrito">Ir al carrito</button>
+                                        </Link>
                                     </div>
                                 </div>
                             )

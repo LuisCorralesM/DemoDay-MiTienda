@@ -220,6 +220,10 @@
     opacity: 0.7;
 }
 
+.btn-whatsapp img{
+    width: 60px;
+}
+
 .btn-whatsapp:hover {
     opacity: 1;
     height: 65px;
@@ -291,8 +295,8 @@
         width: 100%;
     }
 
-    .cabecera-tabla > th,
-    .cuerpo-tabla > td{
+    .cabecera-tabla>th,
+    .cuerpo-tabla>td {
         font-size: 12px;
         padding: 1px;
         border: 0.5px solid rgb(189, 184, 184);
@@ -306,7 +310,35 @@
         padding: 2px;
         font-size: 14px;
     }
-    
+
+    /* btn whatsapp */
+    .btn-whatsapp{
+        right: 60px;
+    }
+
+    .btn-whatsapp img{
+        width: 40px;
+    }
+
+    .btn-whatsapp:hover {
+        height: 42px;
+    }
+
+    /* btn subir */
+
+    .boton-subir {
+        width: 40px;
+        height: 40px;
+    }
+
+    .boton-subir span {
+        font-size: 20px;
+    }
+
+    .boton-subir:hover {
+        height: 32px;
+        cursor: pointer;
+    }
 }
 
 @media screen and (min-width: 450px) and (max-width: 700px) {
@@ -334,37 +366,67 @@
         font-size: 20px;
     }
 
-        /* lista personalizada -------------------------------*/
-        .contenedor-lista-personalizada {
-            padding: 0;
-            margin: 10px;
-            border-radius: 4px;
-        }
-    
-        .contenedor-tabla {
-            padding: 0;
-            width: 100%;
-        }
+    /* lista personalizada -------------------------------*/
+    .contenedor-lista-personalizada {
+        padding: 0;
+        margin: 10px;
+        border-radius: 4px;
+    }
 
-        table{
-            margin: auto;
+    .contenedor-tabla {
+        padding: 0;
+        width: 100%;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .cabecera-tabla>th,
+    .cuerpo-tabla>td {
+        font-size: 12px;
+        padding: 1px;
+        border: 0.5px solid rgb(189, 184, 184);
+    }
+
+    /* btns listas personalizadas */
+
+    .bnt-tabla-agregar-carrito,
+    .btn-tabla-ir-carrito,
+    .btn-tabla-contraer {
+        padding: 2px;
+        font-size: 14px;
+    }
+
+        /* btn whatsapp */
+        .btn-whatsapp{
+            right: 60px;
         }
     
-        .cabecera-tabla > th,
-        .cuerpo-tabla > td{
-            font-size: 12px;
-            padding: 1px;
-            border: 0.5px solid rgb(189, 184, 184);
+        .btn-whatsapp img{
+            width: 40px;
         }
     
-        /* btns listas personalizadas */
-    
-        .bnt-tabla-agregar-carrito,
-        .btn-tabla-ir-carrito,
-        .btn-tabla-contraer {
-            padding: 2px;
-            font-size: 14px;
+        .btn-whatsapp:hover {
+            height: 42px;
         }
+    
+        /* btn subir */
+    
+        .boton-subir {
+            width: 40px;
+            height: 40px;
+        }
+    
+        .boton-subir span {
+            font-size: 20px;
+        }
+    
+        .boton-subir:hover {
+            height: 32px;
+            cursor: pointer;
+        }    
+
 }
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {
@@ -378,14 +440,14 @@
         width: 100%;
     }
 
-    .cabecera-tabla > th,
-    .cuerpo-tabla > td{
+    .cabecera-tabla>th,
+    .cuerpo-tabla>td {
         font-size: 18px;
         padding: 1px;
         border: 0.5px solid rgb(189, 184, 184);
     }
 
-    table{
+    table {
         margin: auto;
     }
 
